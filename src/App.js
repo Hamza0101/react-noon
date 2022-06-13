@@ -1,24 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Products from './components/Products';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import AddProduct from './components/AddProduct';
+// import Product from './components/Product';
+import ViewProduct from './components/ViewProduct';
+
 
 function App() {
+  const getLocalItems =()=>{
+    let list = localStorage.getItem('lists');
+    if(list){
+      return JSON.parse(localStorage.getItem('lists'));
+    }
+    else{
+      return [];
+    } 
+
+  };
+  const addProduct = (name, desc, price, category, brand) => {
+    console.log("Adding", name, desc, price, category);
+
+    let id;
+    if (products.length) {
+      id = products[products.length - 1].pid + 1;
+    }
+    else {
+      id = 1;
+    }
+    console.log(id);
+    const myProduct = {
+
+      pid: id,
+      name: name,
+      desc: desc,
+      price: price,
+      category: category,
+      brand: brand
+    }
+    setProducts([...products, myProduct]);
+
+  }
+  const onView = (product)=>{
+    console.log(product.pid);
+   <ViewProduct/>
+}
+  const onDelete = (product) => {
+    setProducts(products.filter((e) => {
+      return e !== product;
+    }))
+  }
+  const [products, setProducts] = useState(getLocalItems());
+  useEffect(() => {
+    localStorage.setItem('lists', JSON.stringify(products))
+  }, [products])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div className="App">
+    <>
+      <Header />
+      {/* <AddProduct addProduct={addProduct} />
+      <Products products={products} onDelete={onDelete}/> */}
+      <Footer />
+      </> 
+    // </div>
   );
 }
 
