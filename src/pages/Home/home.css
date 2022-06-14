@@ -1,0 +1,10 @@
+.nav-body{
+    color: black;
+    background-color: white;
+
+}
+li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }

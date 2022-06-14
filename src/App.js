@@ -1,11 +1,11 @@
 import Footer from './components/Footer';
-import Header from './components/Header';
 import Products from './components/Products';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import AddProduct from './components/AddProduct';
 // import Product from './components/Product';
 import ViewProduct from './components/ViewProduct';
+import Home from './pages/Home/Home';
 
 
 function App() {
@@ -59,7 +59,7 @@ function App() {
   return (
     // <div className="App">
     <>
-      <Header />
+      <Home />
       {/* <AddProduct addProduct={addProduct} />
       <Products products={products} onDelete={onDelete}/> */}
       <Footer />
