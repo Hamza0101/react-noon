@@ -12,22 +12,16 @@ import BottomList from '../../components/Home/BottomList'
 import ProductCard from '../../components/Home/ProductCard'
 import Support from '../../components/Home/Support'
 
-export default function Product() {
+export default function ProductDetails() {
   return (
     <div className='bg-light'>
         <Topbar/>
         <CustomNavbar />
         <div className="row">
           <div className='col-3'>
-          <Filter />
-          <CustomTreeView/>
-          <Brand/>
-          <CustomSlider/>
+
                     </div>
         <div className="col-9">
-
-        <Banner />
-        <ProductCard/>
         </div>
         </div>
         <Support/>

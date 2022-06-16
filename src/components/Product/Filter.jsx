@@ -3,7 +3,7 @@ import React from 'react'
 export default function Filter() {
   return (
 
-    <div className=' bg-light'>
+    <div className='p-2 bg-light'>
         <strong className='bg-black'>
             Fulfilment 
         </strong>

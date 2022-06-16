@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import ViewProduct from './components/ViewProduct';
 // import Home from './pages/Home/Home';
 import Product from './pages/Product/Product'
+import Home from './pages/Home/Home';
+import ProductDetails from './pages/Product/ProductDetails';
 
 
 function App() {
@@ -60,10 +62,11 @@ function App() {
   return (
     // <div className="App">
     <>
-      {/* <Home /> */}
+      <Home/>
       {/* <AddProduct addProduct={addProduct} />
       <Products products={products} onDelete={onDelete}/> */}
       <Product />
+      <ProductDetails/>
       </> 
     // </div>
   );
