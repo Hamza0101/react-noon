@@ -1,28 +1,27 @@
 import React from "react";
-import sponser from "./sponser.json";
+import banners from "./banner.json";
+console.log(banners.discountBanners[1].url);
 
-export default function SponserCard() {
+export default function ImgCard() {
   return (
     <div>
       <div className="row bg-light">
         <div className="d-flex flex-row">
-          {sponser.length > 0 ? (
+          {banners.discountBanners.length > 0 ? (
             <>
-              {sponser.map((sponser, index) => {
+              {banners.discountBanners.map((banners, index) => {
                 return (
                   <div className="p-2">
-                    <img className="p-2 w-100 h-100" src={sponser.url} alt="" />
+                    <img className="p-2 w-100 h-100" src={banners.url} alt="" />
                   </div>
                 );
               })}
             </>
           ) : (
             <>
-              <h1>No Category avialable!</h1>
+              <h1>No banner avialable!</h1>
             </>
           )}
-
-          {/* <h6 className="float-right mr-5 text-dark">Sponsored</h6> */}
         </div>
       </div>
     </div>

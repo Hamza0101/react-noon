@@ -1,0 +1,84 @@
+{
+  "primaryBanners": [
+    {
+      "id": 1,
+      "url": "https://k.nooncdn.com/ads/banner-1008x1008/en_dk_uae-hero-01.1654856304.662519.png"
+    },
+    {
+      "id": 2,
+      "url": "https://k.nooncdn.com/mpcms/EN0001/assets/c288cd71-b156-427a-8978-1103d55f6e97.png"
+    },
+    {
+      "id": 3,
+      "url": "https://k.nooncdn.com/mpcms/EN0001/assets/cef7dae1-809a-4d60-a3ce-86096f0d4cd9.png"
+    }
+  ],
+  "discountBanners": [
+    {
+      "id": 1,
+      "url": "https://k.nooncdn.com/cms/pages/20220613/132a14fd27daa415d4dc79add358b814/en_dk_uae-mega-04.png"
+    },
+    {
+      "id": 2,
+      "url": "https://k.nooncdn.com/cms/pages/20220613/132a14fd27daa415d4dc79add358b814/en_dk_uae-mega-01.png"
+    },
+    {
+      "id": 3,
+      "url": "https://k.nooncdn.com/cms/pages/20220613/132a14fd27daa415d4dc79add358b814/en_dk_uae-mega-02.png"
+    },
+    {
+      "id": 4,
+      "url": "https://k.nooncdn.com/cms/pages/20220613/132a14fd27daa415d4dc79add358b814/en_dk_uae-mega-03.png"
+    }
+  ],
+  "megaDealBanner": [
+    {
+      "id": 1,
+      "url": "https://k.nooncdn.com/cms/pages/20220616/5666705897cf20ce4ecc8fa2915a15a4/en_mb_ksa-mega-01.png"
+    },
+    {
+      "id": 2,
+      "url": "https://k.nooncdn.com/cms/pages/20220616/ca3816549d3b8e9b93b1f60f68ae2152/en_mb_ksa-mega-02.png"
+    },
+    {
+      "id": 3,
+      "url": "https://k.nooncdn.com/cms/pages/20220616/ca3816549d3b8e9b93b1f60f68ae2152/en_mb_ksa-mega-03.png"
+    },
+    {
+      "id": 4,
+      "url": "https://k.nooncdn.com/cms/pages/20220616/5666705897cf20ce4ecc8fa2915a15a4/en_dk_ksa-mega-04.png"
+    }
+  ],
+  "sponseredBanner": [
+    {
+      "id": 1,
+      "url": "https://k.nooncdn.com/cms/pages/20220608/066abef4d858f06115d82ff71308e8b3/en_dk_uae-sfb-01.png"
+    },
+    {
+      "id": 2,
+      "url": "https://k.nooncdn.com/cms/pages/20220518/56437b5e97bb55a0c27741b5e27b0981/en_dk_uae-sfb-03.png"
+    },
+    {
+      "id": 3,
+      "url": "https://k.nooncdn.com/ads/banner-442x442/400.1655134798.3162215.png"
+    }
+  ],
+  "clearanceDealBanner": [
+    {
+      "id": 1,
+      "url": "https://k.nooncdn.com/cms/pages/20220608/066abef4d858f06115d82ff71308e8b3/en_dk_uae-sfb-01.png"
+    },
+    {
+      "id": 2,
+      "url": "https://k.nooncdn.com/cms/pages/20220614/a3f07b91638734d135848f6cf4b44fa0/en_mb_uae-mega-02.png"
+    },
+    {
+      "id": 3,
+      "url": "https://k.nooncdn.com/cms/pages/20220614/a3f07b91638734d135848f6cf4b44fa0/en_mb_uae-mega-03.png"
+    },
+    {
+      "id": 4,
+      "url": "https://k.nooncdn.com/cms/pages/20220614/a3f07b91638734d135848f6cf4b44fa0/en_mb_uae-mega-04.png"
+    }
+  ]
+}
