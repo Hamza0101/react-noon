@@ -4,12 +4,12 @@ console.log(banners.discountBanners[1].url);
 
 export default function ImgCard() {
   return (
-    <div>
+    <div className="container-fluid">
       <div className="row bg-light">
         <div className="d-flex flex-row">
-          {banners.discountBanners.length > 0 ? (
+          {banners.secondaryBanner.length > 0 ? (
             <>
-              {banners.discountBanners.map((banners, index) => {
+              {banners.secondaryBanner.map((banners, index) => {
                 return (
                   <div className="p-2">
                     <img className="p-2 w-100 h-100" src={banners.url} alt="" />

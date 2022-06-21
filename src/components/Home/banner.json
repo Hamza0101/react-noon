@@ -13,6 +13,24 @@
       "url": "https://k.nooncdn.com/mpcms/EN0001/assets/cef7dae1-809a-4d60-a3ce-86096f0d4cd9.png"
     }
   ],
+  "secondaryBanner": [
+    {
+      "id": 1,
+      "url": "https://k.nooncdn.com/cms/pages/20220613/7484de7075b6712b65086b3d6095a6f5/en_dk_uae-mega-01.png"
+    },
+    {
+      "id": 2,
+      "url": "https://k.nooncdn.com/cms/pages/20220218/e5bee49ffcaa13a53b1da540633b9dee/en_dk_ksa-mega-01-frag.png"
+    },
+    {
+      "id": 3,
+      "url": "https://k.nooncdn.com/cms/pages/20220505/458c0135272d0f8f072746e502793e48/en_dk_ksa-mega-03.png"
+    },
+    {
+      "id": 4,
+      "url": "https://k.nooncdn.com/cms/pages/20220505/373fee90706065bcef842dff3cb58c6b/en_dk_ksa-mega-01.png"
+    }
+  ],
   "discountBanners": [
     {
       "id": 1,

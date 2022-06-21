@@ -18,7 +18,7 @@ export default function SponserCard() {
             </>
           ) : (
             <>
-              <h1>No Category avialable!</h1>
+              <h1>No Sponser avialable!</h1>
             </>
           )}
 
