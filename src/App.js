@@ -58,11 +58,11 @@ function App() {
   return (
     // <div className="App">
     <>
-      <Home />
+      {/* <Home /> */}
       {/* <AddProduct addProduct={addProduct} />
       <Products products={products} onDelete={onDelete}/> */}
-      {/* <Product />
-      <ProductDetails/> */}
+      <Product />
+      {/* <ProductDetails/> */}
     </>
     // </div>
   );
