@@ -6,7 +6,7 @@ import { useEffect } from "react";
 // import Product from './components/Product';
 import ViewProduct from "./components/ViewProduct";
 // import Home from './pages/Home/Home';
-import Product from "./pages/Product/Product";
+import Products from "./pages/Product/Products";
 import Home from "./pages/Home/Home";
 import ProductDetails from "./pages/Product/ProductDetails";
 
@@ -19,26 +19,7 @@ function App() {
       return [];
     }
   };
-  const addProduct = (name, desc, price, category, brand) => {
-    console.log("Adding", name, desc, price, category);
 
-    let id;
-    if (products.length) {
-      id = products[products.length - 1].pid + 1;
-    } else {
-      id = 1;
-    }
-    console.log(id);
-    const myProduct = {
-      pid: id,
-      name: name,
-      desc: desc,
-      price: price,
-      category: category,
-      brand: brand,
-    };
-    setProducts([...products, myProduct]);
-  };
   const onView = (product) => {
     console.log(product.pid);
     <ViewProduct />;
@@ -61,7 +42,7 @@ function App() {
       {/* <Home /> */}
       {/* <AddProduct addProduct={addProduct} />
       <Products products={products} onDelete={onDelete}/> */}
-      <Product />
+      <Products />
       {/* <ProductDetails/> */}
     </>
     // </div>

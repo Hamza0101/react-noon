@@ -1,0 +1,242 @@
+{
+  "brand": [
+    {
+      "id": 1,
+      "bname": "Apple"
+    },
+    {
+      "id": 2,
+      "bname": "Samsung"
+    },
+    {
+      "id": 3,
+      "bname": "Xiaomi"
+    },
+    {
+      "id": 4,
+      "bname": "HUAWIE"
+    },
+    {
+      "id": 5,
+      "bname": "Motrola"
+    },
+    {
+      "id": 6,
+      "bname": "Panasonic"
+    },
+    {
+      "id": 7,
+      "bname": "Sony"
+    },
+    {
+      "id": 8,
+      "bname": "Techno"
+    },
+    {
+      "id": 9,
+      "bname": "Oppo"
+    },
+    {
+      "id": 10,
+      "bname": "LG"
+    },
+    {
+      "id": 11,
+      "bname": "Honor"
+    }
+  ],
+  "networkType": [
+    {
+      "id": 1,
+      "type": "5G"
+    },
+    {
+      "id": 2,
+      "type": "4G"
+    }
+  ],
+  "modelYear": [
+    {
+      "id": 1,
+      "year": "2022"
+    },
+    {
+      "id": 2,
+      "year": "2022"
+    },
+    {
+      "id": 3,
+      "year": "2020"
+    },
+    {
+      "id": 4,
+      "year": "2019"
+    },
+    {
+      "id": 5,
+      "year": "2018"
+    }
+  ],
+  "arival": [
+    {
+      "id": 1,
+      "time": "Last 7 Days"
+    },
+    {
+      "id": 2,
+      "time": "Last 30 Days"
+    },
+    {
+      "id": 1,
+      "time": "Last 60 Days"
+    }
+  ],
+  "operatingSystem": [
+    {
+      "id": 1,
+      "os": "Android"
+    },
+    {
+      "id": 2,
+      "os": "IOS"
+    },
+    {
+      "id": 3,
+      "os": "Harmony OS"
+    }
+  ],
+  "internalMemory": [
+    {
+      "id": 1,
+      "os": "512 GB & More "
+    },
+    {
+      "id": 2,
+      "os": "256 GB"
+    },
+    {
+      "id": 3,
+      "os": "128 GB"
+    },
+    {
+      "id": 4,
+      "os": "64 GB"
+    },
+    {
+      "id": 5,
+      "os": "32 GB"
+    }
+  ],
+  "ram": [
+    {
+      "id": 1,
+      "os": "12 GB & More "
+    },
+    {
+      "id": 2,
+      "os": "8 GB"
+    },
+    {
+      "id": 3,
+      "os": "6 GB"
+    },
+    {
+      "id": 4,
+      "os": "4 GB"
+    },
+    {
+      "id": 5,
+      "os": "2 GB"
+    }
+  ],
+  "screenSize": [
+    {
+      "id": 1,
+      "size": "6.5 inch or above "
+    },
+    {
+      "id": 2,
+      "size": "6-6.4 inches"
+    },
+    {
+      "id": 3,
+      "size": "5-5.4 inches"
+    },
+    {
+      "id": 4,
+      "size": "below 5  inches"
+    }
+  ],
+  "primaryCamera": [
+    {
+      "id": 1,
+      "pixel": "6MP & above "
+    },
+    {
+      "id": 2,
+      "pixel": "48-63.9MP"
+    },
+    {
+      "id": 3,
+      "pixel": "24-47.9MP"
+    },
+    {
+      "id": 4,
+      "pixel": "16-23.9MP"
+    },
+    {
+      "id": 5,
+      "pixel": "12-15MP"
+    }
+  ],
+  "secondaryCamera": [
+    {
+      "id": 1,
+      "pixel": "32MP & above "
+    },
+    {
+      "id": 2,
+      "pixel": "16-31.9MP"
+    },
+    {
+      "id": 3,
+      "pixel": "12-15.9MP"
+    },
+    {
+      "id": 4,
+      "pixel": "8-11.9MP"
+    },
+    {
+      "id": 5,
+      "pixel": "Upto 7MP"
+    }
+  ],
+  "simCount": [
+    {
+      "id": 1,
+      "slot": "Dual Sim "
+    },
+    {
+      "id": 2,
+      "slot": "Single sim"
+    }
+  ],
+  "Interface": [
+    {
+      "id": 1,
+      "interfce": "Wifi+Cellular "
+    },
+    {
+      "id": 2,
+      "slot": "Bluetooth/Wireless"
+    },
+    {
+      "id": 3,
+      "slot": "Wifi"
+    },
+    {
+      "id": 4,
+      "slot": "Wireless"
+    }
+  ]
+}

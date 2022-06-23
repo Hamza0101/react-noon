@@ -18,13 +18,13 @@ import products from "./product.json";
 
 export default function ProductCard() {
   return (
-    <div className="container-fluid">
+    <div className="">
       <h5 className="font-weight-bold m-2">Recommend for you</h5>
-      <div className="row bg-white container-fluid">
+      <div className="row bg-white m-2">
         <Swiper
           slidesPerView={1}
           spaceBetween={0}
-          slidesPerGroup={1}
+          slidesPerGroup={12}
           loop={true}
           loopFillGroupWithBlank={true}
           pagination={{
@@ -39,7 +39,7 @@ export default function ProductCard() {
               <>
                 {products.map((product, index) => {
                   return (
-                    <div className="card col-2 border-0 footer-text-size text-black-50">
+                    <div className="card col-3 border-0 footer-text-size text-left text-black-50">
                       <button className="btn-outline-primary invisible bg-white">
                         Get 100 AED OFF{" "}
                       </button>
@@ -49,7 +49,9 @@ export default function ProductCard() {
                         alt="Card image cap"
                       />
                       <div className="card-body">
-                        <p className="card-text">{product.pdetail}</p>
+                        <p className="card-text left-align">
+                          {product.pdetail}
+                        </p>
                         <h5 className="card-title">
                           {product.currency}
                           <strong className="text-dark">
@@ -57,7 +59,7 @@ export default function ProductCard() {
                             {product.price}
                           </strong>
                         </h5>
-                        <p>
+                        <p className="m-2">
                           {" "}
                           50% <strong>OFF</strong>
                         </p>
