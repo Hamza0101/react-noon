@@ -42,8 +42,8 @@ function App() {
       {/* <Home /> */}
       {/* <AddProduct addProduct={addProduct} />
       <Products products={products} onDelete={onDelete}/> */}
-      {/* <Products /> */}
-      <ProductDetails />
+      <Products />
+      {/* <ProductDetails /> */}
     </>
     // </div>
   );

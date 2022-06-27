@@ -10,10 +10,13 @@ export default function PriceFilter(props) {
 
   return (
     <div className="container">
-      <h5 className="m-2"> Price </h5>
-      <form onSubmit={handleSubmit}>
+      <h5 className="text-black-50">
+        {" "}
+        <strong>Price (AED)</strong>{" "}
+      </h5>
+      <form onSubmit={handleSubmit} className="">
         <input
-          className="w-25"
+          className="w-25 m-2"
           type="number"
           value={val1}
           id="1"
@@ -23,7 +26,7 @@ export default function PriceFilter(props) {
         />{" "}
         <strong> TO </strong>
         <input
-          className="w-25"
+          className="w-25 m-2 bg-light border-grey"
           type="number"
           value={val2}
           id="2"
@@ -32,7 +35,7 @@ export default function PriceFilter(props) {
           }}
         />{" "}
         <button
-          className="btn-link"
+          className="btn-link bg-white border-0"
           onClick={() => {
             props.handleGo(val1, val2);
           }}

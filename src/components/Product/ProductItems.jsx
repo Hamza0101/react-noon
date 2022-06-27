@@ -49,7 +49,7 @@ export default function ProductItems(props) {
                       />
                       <div className="mr-2">
                         <p className="">
-                          <span>4.3(3)</span>
+                          <span>{product.rating}(3)</span>
                         </p>
                       </div>
                     </div>

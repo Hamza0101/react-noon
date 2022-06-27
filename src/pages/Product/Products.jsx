@@ -28,14 +28,30 @@ export default function Product() {
   const [filterSlide, setFilterSlide] = useState(0);
   const [products, setProducts] = useState(data);
   const [brands, setBrands] = useState(filter.brand);
+  const [filterBar, setFilterBar] = useState([]);
 
   const [brandFilter, setBrandFilter] = useState(brands);
 
   console.log("iam _ brand  false", brands);
-  const handleBrand = () => {
+  const handleBrand = (checked, bid) => {
+    const myfilter = {
+      id: bid,
+      fname: brands[bid - 1].bname,
+    };
+    filterBar.push(myfilter);
+    console.log("I am checked bid", checked, bid);
+    const filteration = brandFilter.map((obj) => {
+      if (obj.id === bid) {
+        return { ...obj, check: checked };
+      }
+
+      return obj;
+    });
+    setBrandFilter(filteration);
+    console.log("last logic", brandFilter);
     let filtered;
     console.log("i am handle function", brandFilter);
-    let filteredProduct = brandFilter.filter((e) => {
+    let filteredProduct = filteration.filter((e) => {
       if (e.check === true) {
         console.log("i am the first ", e);
         filtered = data.filter((a) => {
@@ -48,18 +64,28 @@ export default function Product() {
       // if (filtered) return filtered;
     });
     console.log("i am filtered ", filteredProduct);
-    setProducts(filtered);
+    if (filtered) setProducts(filtered);
 
     // setProducts(filteredProduct);
   };
   const handleSlider = (value1) => {
+    const myfilter = {
+      id: "rating",
+      fname: value1,
+    };
+    filterBar.push(myfilter);
     let filteredProduct = data.filter((e) => {
-      return e.rating == value1;
+      return e.rating >= value1;
     });
     setProducts(filteredProduct);
   };
 
   const handleGo = (value1, value2) => {
+    const myfilter = {
+      id: "price",
+      fname: value1 + " " + value2,
+    };
+    filterBar.push(myfilter);
     if (value1 !== "" && value2 !== "") {
       let filteredProduct = data.filter((e) => {
         return e.price > value1 && e.price < value2;
@@ -69,7 +95,7 @@ export default function Product() {
   };
   const getproduct = () => {
     setProducts(products);
-    setBrandFilter(filter.brand);
+    // setBran  dFilter(filter.brand);
   };
   useEffect(getproduct, [products], [brandFilter]);
   return (
@@ -97,7 +123,7 @@ export default function Product() {
         <div className="col-9">
           {/* <Banner /> */}
           <ResultBar />
-          {/* <FilterBar /> */}
+          <FilterBar filterBar={filterBar} />
           <ProductItems productData={products} />
         </div>
       </div>

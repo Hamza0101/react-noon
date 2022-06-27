@@ -2,18 +2,11 @@ import React from "react";
 import { useState } from "react";
 
 export default function BrandItem(props) {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
   const handleCheck = (e) => {
+    setChecked(!checked);
     // console.log("checked things", myCheck);
-    if (props.brand.id !== 0)
-      props.brandFilter[props.brand.id - 1].check = true;
-    else {
-      console.log(
-        "i am false ok:",
-        props.brandFilter[props.brand.id - 1].check
-      );
-      // props.brandFilter[props.brand.id].check = false;
-    }
+    props.handleBrand(checked, props.brand.id);
     // props.setBrandFilter(myCheck);
     // console.log(checked);
     // const myCheck = {
@@ -31,7 +24,6 @@ export default function BrandItem(props) {
     //   props.setBrandFilter(myCheck);
     // }
     // console.log("br and filter", props.brandFilter);
-    props.handleBrand();
   };
   return (
     <>
