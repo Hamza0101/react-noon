@@ -15,7 +15,15 @@ export default function Brands(props) {
         {props.brandData.length > 0 ? (
           <>
             {props.brandData.map((data, index) => {
-              return <BrandItem brand={data} />;
+              return (
+                <BrandItem
+                  brand={data}
+                  filterBrand={props.filterBrand}
+                  setBrandFilter={props.setBrandFilter}
+                  brandFilter={props.brandFilter}
+                  handleBrand={props.handleBrand}
+                />
+              );
             })}
           </>
         ) : (

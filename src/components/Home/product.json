@@ -7,7 +7,8 @@
     "price": 1339,
     "currency": "SAR",
     "arival": "Mon, Jun 20",
-    "bname": "Oppo"
+    "bname": "Oppo",
+    "rating": 4
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "price": 1339,
     "currency": "SAR",
     "arival": " Mon, Jun 20",
-    "bname": "Oppo"
+    "bname": "Oppo",
+    "rating": 4
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "price": 1435,
     "currency": "SAR",
     "arival": "Sun, Jun 19",
-    "bname": "Oppo"
+    "bname": "Oppo",
+    "rating": 5
   },
   {
     "id": 4,
@@ -62,12 +65,13 @@
   {
     "id": 7,
     "pname": "Oneplus",
-    "pdetail": "Nord CE 5G Dual SIM Blue Void 8GB RAM 128GB - Global Version",
+    "pdetail": "filter1 CE 5G Dual SIM Blue Void 8GB RAM 128GB - Global Version",
     "url": "https://z.nooncdn.com/products/tr:n-t_240/v1623661623/N48128174A_1.jpg",
     "price": 1435,
     "currency": "SAR",
     "arival": "Sun, Jun 19",
-    "bname": "Oppo"
+    "bname": "Oppo",
+    "rating": 3
   },
   {
     "id": 8,
@@ -76,12 +80,13 @@
     "url": "https://z.nooncdn.com/products/tr:n-t_240/v1623661623/N48128174A_1.jpg",
     "price": 1435,
     "arival": "Sun, Jun 19",
-    "bname": "Oppo"
+    "bname": "Oppo",
+    "rating": 2
   },
   {
     "id": 9,
     "pname": "Oneplus",
-    "pdetail": "Nord CE 5G Dual SIM Blue Void 8GB RAM 128GB - Global Version",
+    "pdetail": "filter CE 5G Dual SIM Blue Void 8GB RAM 128GB - Global Version",
     "url": "https://z.nooncdn.com/products/tr:n-t_240/v1623661623/N48128174A_1.jpg",
     "price": 1435,
     "currency": "SAR",

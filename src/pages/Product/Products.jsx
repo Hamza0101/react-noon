@@ -25,24 +25,53 @@ import filter from "../../components/Product/data/filter.json";
 import { useEffect } from "react";
 
 export default function Product() {
+  const [filterSlide, setFilterSlide] = useState(0);
   const [products, setProducts] = useState(data);
   const [brands, setBrands] = useState(filter.brand);
-  const [filterArray, setFilterarray] = useState("");
 
-  console.log("iam _ brand", brands);
+  const [brandFilter, setBrandFilter] = useState(brands);
 
-  const handleGo = (value1, value2) => {
-    console.log("handle go hu yar ", products);
-    console.log("my values", value1, value2);
+  console.log("iam _ brand  false", brands);
+  const handleBrand = () => {
+    let filtered;
+    console.log("i am handle function", brandFilter);
+    let filteredProduct = brandFilter.filter((e) => {
+      if (e.check === true) {
+        console.log("i am the first ", e);
+        filtered = data.filter((a) => {
+          return e.bname === a.bname;
+        });
+      }
+
+      console.log("i am check", filtered);
+      return filtered;
+      // if (filtered) return filtered;
+    });
+    console.log("i am filtered ", filteredProduct);
+    setProducts(filtered);
+
+    // setProducts(filteredProduct);
+  };
+  const handleSlider = (value1) => {
     let filteredProduct = data.filter((e) => {
-      return e.price > value1 && e.price < value2;
+      return e.rating == value1;
     });
     setProducts(filteredProduct);
   };
+
+  const handleGo = (value1, value2) => {
+    if (value1 !== "" && value2 !== "") {
+      let filteredProduct = data.filter((e) => {
+        return e.price > value1 && e.price < value2;
+      });
+      setProducts(filteredProduct);
+    }
+  };
   const getproduct = () => {
     setProducts(products);
+    setBrandFilter(filter.brand);
   };
-  useEffect(getproduct, [products]);
+  useEffect(getproduct, [products], [brandFilter]);
   return (
     <div className="bg-light">
       <Topbar />
@@ -52,9 +81,14 @@ export default function Product() {
           <Filter />
           <CustomTreeView />
           {/* <Filteration filter={"Brand"} attr={"bname"} filtername={"brand"} /> */}
-          <Brands brandData={brands} />
+          <Brands
+            brandData={brands}
+            handleBrand={handleBrand}
+            setBrandFilter={setBrandFilter}
+            brandFilter={brandFilter}
+          />
           <PriceFilter handleGo={handleGo} />
-          <CustomSlider />
+          <CustomSlider filterSlide={filterSlide} handleSlider={handleSlider} />
           <NetworkType />
           <OperatingSystem />
           <InternalMemory />

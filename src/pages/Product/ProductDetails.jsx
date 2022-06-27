@@ -18,8 +18,8 @@ export default function ProductDetails() {
       <Topbar />
       <CustomNavbar />
       <div className="row">
-        <div className="col-3"></div>
-        <div className="col-9"></div>
+        <div className="col-3"> product details</div>
+        <div className="col-9">detailss</div>
       </div>
       <Support />
       <BottomList />

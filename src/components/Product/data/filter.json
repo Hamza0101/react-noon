@@ -2,47 +2,58 @@
   "brand": [
     {
       "id": 1,
-      "bname": "Apple"
+      "bname": "Apple",
+      "check": "false"
     },
     {
       "id": 2,
-      "bname": "Samsung"
+      "bname": "Samsung",
+      "check": "false"
     },
     {
       "id": 3,
-      "bname": "Xiaomi"
+      "bname": "Xiaomi",
+      "check": "false"
     },
     {
       "id": 4,
-      "bname": "HUAWIE"
+      "bname": "HUAWIE",
+      "check": "false"
     },
     {
       "id": 5,
-      "bname": "Motrola"
+      "bname": "Motrola",
+      "check": "false"
     },
     {
       "id": 6,
-      "bname": "Panasonic"
+      "bname": "Panasonic",
+      "check": "false"
     },
     {
       "id": 7,
-      "bname": "Sony"
+      "bname": "Sony",
+      "check": "false"
     },
     {
       "id": 8,
-      "bname": "Techno"
+      "bname": "Techno",
+      "check": "false"
     },
     {
       "id": 9,
-      "bname": "Oppo"
+      "bname": "Oppo",
+      "check": "false"
     },
     {
       "id": 10,
-      "bname": "LG"
+      "bname": "LG",
+      "check": "false"
     },
     {
       "id": 11,
-      "bname": "Honor"
+      "bname": "Honor",
+      "check": "false"
     }
   ],
   "networkType": [
