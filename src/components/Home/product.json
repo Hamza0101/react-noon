@@ -3,23 +3,25 @@
     "id": 1,
     "pname": "Oneplus",
     "pdetail": "Nord CE 2 Lite Dual Sim Blue 8GB RAM 128GB 5G - International Version",
-    "url": "https://z.nooncdn.com/products/tr:n-t_240/v1651732938/N53091870A_1.jpg",
+    "url": "https://z.nooncdn.com/products/tr:n-t_240/v1623661623/N48128174A_1.jpg",
     "price": 1339,
     "currency": "SAR",
     "arival": "Mon, Jun 20",
     "bname": "Oppo",
-    "rating": 4
+    "rating": 4,
+    "category": "Mobile"
   },
   {
     "id": 2,
     "pname": "Oneplus",
     "pdetail": "Nord CE 2 Lite Dual Sim Black 8GB RAM 128GB 5G - International Version",
-    "url": "https://z.nooncdn.com/products/tr:n-t_240/v1651732936/N53091867A_1.jpg",
+    "url": "https://z.nooncdn.com/products/tr:n-t_240/v1623661623/N48128174A_1.jpg",
     "price": 1339,
     "currency": "SAR",
     "arival": " Mon, Jun 20",
     "bname": "Oppo",
-    "rating": 4
+    "rating": 4,
+    "category": "Mobile"
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@
     "currency": "SAR",
     "arival": "Sun, Jun 19",
     "bname": "Oppo",
-    "rating": 5
+    "rating": 5,
+    "category": "Mobile"
   },
   {
     "id": 4,
@@ -40,7 +43,8 @@
     "price": 1435,
     "currency": "SAR",
     "arival": "Sun, Jun 19",
-    "bname": "Oppo"
+    "bname": "Oppo",
+    "category": "Mobile"
   },
   {
     "id": 5,
@@ -50,7 +54,8 @@
     "price": 1435,
     "currency": "SAR",
     "arival": "Sun, Jun 19",
-    "bname": "Oppo"
+    "bname": "Oppo",
+    "category": "Mobile"
   },
   {
     "id": 6,
@@ -60,7 +65,8 @@
     "price": 1435,
     "currency": "SAR",
     "arival": "Sun, Jun 19",
-    "bname": "Oppo"
+    "bname": "Oppo",
+    "category": "Mobile"
   },
   {
     "id": 7,

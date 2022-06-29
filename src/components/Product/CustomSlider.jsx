@@ -7,13 +7,13 @@ export default function CustomSlider(props) {
 
   return (
     <div className="conntainer mt-4">
-      <div className="container ">
-        <h5 className="text-black-50">
+      <div className="container">
+        <h6 className="text-black">
           <strong>Product Rating</strong>
-        </h5>
+        </h6>
         <div className="slidecontainer ">
           <p>
-            <span id="demo" className="text-primary">
+            <span id="demo" className="text-primary m-2">
               {slideVal} Stars or More
             </span>
           </p>

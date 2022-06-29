@@ -33,9 +33,27 @@ export default function Product() {
   const [brandFilter, setBrandFilter] = useState(brands);
 
   console.log("iam _ brand  false", brands);
+  const handleFilter = (name1) => {
+    setFilterBar(
+      filterBar.filter((e) => {
+        return e.fname !== name1;
+      })
+    );
+  };
+
+  const handleCategory = (cname) => {
+    let filteredProduct = data.filter((e) => {
+      return e.category === cname;
+    });
+    setProducts(filteredProduct);
+  };
+
   const handleBrand = (checked, bid) => {
+    const d = new Date();
+    let time = d.getTime();
+    console.log("I am time", time);
     const myfilter = {
-      id: bid,
+      id: time,
       fname: brands[bid - 1].bname,
     };
     filterBar.push(myfilter);
@@ -69,9 +87,11 @@ export default function Product() {
     // setProducts(filteredProduct);
   };
   const handleSlider = (value1) => {
+    const d = new Date();
+    let time = d.getTime();
     const myfilter = {
-      id: "rating",
-      fname: value1,
+      id: time,
+      fname: "Rating  " + value1,
     };
     filterBar.push(myfilter);
     let filteredProduct = data.filter((e) => {
@@ -81,9 +101,11 @@ export default function Product() {
   };
 
   const handleGo = (value1, value2) => {
+    const d = new Date();
+    let time = d.getTime();
     const myfilter = {
-      id: "price",
-      fname: value1 + " " + value2,
+      id: time,
+      fname: "Price " + value1 + " " + value2,
     };
     filterBar.push(myfilter);
     if (value1 !== "" && value2 !== "") {
@@ -97,7 +119,7 @@ export default function Product() {
     setProducts(products);
     // setBran  dFilter(filter.brand);
   };
-  useEffect(getproduct, [products], [brandFilter]);
+  useEffect(getproduct, [products], [filterBar]);
   return (
     <div className="bg-light">
       <Topbar />
@@ -105,7 +127,7 @@ export default function Product() {
       <div className="row">
         <div className="col-3">
           <Filter />
-          <CustomTreeView />
+          <CustomTreeView handleCategory={handleCategory} />
           {/* <Filteration filter={"Brand"} attr={"bname"} filtername={"brand"} /> */}
           <Brands
             brandData={brands}
@@ -123,8 +145,39 @@ export default function Product() {
         <div className="col-9">
           {/* <Banner /> */}
           <ResultBar />
-          <FilterBar filterBar={filterBar} />
+          <FilterBar filterBar={filterBar} handleFilter={handleFilter} />
           <ProductItems productData={products} />
+          <div className="d-flex justify-content-center mr-4">
+            <nav aria-label="Page navigation">
+              <ul className="pagination">
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    Previous
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    1
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    2
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    3
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    Next
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
       <Support />

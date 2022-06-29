@@ -9,11 +9,11 @@ export default function PriceFilter(props) {
   };
 
   return (
-    <div className="container">
-      <h5 className="text-black-50">
-        {" "}
+    <div className="container mt-3">
+      <h6 className="text-black">
+        {""}
         <strong>Price (AED)</strong>{" "}
-      </h5>
+      </h6>
       <form onSubmit={handleSubmit} className="">
         <input
           className="w-25 m-2"

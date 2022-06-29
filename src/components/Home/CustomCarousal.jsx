@@ -17,7 +17,7 @@ console.log(banner.primaryBanners);
 
 export default function crousal() {
   return (
-    <div className="container-fluid">
+    <div className="">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

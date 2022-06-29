@@ -1,4 +1,6 @@
 {
+  "Category": [{ "id": 1, "cname": "Mobile", "check": "false" }],
+
   "brand": [
     {
       "id": 1,
