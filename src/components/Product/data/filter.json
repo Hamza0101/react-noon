@@ -1,5 +1,33 @@
 {
-  "Category": [{ "id": 1, "cname": "Mobile", "check": "false" }],
+  "Category": [
+    {
+      "id": 1,
+      "sname": "Electronics",
+      "subCategories": [
+        { "id": 1, "cname": "All Electronics", "check": "false" },
+        { "id": 2, "cname": "Hair Applainces", "check": "false" },
+        { "id": 3, "cname": "Electronics", "check": "false" }
+      ]
+    },
+    {
+      "id": 2,
+      "sname": "Fashion",
+      "subCategories": [
+        { "id": 1, "cname": "All Electronics", "check": "false" },
+        { "id": 2, "cname": "Hair Applainces", "check": "false" },
+        { "id": 3, "cname": "Electronics", "check": "false" }
+      ]
+    },
+    {
+      "id": 3,
+      "sname": "Devices",
+      "subCategories": [
+        { "id": 1, "cname": "Mobiles", "check": "false" },
+        { "id": 2, "cname": "Laptop", "check": "false" },
+        { "id": 3, "cname": "Tablet", "check": "false" }
+      ]
+    }
+  ],
 
   "brand": [
     {

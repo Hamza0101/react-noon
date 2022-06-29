@@ -4,7 +4,6 @@ import data from "./data/filter.json";
 export default function Filteration(filterName, props) {
   return (
     <div>
-      {/* {console.log(filterName);} */}
       <div className="">
         <strong className="m-2"> {props.filter} </strong>
         <ul className="p-2">

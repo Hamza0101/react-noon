@@ -1,6 +1,5 @@
 import React from "react";
 import banners from "./banner.json";
-console.log(banners.discountBanners[1].url);
 
 export default function ImgCard() {
   return (

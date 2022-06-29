@@ -13,8 +13,6 @@ import "./crousal.css";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 
-console.log(banner.primaryBanners);
-
 export default function crousal() {
   return (
     <div className="">

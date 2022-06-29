@@ -21,7 +21,6 @@ function App() {
   };
 
   const onView = (product) => {
-    console.log(product.pid);
     <ViewProduct />;
   };
   const onDelete = (product) => {
@@ -42,8 +41,8 @@ function App() {
       {/* <Home /> */}
       {/* <AddProduct addProduct={addProduct} />
       <Products products={products} onDelete={onDelete}/> */}
-      {/* <Products /> */}
-      <ProductDetails />
+      <Products />
+      {/* <ProductDetails /> */}
     </>
     // </div>
   );

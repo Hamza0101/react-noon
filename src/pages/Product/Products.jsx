@@ -31,8 +31,6 @@ export default function Product() {
   const [filterBar, setFilterBar] = useState([]);
 
   const [brandFilter, setBrandFilter] = useState(brands);
-
-  console.log("iam _ brand  false", brands);
   const handleFilter = (name1) => {
     setFilterBar(
       filterBar.filter((e) => {
@@ -51,13 +49,11 @@ export default function Product() {
   const handleBrand = (checked, bid) => {
     const d = new Date();
     let time = d.getTime();
-    console.log("I am time", time);
     const myfilter = {
       id: time,
       fname: brands[bid - 1].bname,
     };
     filterBar.push(myfilter);
-    console.log("I am checked bid", checked, bid);
     const filteration = brandFilter.map((obj) => {
       if (obj.id === bid) {
         return { ...obj, check: checked };
@@ -66,22 +62,19 @@ export default function Product() {
       return obj;
     });
     setBrandFilter(filteration);
-    console.log("last logic", brandFilter);
     let filtered;
-    console.log("i am handle function", brandFilter);
+
     let filteredProduct = filteration.filter((e) => {
       if (e.check === true) {
-        console.log("i am the first ", e);
         filtered = data.filter((a) => {
           return e.bname === a.bname;
         });
       }
 
-      console.log("i am check", filtered);
       return filtered;
       // if (filtered) return filtered;
     });
-    console.log("i am filtered ", filteredProduct);
+
     if (filtered) setProducts(filtered);
 
     // setProducts(filteredProduct);

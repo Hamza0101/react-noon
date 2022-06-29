@@ -19,8 +19,39 @@ export default function ProductDetails() {
     <div className="bg-light">
       <Topbar />
       <CustomNavbar />
-      <div className="row">
-        <div className="col-4">
+      <div className="row container-fluid m-2">
+        <div className="col-1">
+          <div className="card m-2">
+            <img
+              className="card-img-top"
+              src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840187A_1.jpg"
+              alt="Card image cap"
+            />
+          </div>{" "}
+          <div className="card m-2">
+            <img
+              className="card-img-top"
+              src="https://z.nooncdn.com/products/tr:n-t_80/v1637671982/N50840187A_2.jpg"
+              alt="Card image cap"
+            />
+          </div>{" "}
+          <div className="card m-2">
+            <img
+              className="card-img-top"
+              src="https://z.nooncdn.com/products/tr:n-t_80/v1637671983/N50840187A_3.jpg"
+              alt="Card image cap"
+            />
+          </div>{" "}
+          <div className="card m-2">
+            <img
+              className="card-img-top"
+              src="https://z.nooncdn.com/products/tr:n-t_80/v1637671982/N50840187A_4.jpg"
+              alt="Card image cap"
+            />
+          </div>{" "}
+        </div>
+
+        <div className="col-3">
           <div className="card">
             <img
               className="card-img-top"
@@ -36,7 +67,7 @@ export default function ProductDetails() {
             <p className="card-text">
               Model Number : Iphone 13 Pro Max | 4.3
               <img
-                className="w-25 h-25"
+                className="footer-logo w-25"
                 src="https://z.nooncdn.com/s/app/com/noon/design-system/simpleicons/star-filled.svg"
                 alt=""
               />{" "}
@@ -96,11 +127,11 @@ export default function ProductDetails() {
             </div>
             <div>
               <strong>Quantity</strong>
-              <div className="d-flex">
-                <div className="p-2">
-                  <div class="dropdown">
+              <div className="row">
+                <div className="p-2 col-2">
+                  <div className="dropdown">
                     <button
-                      class="btn btn-outline-info dropdown-toggle"
+                      className="btn btn-outline-info dropdown-toggle"
                       type="button"
                       id="dropdownMenuButton"
                       data-toggle="dropdown"
@@ -111,23 +142,23 @@ export default function ProductDetails() {
                       {"  "} |
                     </button>
                     <div
-                      class="dropdown-menu"
+                      className="dropdown-menu"
                       aria-labelledby="dropdownMenuButton"
                     >
-                      <a class="dropdown-item" href="#">
+                      <a className="dropdown-item" href="#">
                         1
                       </a>
-                      <a class="dropdown-item" href="#">
+                      <a className="dropdown-item" href="#">
                         2
                       </a>
-                      <a class="dropdown-item" href="#">
+                      <a className="dropdown-item" href="#">
                         3
                       </a>
                     </div>
                   </div>
                 </div>
-                <div className="p-2">
-                  <button className="btn-lg btn-primary w-100">
+                <div className="p-2 col-10">
+                  <button className="btn-lg btn-primary w-100 ">
                     Add To Cart
                   </button>
                 </div>
@@ -138,19 +169,19 @@ export default function ProductDetails() {
                   <strong className="text-dark">International Version</strong>
                 </p>
                 <div>
-                  <button className="btn-outline-dark">
-                    <strong className="">Physical Dual Sim</strong>
+                  <button className="btn-outline-dark m-2">
+                    <strong className="">Dual Sim</strong>
                   </button>
-                  <button className="btn-outline-dark ml-3">
+                  <button className="btn-outline-dark m-2">
                     <strong>UAE Version </strong>
                   </button>
-                  <button className="btn-outline-dark ml-3">
+                  <button className="btn-outline-dark m-2">
                     <strong>International Version </strong>
                   </button>
-                  <button className="btn-outline-dark m-3">
+                  <button className="btn-outline-dark m-2">
                     <strong>KSA Version </strong>
                   </button>
-                  <button className="btn-outline-dark m-3">
+                  <button className="btn-outline-dark m-2">
                     <strong>USA Version </strong>
                   </button>
                 </div>
@@ -173,6 +204,136 @@ export default function ProductDetails() {
                     <strong>1 TB </strong>
                   </button>
                 </div>
+              </div>
+
+              <div>
+                <p className="text-black-50 m-2">
+                  Color Name: <strong className="text-dark">Blue</strong>
+                </p>
+                <div>
+                  <button className="btn-light">
+                    <img
+                      src="https://z.nooncdn.com/products/tr:n-t_80/v1654522001/N51315009A_1.jpg"
+                      alt=""
+                    />
+                  </button>
+                  <button className="btn-light ml-3">
+                    <img
+                      src="https://z.nooncdn.com/products/tr:n-t_80/v1654522001/N51315010A_1.jpg"
+                      alt=""
+                    />
+                  </button>
+                  <button className="btn-light ml-3">
+                    <img
+                      src="https://z.nooncdn.com/products/tr:n-t_80/v1654522002/N51315176A_1.jpg"
+                      alt=""
+                    />
+                  </button>
+                </div>
+              </div>
+              <div className="bg-grey mt-4">
+                <h6>
+                  <strong>Frequently Bought Together</strong>
+                </h6>
+                <div className="row">
+                  <div className="card col-4">
+                    <div className="custom-control custom-checkbox ">
+                      <input
+                        type="checkbox"
+                        className="custom-control-input"
+                        id="ck1a"
+                      />
+                      <label class="custom-control-label" for="ck1a">
+                        <img
+                          src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840185A_1.jpg"
+                          alt="#"
+                          class="img-fluid"
+                        />
+                      </label>
+                    </div>
+                    <div className="card-title text-center">
+                      <strong>AED 49.00</strong>
+                    </div>
+                    <div className=" text-center">
+                      <p className="footer-text-size">USB-C 20 watt charger</p>
+                    </div>
+                  </div>
+
+                  <div className="card col-4">
+                    <div className="custom-control custom-checkbox image-checkbox">
+                      <input
+                        type="checkbox"
+                        className="custom-control-input"
+                        id="ck1a"
+                      />
+                      <label class="custom-control-label" for="ck1a">
+                        <img
+                          src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840185A_1.jpg"
+                          alt="#"
+                          class="img-fluid"
+                        />
+                      </label>
+                    </div>
+                    <div className="card-title text-center">
+                      <strong>AED 49.00</strong>
+                    </div>
+                    <div className=" text-center">
+                      <p className="footer-text-size">USB-C 20 watt charger</p>
+                    </div>
+                  </div>
+                  <div className="card col-4">
+                    <div className="custom-control custom-checkbox image-checkbox">
+                      <input
+                        type="checkbox"
+                        className="custom-control-input"
+                        id="ck1a"
+                      />
+                      <label class="custom-control-label" for="ck1a">
+                        <img
+                          src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840185A_1.jpg"
+                          alt="#"
+                          class="img-fluid"
+                        />
+                      </label>
+                    </div>
+                    <div className="card-title text-center">
+                      <strong>AED 49.00</strong>
+                    </div>
+                    <div className=" text-center">
+                      <p className="footer-text-size">USB-C 20 watt charger</p>
+                    </div>
+                  </div>
+                  <button className="btn-lg btn-outline-primary w-100">
+                    {" "}
+                    <strong className="footer-text-size">
+                      Buy 4 Together for AED 55292.00
+                    </strong>
+                  </button>
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div className="col-1">
+                  <img
+                    src="https://z.nooncdn.com/s/app/com/noon/icons/other_offers.svg"
+                    alt=""
+                  />
+                </div>
+                <div className="col-11">
+                  <p>
+                    10 other offers from other sellers{" "}
+                    <strong>AED 4569.00</strong>
+                    <button className="btn-link bg-light border-0">
+                      View All Offers
+                    </button>
+                  </p>
+                </div>
+              </div>
+              <div className="row">
+                <img
+                  src="https://k.nooncdn.com/cms/pages/20220620/99d3da14449d437759a6247dcd963cbe/en_mb_uae-PDP.png"
+                  alt=""
+                  className="w-100"
+                />
               </div>
             </div>
           </div>
@@ -197,7 +358,7 @@ export default function ProductDetails() {
             </p>
             <p className="m-2">
               <img
-                className="h-25 w-25"
+                className="mt-2"
                 src="https://z.nooncdn.com/s/app/com/noon/icons/seller.svg"
                 alt=""
               />
@@ -208,29 +369,28 @@ export default function ProductDetails() {
               76% rating
             </p>
             <div className="d-flex m-2">
-              <div>
+              <div className="">
                 <img
                   src="https://z.nooncdn.com/nr/seller_badges/badge_low_returns_seller.png"
                   alt=""
                   className=""
                 />
-                <p>
-                  <strong className="w-50 text-center">
-                    Low return Seller
-                  </strong>
+                <p className=" text-center w-75">
+                  <strong>Low return Seller</strong>
                 </p>
               </div>
               <div>
                 <img
                   src="https://z.nooncdn.com/nr/seller_badges/badge_great_recent_rating.png"
                   alt=""
+                  className=""
                 />
-                <p>
+                <p className=" text-center w-75">
                   <strong> Great Recent Rating</strong>
                 </p>
               </div>
               <div>
-                <h1 className="text-success m-3">86%</h1>
+                <h1 className="text-success m-4">86%</h1>
                 <p>
                   <strong className=""> product as Descibed</strong>
                 </p>

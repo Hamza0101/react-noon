@@ -3,7 +3,6 @@ import React from "react";
 // import products from "../Home/product.json";
 
 export default function ProductItems(props) {
-  console.log("ok ok", props.productData);
   return (
     <div className="">
       {/* <h5 className="font-weight-bold m-2">Recommend for you</h5> */}
@@ -61,7 +60,7 @@ export default function ProductItems(props) {
           </>
         ) : (
           <>
-            <h1>No Banner avialable!</h1>
+            <h1>No Product avialable!</h1>
           </>
         )}
       </div>

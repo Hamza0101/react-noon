@@ -26,7 +26,7 @@ export default function PriceFilter(props) {
         />{" "}
         <strong> TO </strong>
         <input
-          className="w-25 m-2 bg-light border-grey"
+          className="w-25 m-2 "
           type="number"
           value={val2}
           id="2"

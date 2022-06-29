@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./dealcard.css";
 import banner from "./banner.json";
-console.log(banner);
 
 export default class DealCard extends Component {
   render() {
@@ -23,7 +22,6 @@ export default class DealCard extends Component {
                         src={banner.discountBanners.url}
                         alt=""
                       />
-                      {console.log(banner.discountBanners.url)}
                     </div>
                   );
                 })}
