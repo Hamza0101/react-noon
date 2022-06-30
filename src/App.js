@@ -9,6 +9,7 @@ import ViewProduct from "./components/ViewProduct";
 import Products from "./pages/Product/Products";
 import Home from "./pages/Home/Home";
 import ProductDetails from "./pages/Product/ProductDetails";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
   const getLocalItems = () => {
@@ -43,6 +44,7 @@ function App() {
       <Products products={products} onDelete={onDelete}/> */}
       <Products />
       {/* <ProductDetails /> */}
+      {/* <Cart /> */}
     </>
     // </div>
   );

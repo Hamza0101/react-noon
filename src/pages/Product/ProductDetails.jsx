@@ -13,6 +13,9 @@ import ProductCard from "../../components/Home/ProductCard";
 import Support from "../../components/Home/Support";
 import ProductItems from "../../components/Product/ProductItems";
 import product from "../../components/Home/product.json";
+import { Overview } from "./Overview";
+import Specification from "./Specification";
+import Reviews from "./Reviews";
 
 export default function ProductDetails() {
   return (
@@ -243,11 +246,11 @@ export default function ProductDetails() {
                         className="custom-control-input"
                         id="ck1a"
                       />
-                      <label class="custom-control-label" for="ck1a">
+                      <label className="custom-control-label" for="ck1a">
                         <img
                           src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840185A_1.jpg"
                           alt="#"
-                          class="img-fluid"
+                          className="img-fluid"
                         />
                       </label>
                     </div>
@@ -266,11 +269,11 @@ export default function ProductDetails() {
                         className="custom-control-input"
                         id="ck1a"
                       />
-                      <label class="custom-control-label" for="ck1a">
+                      <label className="custom-control-label" for="ck1a">
                         <img
                           src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840185A_1.jpg"
                           alt="#"
-                          class="img-fluid"
+                          className="img-fluid"
                         />
                       </label>
                     </div>
@@ -288,11 +291,11 @@ export default function ProductDetails() {
                         className="custom-control-input"
                         id="ck1a"
                       />
-                      <label class="custom-control-label" for="ck1a">
+                      <label className="custom-control-label" for="ck1a">
                         <img
                           src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840185A_1.jpg"
                           alt="#"
-                          class="img-fluid"
+                          className="img-fluid"
                         />
                       </label>
                     </div>
@@ -430,10 +433,31 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
+      <div className="container-fluid row">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav">
+              <a className="nav-item nav-link active" href="#">
+                <h3>OVERVIEW </h3> <span className="sr-only">(current)</span>
+              </a>
+              <a className="nav-item nav-link active" href="#">
+                <h3>SPECIFICATIONS</h3> <span className="sr-only"></span>
+              </a>
+              <a className="nav-item nav-link active" href="#">
+                <h3>REVIEWS</h3> <span className="sr-only"></span>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <Overview />
+      <Specification />
+      <Reviews />
       <div className="container-fluid">
         <h5>
           <strong>How about these?</strong>
         </h5>
+
         <ProductCard />
       </div>
       <Support />

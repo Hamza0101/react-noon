@@ -29,6 +29,11 @@ export default function Product() {
   const [products, setProducts] = useState(data);
   const [brands, setBrands] = useState(filter.brand);
   const [filterBar, setFilterBar] = useState([]);
+  const [ratingExist, setRatingExist] = useState(false);
+  const [pricingExist, setPricingExist] = useState(false);
+  const [brandExist, setBrandExist] = useState(false);
+  let filteration;
+  let brandProducts = [];
 
   const [brandFilter, setBrandFilter] = useState(brands);
   const handleFilter = (name1) => {
@@ -47,14 +52,30 @@ export default function Product() {
   };
 
   const handleBrand = (checked, bid) => {
-    const d = new Date();
-    let time = d.getTime();
+    setBrandExist(false);
     const myfilter = {
-      id: time,
+      type: "brand",
+      id: bid,
       fname: brands[bid - 1].bname,
     };
-    filterBar.push(myfilter);
-    const filteration = brandFilter.map((obj) => {
+
+    console.log(
+      "I am the True",
+      filterBar.includes(myfilter),
+      "I am boss",
+      filterBar
+    );
+    filterBar.filter((e) => {
+      if (e.type === "brand" && e.id === bid) {
+        setRatingExist(true);
+        return e;
+      }
+    });
+    if (checked && !brandExist) {
+      filterBar.push(myfilter);
+    }
+
+    filteration = brandFilter.map((obj) => {
       if (obj.id === bid) {
         return { ...obj, check: checked };
       }
@@ -62,20 +83,25 @@ export default function Product() {
       return obj;
     });
     setBrandFilter(filteration);
+    console.log("I am Filtered", filteration);
+    // setBrandFilter(filteration);
     let filtered;
 
     let filteredProduct = filteration.filter((e) => {
       if (e.check === true) {
         filtered = data.filter((a) => {
-          return e.bname === a.bname;
+          if (e.bname === a.bname) {
+            brandProducts.push(a);
+            return e.bname === a.bname;
+          }
         });
       }
 
       return filtered;
       // if (filtered) return filtered;
     });
-
-    if (filtered) setProducts(filtered);
+    console.log("I am filtered products", filteredProduct);
+    if (brandProducts) setProducts(brandProducts);
 
     // setProducts(filteredProduct);
   };
@@ -84,9 +110,29 @@ export default function Product() {
     let time = d.getTime();
     const myfilter = {
       id: time,
+      type: "rating",
       fname: "Rating  " + value1,
     };
-    filterBar.push(myfilter);
+    filterBar.filter((e) => {
+      if (e.type === "rating") {
+        setRatingExist(true);
+        return e.type === "rating";
+      }
+    });
+    console.log("I am the type", filterBar.includes(myfilter));
+    if (!ratingExist) {
+      setRatingExist(true);
+      filterBar.push(myfilter);
+    } else {
+      const applied = filterBar.map((obj) => {
+        if (obj.type === "rating") {
+          return { ...obj, fname: myfilter.fname };
+        }
+
+        return obj;
+      });
+      setFilterBar(applied);
+    }
     let filteredProduct = data.filter((e) => {
       return e.rating >= value1;
     });
@@ -97,10 +143,31 @@ export default function Product() {
     const d = new Date();
     let time = d.getTime();
     const myfilter = {
+      type: "price",
       id: time,
       fname: "Price " + value1 + " " + value2,
     };
-    filterBar.push(myfilter);
+    filterBar.filter((e) => {
+      if (e.type === "price") {
+        setRatingExist(true);
+        return e.type === "price";
+      }
+    });
+    console.log("I am the type", filterBar.includes(myfilter));
+    if (!pricingExist) {
+      setPricingExist(true);
+      filterBar.push(myfilter);
+    } else {
+      const applied = filterBar.map((obj) => {
+        if (obj.type === "price") {
+          return { ...obj, fname: myfilter.fname };
+        }
+
+        return obj;
+      });
+      setFilterBar(applied);
+    }
+    // filterBar.push(myfilter);
     if (value1 !== "" && value2 !== "") {
       let filteredProduct = data.filter((e) => {
         return e.price > value1 && e.price < value2;
@@ -110,9 +177,8 @@ export default function Product() {
   };
   const getproduct = () => {
     setProducts(products);
-    // setBran  dFilter(filter.brand);
   };
-  useEffect(getproduct, [products], [filterBar]);
+  useEffect(getproduct, [products], [brandFilter]);
   return (
     <div className="bg-light">
       <Topbar />
