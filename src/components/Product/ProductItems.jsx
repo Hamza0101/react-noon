@@ -1,8 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // import products from "../Home/product.json";
 
 export default function ProductItems(props) {
+  let navigate = useNavigate();
+  const viewProduct = (id) => {
+    navigate(`/product/${id}`);
+  };
   return (
     <div className="">
       {/* <h5 className="font-weight-bold m-2">Recommend for you</h5> */}
@@ -16,9 +21,13 @@ export default function ProductItems(props) {
                     Get 100 AED OFF{" "}
                   </button>
                   <img
+                    role="button"
                     className="card-img-top img-fluid"
                     src={product.url}
                     alt="Card image cap"
+                    onClick={() => {
+                      viewProduct(product.id);
+                    }}
                   />
                   <div className="card-body">
                     <p className="card-text left-align">{product.pdetail}</p>

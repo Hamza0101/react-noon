@@ -16,8 +16,14 @@ import product from "../../components/Home/product.json";
 import { Overview } from "./Overview";
 import Specification from "./Specification";
 import Reviews from "./Reviews";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { Panorama, PanoramaSharp } from "@mui/icons-material";
 
 export default function ProductDetails() {
+  const params = useParams();
+  const [activeBtn, setActiveBtn] = useState(1);
+  const addToCart = () => {};
   return (
     <div className="bg-light">
       <Topbar />
@@ -58,17 +64,17 @@ export default function ProductDetails() {
           <div className="card">
             <img
               className="card-img-top"
-              src={product[1].url}
+              src={product[params.id].url}
               alt="Card image cap"
             />
           </div>{" "}
         </div>
         <div className="col-4">
           <div className="card-body">
-            <h4 className="card-title">{product[1].bname}</h4>
-            <h5 className="card-title">{product[1].pdetail}</h5>
+            <h4 className="card-title">{product[params.id].bname}</h4>
+            <h5 className="card-title">{product[params.id].pdetail}</h5>
             <p className="card-text">
-              Model Number : Iphone 13 Pro Max | 4.3
+              Model Number : Iphone 13 Pro Max | {product[params.id].rating}
               <img
                 className="footer-logo w-25"
                 src="https://z.nooncdn.com/s/app/com/noon/design-system/simpleicons/star-filled.svg"
@@ -77,13 +83,15 @@ export default function ProductDetails() {
               287 ratings
             </p>
             <p className="card-text">
-              Was: AED <del>5119.00</del>
+              Was: {product[params.id].currency} <del>5119.00</del>
             </p>
             <p className="card-text">
-              Now: AED <strong>4589.00 </strong> Inclusive of VAT
+              Now: {product[params.id].currency} <strong>4589.00 </strong>{" "}
+              Inclusive of VAT
             </p>
             <p>
-              Saving: <strong>AED 530.00</strong> 10% Off
+              Saving: <strong>{product[params.id].currency} 530.00</strong> 10%
+              Off
             </p>
             <div className="bg-pink">
               <p>
@@ -161,7 +169,10 @@ export default function ProductDetails() {
                   </div>
                 </div>
                 <div className="p-2 col-10">
-                  <button className="btn-lg btn-primary w-100 ">
+                  <button
+                    className="btn-lg btn-primary w-100 "
+                    onClick={addToCart(product)}
+                  >
                     Add To Cart
                   </button>
                 </div>
@@ -437,22 +448,50 @@ export default function ProductDetails() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-item nav-link active" href="#">
+              <span
+                className="nav-item nav-link active "
+                role="button"
+                href=""
+                onClick={() => {
+                  setActiveBtn(1);
+                }}
+              >
                 <h3>OVERVIEW </h3> <span className="sr-only">(current)</span>
-              </a>
-              <a className="nav-item nav-link active" href="#">
+              </span>
+              <span
+                className="nav-item nav-link active"
+                role="button"
+                href=""
+                onClick={() => {
+                  setActiveBtn(2);
+                }}
+              >
                 <h3>SPECIFICATIONS</h3> <span className="sr-only"></span>
-              </a>
-              <a className="nav-item nav-link active" href="#">
+              </span>
+              <span
+                className="nav-item nav-link active"
+                role="button"
+                href=""
+                onClick={() => {
+                  setActiveBtn(3);
+                }}
+              >
                 <h3>REVIEWS</h3> <span className="sr-only"></span>
-              </a>
+              </span>
             </div>
           </div>
         </nav>
       </div>
-      <Overview />
-      <Specification />
-      <Reviews />
+      <div>
+        {activeBtn === 1 ? (
+          <Overview />
+        ) : activeBtn === 2 ? (
+          <Specification />
+        ) : (
+          <Reviews />
+        )}
+      </div>
+
       <div className="container-fluid">
         <h5>
           <strong>How about these?</strong>

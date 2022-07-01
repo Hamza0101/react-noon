@@ -101,7 +101,11 @@ export default function Product() {
       // if (filtered) return filtered;
     });
     console.log("I am filtered products", filteredProduct);
-    if (brandProducts) setProducts(brandProducts);
+    if (brandProducts.length) {
+      setProducts(brandProducts);
+    } else {
+      setProducts(data);
+    }
 
     // setProducts(filteredProduct);
   };

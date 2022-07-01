@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useRef, useState } from "react";
 // Import Swiper React components
@@ -17,6 +18,10 @@ import { Pagination, Navigation } from "swiper";
 import products from "./product.json";
 
 export default function ProductCard() {
+  let navigate = useNavigate();
+  const viewProduct = (id) => {
+    navigate(`/product/${id}`);
+  };
   return (
     <div className="">
       {/* <h5 className="font-weight-bold m-2">Recommend for you</h5> */}
@@ -44,9 +49,13 @@ export default function ProductCard() {
                         Get 100 AED OFF{" "}
                       </button>
                       <img
+                        role="button"
                         className="card-img-top img-fluid"
                         src={product.url}
                         alt="Card image cap"
+                        onClick={() => {
+                          viewProduct(product.id);
+                        }}
                       />
                       <div className="card-body">
                         <p className="card-text left-align">

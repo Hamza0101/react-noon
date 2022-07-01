@@ -10,8 +10,10 @@ import Products from "./pages/Product/Products";
 import Home from "./pages/Home/Home";
 import ProductDetails from "./pages/Product/ProductDetails";
 import Cart from "./pages/Cart/Cart";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
+  const [cart, setCart] = useState([]);
   const getLocalItems = () => {
     let list = localStorage.getItem("lists");
     if (list) {
@@ -39,12 +41,14 @@ function App() {
   return (
     // <div className="App">
     <>
-      {/* <Home /> */}
-      {/* <AddProduct addProduct={addProduct} />
-      <Products products={products} onDelete={onDelete}/> */}
-      <Products />
-      {/* <ProductDetails /> */}
-      {/* <Cart /> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </Router>
     </>
     // </div>
   );
