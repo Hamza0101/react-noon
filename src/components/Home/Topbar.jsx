@@ -1,13 +1,23 @@
 import React from "react";
 import "./topbar.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Topbar() {
+  let navigate = useNavigate();
+  const HomePage = () => {
+    navigate(`/`);
+  };
+  const viewCart = () => {
+    navigate(`/cart`);
+  };
   return (
     <div className="top-bg-color ">
       <div className="container-fluid row">
         <img
           className=" m-2 ml-4 noon-logo"
           src="https://z.nooncdn.com/s/app/com/noon/design-system/logos/noon-logo-en.svg"
+          onClick={HomePage}
+          role="button"
         />
         <img
           className="m-2"
@@ -43,6 +53,8 @@ export default function Topbar() {
           <img
             src="https://z.nooncdn.com/s/app/com/noon/icons/cart.svg"
             alt=""
+            onClick={viewCart}
+            role="button"
           />
         </p>
       </div>

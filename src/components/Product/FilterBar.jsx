@@ -14,7 +14,7 @@ export default function FilterBar(props) {
                     <button
                       className="btn-outline-primary "
                       onClick={() => {
-                        props.handleFilter(data.fname);
+                        props.handleFilter(data);
                       }}
                     >
                       {data.fname} <strong className="h5">x</strong>

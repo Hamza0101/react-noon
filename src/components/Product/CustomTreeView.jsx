@@ -24,7 +24,6 @@ export default function CustomTreeView(props) {
                       {category.subCategories.map((subc, index) => {
                         return (
                           <>
-                            {console.log("i am subc.id", subc.id)}
                             <TreeItem
                               nodeId={subc}
                               label={subc.cname}

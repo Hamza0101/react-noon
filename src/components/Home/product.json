@@ -9,7 +9,8 @@
     "arival": "Mon, Jun 20",
     "bname": "Oppo",
     "rating": 4,
-    "category": "Mobiles"
+    "category": "Mobiles",
+    "bid": 9
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "arival": " Mon, Jun 20",
     "bname": "Oppo",
     "rating": 4,
-    "category": "Mobiles "
+    "category": "Mobiles ",
+    "bid": 9
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "arival": "Sun, Jun 19",
     "bname": "Oppo",
     "rating": 5,
-    "category": "Mobiles"
+    "category": "Mobiles",
+    "bid": 9
   },
   {
     "id": 4,
@@ -44,7 +47,9 @@
     "currency": "SAR",
     "arival": "Sun, Jun 19",
     "bname": "Oppo",
-    "category": "Mobile"
+    "category": "Mobile",
+    "bid": 9,
+    "rating": 2
   },
   {
     "id": 5,
@@ -55,7 +60,9 @@
     "currency": "SAR",
     "arival": "Sun, Jun 19",
     "bname": "Oppo",
-    "category": "Mobile"
+    "category": "Mobile",
+    "bid": 9,
+    "rating": 2.3
   },
   {
     "id": 6,
@@ -66,7 +73,9 @@
     "currency": "SAR",
     "arival": "Sun, Jun 19",
     "bname": "Oppo",
-    "category": "Mobile"
+    "category": "Mobile",
+    "bid": 9,
+    "rating": 2.7
   },
   {
     "id": 7,
@@ -77,7 +86,8 @@
     "currency": "SAR",
     "arival": "Sun, Jun 19",
     "bname": "Oppo",
-    "rating": 3.6
+    "rating": 3.6,
+    "bid": 9
   },
   {
     "id": 8,
@@ -87,7 +97,8 @@
     "price": 1435,
     "arival": "Sun, Jun 19",
     "bname": "Oppo",
-    "rating": 4.5
+    "rating": 4.5,
+    "bid": 9
   },
   {
     "id": 9,
@@ -97,7 +108,9 @@
     "price": 1435,
     "currency": "SAR",
     "arival": "Sun, Jun 19",
-    "bname": "Apple"
+    "bname": "Apple",
+    "bid": 1,
+    "rating": 3.1
   },
   {
     "id": 10,
@@ -107,7 +120,9 @@
     "price": 1435,
     "currency": "SAR",
     "arival": "Sun, Jun 19",
-    "bname": "Sony"
+    "bname": "Sony",
+    "bid": 7,
+    "rating": 4
   },
   {
     "id": 11,
@@ -116,6 +131,9 @@
     "url": "https://z.nooncdn.com/products/tr:n-t_240/v1623661623/N48128174A_1.jpg",
     "price": 1435,
     "currency": "SAR",
-    "arival": "Sun, Jun 19"
+    "arival": "Sun, Jun 19",
+    "bid": 9,
+    "bname": "Oppo",
+    "rating": 1.2
   }
 ]

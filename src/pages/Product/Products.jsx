@@ -31,15 +31,57 @@ export default function Product() {
   const [filterBar, setFilterBar] = useState([]);
   const [ratingExist, setRatingExist] = useState(false);
   const [pricingExist, setPricingExist] = useState(false);
-  const [brandExist, setBrandExist] = useState(false);
+  let brandExist = false;
   let filteration;
   let brandProducts = [];
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(9999999);
+  const [rating, setRating] = useState(1);
+
+  const handleFilterBar = () => {
+    console.log("I am brandfilter:", brandFilter);
+    let allFiltered = data.filter((e) => {
+      // console.log("i am brand", checkBrand);
+      // console.log("I am price", e.price > minPrice && e.price < maxPrice);
+      // console.log("i am rating", e.rating >= rating);
+      // console.log("I am e:", e);
+      let brandCheck = false;
+      filterBar.filter((a) => {
+        if (a.type == "brand" && a.bid === e.bid) {
+          brandCheck = true;
+          return a.bid == e.bid;
+        }
+      });
+      if (e.price > minPrice && e.price < maxPrice && e.rating >= rating) {
+        return e;
+      }
+    });
+
+    console.log(
+      "min",
+      minPrice,
+      "max",
+      maxPrice,
+      "rating",
+      rating,
+      "you are searching me",
+      allFiltered
+    );
+    setProducts(allFiltered);
+  };
 
   const [brandFilter, setBrandFilter] = useState(brands);
-  const handleFilter = (name1) => {
+  const handleFilter = (data) => {
+    if (data.type === "brand") {
+      handleBrand(false, data.id);
+    } else if (data.type === "price") {
+      handleGo(0, 99999999999999);
+    } else {
+      handleSlider(1);
+    }
     setFilterBar(
       filterBar.filter((e) => {
-        return e.fname !== name1;
+        return e.id !== data.id;
       })
     );
   };
@@ -52,22 +94,16 @@ export default function Product() {
   };
 
   const handleBrand = (checked, bid) => {
-    setBrandExist(false);
+    brandExist = false;
     const myfilter = {
       type: "brand",
       id: bid,
       fname: brands[bid - 1].bname,
     };
 
-    console.log(
-      "I am the True",
-      filterBar.includes(myfilter),
-      "I am boss",
-      filterBar
-    );
     filterBar.filter((e) => {
       if (e.type === "brand" && e.id === bid) {
-        setRatingExist(true);
+        brandExist = true;
         return e;
       }
     });
@@ -83,7 +119,7 @@ export default function Product() {
       return obj;
     });
     setBrandFilter(filteration);
-    console.log("I am Filtered", filteration);
+
     // setBrandFilter(filteration);
     let filtered;
 
@@ -100,8 +136,10 @@ export default function Product() {
       return filtered;
       // if (filtered) return filtered;
     });
-    console.log("I am filtered products", filteredProduct);
+
+    // handleFilterBar();
     if (brandProducts.length) {
+      // handleFilterBar();
       setProducts(brandProducts);
     } else {
       setProducts(data);
@@ -110,6 +148,7 @@ export default function Product() {
     // setProducts(filteredProduct);
   };
   const handleSlider = (value1) => {
+    setRating(value1);
     const d = new Date();
     let time = d.getTime();
     const myfilter = {
@@ -123,7 +162,7 @@ export default function Product() {
         return e.type === "rating";
       }
     });
-    console.log("I am the type", filterBar.includes(myfilter));
+
     if (!ratingExist) {
       setRatingExist(true);
       filterBar.push(myfilter);
@@ -140,10 +179,13 @@ export default function Product() {
     let filteredProduct = data.filter((e) => {
       return e.rating >= value1;
     });
+    // handleFilterBar();
     setProducts(filteredProduct);
   };
 
   const handleGo = (value1, value2) => {
+    // setMinPrice(value1);
+    // setMaxPrice(value2);
     const d = new Date();
     let time = d.getTime();
     const myfilter = {
@@ -157,7 +199,7 @@ export default function Product() {
         return e.type === "price";
       }
     });
-    console.log("I am the type", filterBar.includes(myfilter));
+
     if (!pricingExist) {
       setPricingExist(true);
       filterBar.push(myfilter);
@@ -176,6 +218,7 @@ export default function Product() {
       let filteredProduct = data.filter((e) => {
         return e.price > value1 && e.price < value2;
       });
+      // handleFilterBar();
       setProducts(filteredProduct);
     }
   };

@@ -25,7 +25,7 @@ export default function CustomSlider(props) {
             value={slideVal}
             onChange={(e) => {
               setSlideVal(e.target.value);
-              props.handleSlider(slideVal);
+              props.handleSlider(e.target.value);
             }}
             className="slider"
             id="myRange"

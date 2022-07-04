@@ -19,54 +19,47 @@ import Reviews from "./Reviews";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Panorama, PanoramaSharp } from "@mui/icons-material";
+import data from "./imageUrl.json";
 
 export default function ProductDetails() {
   const params = useParams();
   const [activeBtn, setActiveBtn] = useState(1);
   const addToCart = () => {};
+  const [prdUrl, setPrdUrl] = useState(product[params.id].url);
   return (
     <div className="bg-light">
       <Topbar />
       <CustomNavbar />
       <div className="row container-fluid m-2">
         <div className="col-1">
-          <div className="card m-2">
-            <img
-              className="card-img-top"
-              src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840187A_1.jpg"
-              alt="Card image cap"
-            />
-          </div>{" "}
-          <div className="card m-2">
-            <img
-              className="card-img-top"
-              src="https://z.nooncdn.com/products/tr:n-t_80/v1637671982/N50840187A_2.jpg"
-              alt="Card image cap"
-            />
-          </div>{" "}
-          <div className="card m-2">
-            <img
-              className="card-img-top"
-              src="https://z.nooncdn.com/products/tr:n-t_80/v1637671983/N50840187A_3.jpg"
-              alt="Card image cap"
-            />
-          </div>{" "}
-          <div className="card m-2">
-            <img
-              className="card-img-top"
-              src="https://z.nooncdn.com/products/tr:n-t_80/v1637671982/N50840187A_4.jpg"
-              alt="Card image cap"
-            />
-          </div>{" "}
+          {data.length > 0 ? (
+            <>
+              {data.map((data, index) => {
+                return (
+                  <div className="card m-2">
+                    <img
+                      className="card-img-top"
+                      src={data.url}
+                      alt="Card image cap"
+                      role="button"
+                      onClick={() => {
+                        setPrdUrl(data.url);
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </>
+          ) : (
+            <>
+              <h1></h1>
+            </>
+          )}
         </div>
 
         <div className="col-3">
           <div className="card">
-            <img
-              className="card-img-top"
-              src={product[params.id].url}
-              alt="Card image cap"
-            />
+            <img className="card-img-top" src={prdUrl} alt="Card image cap" />
           </div>{" "}
         </div>
         <div className="col-4">
@@ -456,7 +449,14 @@ export default function ProductDetails() {
                   setActiveBtn(1);
                 }}
               >
-                <h3>OVERVIEW </h3> <span className="sr-only">(current)</span>
+                {activeBtn === 1 ? (
+                  <u className="text-primary">
+                    <h3 className="text-primary">OVERVIEW</h3>
+                  </u>
+                ) : (
+                  <h3 className="text-black-50">OVERVIEW </h3>
+                )}{" "}
+                <span className="sr-only"></span>
               </span>
               <span
                 className="nav-item nav-link active"
@@ -466,7 +466,15 @@ export default function ProductDetails() {
                   setActiveBtn(2);
                 }}
               >
-                <h3>SPECIFICATIONS</h3> <span className="sr-only"></span>
+                {activeBtn === 2 ? (
+                  <u className="text-primary">
+                    <h3 className="text-primary">SPECIFICATIONS</h3>
+                  </u>
+                ) : (
+                  <h3 className="text-black-50">SPECIFICATIONS</h3>
+                )}
+
+                <span className="sr-only"></span>
               </span>
               <span
                 className="nav-item nav-link active"
@@ -476,7 +484,15 @@ export default function ProductDetails() {
                   setActiveBtn(3);
                 }}
               >
-                <h3>REVIEWS</h3> <span className="sr-only"></span>
+                {activeBtn === 3 ? (
+                  <u className="text-primary">
+                    <h3 className="text-primary">REVIEWS</h3>
+                  </u>
+                ) : (
+                  <h3 className="text-black-50">REVIEWS</h3>
+                )}
+
+                <span className="sr-only"></span>
               </span>
             </div>
           </div>
@@ -488,7 +504,7 @@ export default function ProductDetails() {
         ) : activeBtn === 2 ? (
           <Specification />
         ) : (
-          <Reviews />
+          <Reviews pid={params.id} />
         )}
       </div>
 
