@@ -6,12 +6,55 @@ import Footer from "../../components/Footer";
 import BottomList from "../../components/Home/BottomList";
 import Support from "../../components/Home/Support";
 import data from "../../data/cart.json";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 export default function Cart() {
-  const [cartTotal, setCartTotal] = useState(0);
-  const [items, setItems] = useState(1);
+  let navigate = useNavigate();
+  const [defaultItems, setDefaultItems] = useState(20);
+  const [cartData, setCartData] = useState(data);
+  let totalAmount = 0;
+  cartData.map((obj, index) => {
+    totalAmount += obj.price * obj.quantity;
+  });
+  const [cartTotal, setCartTotal] = useState(totalAmount);
   let quantity = 1;
-  let totalAmount = cartTotal;
+
+  const HomePage = () => {
+    navigate(`/`);
+  };
+
+  const removeItem = (data) => {
+    const updatedCart = cartData.filter((obj, index) => {
+      return obj.id !== data.id;
+    });
+    setCartData(updatedCart);
+    let price = 0;
+    updatedCart.map((obj, index) => {
+      price += obj.price * obj.quantity;
+    });
+    totalAmount = price;
+    setCartTotal(price);
+  };
+
+  const handleQuantity = (item, data) => {
+    const updatedCart = cartData.map((obj, index) => {
+      if (obj.id === data.id) {
+        return { ...obj, quantity: item };
+      }
+
+      return obj;
+    });
+    let price = 0;
+    console.log(updatedCart);
+    setCartData(updatedCart);
+    updatedCart.map((obj, index) => {
+      price += obj.price * obj.quantity;
+    });
+    totalAmount = price;
+    setCartTotal(price);
+    console.log("price", price, "cart Total", cartTotal);
+  };
+
   return (
     <div>
       <Topbar />
@@ -24,7 +67,7 @@ export default function Cart() {
             </h4>
           </div>
           <div className="mt-2">
-            <p>({data.cart.length} item)</p>
+            <p>({data.length} item)</p>
           </div>
         </div>
 
@@ -38,7 +81,10 @@ export default function Cart() {
             />
             <div className="row m-2">
               <div className="card col-12">
-                {data.cart.map((cart, index) => {
+                {cartData.map((cart, index) => {
+                  totalAmount += cart.price * cart.quantity;
+                  // setCartTotal(totalAmount);
+
                   // console.log("I am Cart", cart.id);
 
                   return (
@@ -92,7 +138,6 @@ export default function Cart() {
                               <div className="p-2 col-2">
                                 <div className="dropdown">
                                   {" "}
-                                  console.log(quantity);
                                   <button
                                     className="btn btn-outline-info dropdown-toggle"
                                     type="button"
@@ -101,7 +146,7 @@ export default function Cart() {
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                   >
-                                    <strong>{items}</strong>
+                                    <strong>{cart.quantity}</strong>
                                     {"  "}
                                   </button>
                                   <div
@@ -109,56 +154,33 @@ export default function Cart() {
                                     aria-labelledby="dropdownMenuButton"
                                     style={{ minWidth: "10px" }}
                                   >
-                                    <span
-                                      className="dropdown-item "
-                                      role="button"
-                                      onClick={() => {
-                                        quantity = 1;
-                                        setItems(quantity);
-                                        console.log(quantity);
-                                        totalAmount += cart.price * quantity;
-                                        console.log(totalAmount);
-                                        setCartTotal(totalAmount);
-                                        console.log(quantity);
-                                      }}
-                                    >
-                                      1
-                                    </span>
-                                    <span
-                                      className="dropdown-item"
-                                      role="button"
-                                      onClick={() => {
-                                        quantity = 2;
-                                        setItems(quantity);
-                                        totalAmount += cart.price * quantity;
-                                        console.log(totalAmount);
-                                        setCartTotal(totalAmount);
-                                        console.log(quantity);
-                                      }}
-                                    >
-                                      2
-                                    </span>
-                                    <span
-                                      className="dropdown-item"
-                                      role="button"
-                                      onClick={() => {
-                                        quantity = 3;
-                                        setItems(quantity);
-                                        totalAmount += cart.price * quantity;
-                                        console.log(totalAmount);
-                                        setCartTotal(totalAmount);
-                                        console.log(quantity);
-                                      }}
-                                    >
-                                      3
-                                    </span>
+                                    {Array.from(
+                                      { length: defaultItems },
+                                      (_, i) => (
+                                        <span
+                                          className="dropdown-item "
+                                          role="button"
+                                          onClick={() => {
+                                            quantity = i + 1;
+                                            handleQuantity(quantity, cart);
+                                          }}
+                                        >
+                                          {i + 1}
+                                        </span>
+                                      )
+                                    )}
                                   </div>
                                 </div>
                               </div>
                             </p>
 
                             <p>
-                              <button className="btn-link border-0">
+                              <button
+                                className="btn-link border-0"
+                                onClick={() => {
+                                  removeItem(cart);
+                                }}
+                              >
                                 <img
                                   src="https://z.nooncdn.com/s/app/com/noon/icons/trash.svg"
                                   alt=""
@@ -174,7 +196,13 @@ export default function Cart() {
                 })}
               </div>
 
-              <button className="btn-lg btn-outline-primary w-25 m-2 ">
+              <button
+                className="btn-lg btn-outline-primary w-25 m-2 "
+                on
+                onClick={() => {
+                  HomePage();
+                }}
+              >
                 Continue Shopping
               </button>
             </div>
@@ -191,14 +219,14 @@ export default function Cart() {
                     placeholder="Coupon Code Or Gift Card  "
                     aria-label="Search"
                   />
-                  <button className="btn-primary btn-lg  ">
+                  <button className="btn-primary h-100  ">
                     <strong className="mb-auto ">Apply</strong>
                   </button>
                 </div>
               </div>
             </form>
             <div className="row">
-              <h6>Subtotal({data.cart.length} Items)</h6>
+              <h6>Subtotal({data.length} Items)</h6>
               <h6 className="col-5 ml-auto">
                 <strong>AED {cartTotal}</strong>
               </h6>

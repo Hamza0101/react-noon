@@ -11,6 +11,7 @@ import Home from "./pages/Home/Home";
 import ProductDetails from "./pages/Product/ProductDetails";
 import Cart from "./pages/Cart/Cart";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Address from "./pages/Address";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -47,6 +48,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/address" element={<Address />} />
         </Routes>
       </Router>
     </>

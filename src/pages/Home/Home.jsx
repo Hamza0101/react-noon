@@ -19,7 +19,7 @@ import BottomList from "../../components/Home/BottomList";
 
 export default function Home() {
   return (
-    <div className="main bg-light">
+    <div className=" bg-light">
       <Topbar />
       <CustomNavbar />
       <Banner />
@@ -38,7 +38,7 @@ export default function Home() {
       <Gift />
       <ProductCard />
       <DealCard />
-      <div className="row">
+      <div className="row container-fluid">
         <img
           className="w-100"
           src="https://k.nooncdn.com/cms/pages/20220310/bb8ec300f66b4fc78e65c2eb8a25eda5/en_plp.jpg"

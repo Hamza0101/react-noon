@@ -3,7 +3,7 @@ import sponser from "./sponser.json";
 
 export default function SponserCard() {
   return (
-    <div>
+    <div className="container-fluid">
       <div className="row bg-light">
         <div className="d-flex flex-row">
           {sponser.length > 0 ? (

@@ -5,11 +5,12 @@ import banner from "./banner.json";
 export default class DealCard extends Component {
   render() {
     return (
-      <div>
-        <div className="row bg-color">
+      <div className=" container-fluid">
+        <div className="bg-color">
           <img
             src="https://k.nooncdn.com/cms/pages/20220505/373fee90706065bcef842dff3cb58c6b/en_mega-deal-title-01.png"
             alt=""
+            className="w-100"
           />
           <div className="d-flex flex-row">
             {banner.length > 0 ? (

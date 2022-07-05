@@ -11,7 +11,7 @@ export default function ProductItems(props) {
   return (
     <div className="">
       {/* <h5 className="font-weight-bold m-2">Recommend for you</h5> */}
-      <div className="row bg-white m-2">
+      <div className="row bg-white mt-2 mr-2">
         {props.productData.length > 0 ? (
           <>
             {props.productData.map((product, index) => {

@@ -25,7 +25,7 @@ export default function ProductCard() {
   return (
     <div className="">
       {/* <h5 className="font-weight-bold m-2">Recommend for you</h5> */}
-      <div className="row bg-white m-2">
+      <div className=" bg-white m-2">
         <Swiper
           slidesPerView={1}
           spaceBetween={10}

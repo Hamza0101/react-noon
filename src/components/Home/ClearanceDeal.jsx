@@ -3,7 +3,7 @@ import banner from "./banner.json";
 
 export default function ClearanceDeal() {
   return (
-    <div>
+    <div className="container-fluid">
       <div className="row bg-color">
         <img
           className="w-100"
