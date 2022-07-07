@@ -1,6 +1,29 @@
 import React from "react";
+import Address from "../../pages/Address";
+import { useNavigate } from "react-router-dom";
+import Switch from "react-switch";
+import Card from "./Card";
 
-export default function AddressCard() {
+export default function AddressCard(props) {
+  console.log("I am props", props.updated.myUpdate);
+  const myData = props.updated;
+  console.log("MyData", myData);
+  let navigate = useNavigate();
+  const addAddress = () => {
+    navigate(`/addAddress`, { state: { myData } });
+  };
+  const handleDefaultAddress = (obj) => {
+    // alert(obj);
+    // alert(typeof obj);
+    let handleDefault = props.updated.map((data) => {
+      if (data.id === obj) {
+        return { ...data, defaultAddress: true };
+      } else {
+        return { ...data, defaultAddress: false };
+      }
+    });
+    props.handleDefault(handleDefault);
+  };
   return (
     <div className="m-2">
       <h4>
@@ -13,58 +36,61 @@ export default function AddressCard() {
           marketplaces
         </strong>
       </p>
-      <button className="btn-primary btn-lg">Add New Address</button>
+      <button className="btn-primary btn-lg" onClick={addAddress}>
+        Add New Address
+      </button>
       <div className="my-4">
         <h5>
           <strong>Default Address</strong>
         </h5>
-        <div className="container bg-white">
-          <div className="d-flex ">
-            <div className="p-2">
-              <strong>Home</strong>
-            </div>
-            <div className="p-2 ml-auto">
-              <button className="btn-link border-0 bg-white text-black-50 ">
-                <u>Edit</u>
-              </button>
-            </div>
-            <div className="p-2">
-              <button className="btn-link border-0 bg-white text-black-50 ">
-                <u>Delete</u>
-              </button>
-            </div>
-            <div className="p-2">
-              <div class="custom-control custom-switch">
-                <label class="custom-control-label" for="customSwitches">
-                  Default Address
-                </label>
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  id="customSwitches"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="d-flex">
-            <div className="p-2">
-              <p>Name</p>
-            </div>
-            <div className="p-2">
-              <p>Test Developer</p>
-            </div>
-          </div>
-          <div className="d-flex">
-            <div className="p-2">
-              <p>Address</p>
-            </div>
-            <div className="p-2">
-              <p>No Address,575WE 47-Dubai</p>
-              <p>Dubai,UAE</p>
-            </div>
-          </div>
-        </div>
+        {props.updated.length ? (
+          <>
+            {props.updated.map((data, index) => {
+              return (
+                <>
+                  {data.defaultAddress ? (
+                    <Card
+                      data={data}
+                      handleDefaultAddress={handleDefaultAddress}
+                    />
+                  ) : (
+                    ""
+                  )}
+                </>
+              );
+            })}
+          </>
+        ) : (
+          <>
+            <h1>""</h1>
+          </>
+        )}
       </div>
+      <h5>
+        <strong>Other Address</strong>
+      </h5>
+      {props.updated.length ? (
+        <>
+          {props.updated.map((data, index) => {
+            return (
+              <>
+                {data.defaultAddress ? (
+                  ""
+                ) : (
+                  <Card
+                    data={data}
+                    handleDefaultAddress={handleDefaultAddress}
+                  />
+                )}
+              </>
+            );
+          })}
+        </>
+      ) : (
+        <>
+          <h1>""</h1>
+        </>
+      )}
     </div>
   );
 }

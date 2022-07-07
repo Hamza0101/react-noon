@@ -8,36 +8,98 @@ export default function Sidebar() {
           <strong>Halla Tester!</strong>
         </h4>
         <p>testDeveloper@gmail.com</p>
-        <ul>
-          <li className="liItem m-2 mt-2">
-            <strong className="text-black-50">Order</strong>
+        <ul className="text-sm">
+          <li className="liItem mt-2">
+            <strong className="text-black-50">
+              <img
+                src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                alt=""
+              />{" "}
+              Order
+            </strong>
           </li>
-          <li className="liItem m-2 mt-2">
-            <strong className="text-black-50">Return</strong>
+          <li className="liItem mt-2">
+            <strong className="text-black-50">
+              {" "}
+              <img
+                src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                alt=""
+              />{" "}
+              Return
+            </strong>
           </li>
-          <li className="liItem m-2">
+          <li className="liItem">
             <u>
               {" "}
-              <strong className="text-black-">Address</strong>
+              <strong className="text-black-">
+                {" "}
+                <img
+                  src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                  alt=""
+                />{" "}
+                Address
+              </strong>
             </u>
           </li>
-          <li className="liItem m-2">
-            <strong className="text-black-50">Saved Card</strong>
+          <li className="liItem">
+            <strong className="text-black-50">
+              {" "}
+              <img
+                src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                alt=""
+              />{" "}
+              Saved Card
+            </strong>
           </li>
-          <li className="liItem m-2">
-            <strong className="text-black-50">Warranty Claims</strong>
+          <li className="liItem">
+            <strong className="text-black-50">
+              {" "}
+              <img
+                src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                alt=""
+              />{" "}
+              Warranty
+            </strong>
           </li>
-          <li className="liItem m-2">
-            <strong className="text-black-50">Noon Credits</strong>
+          <li className="liItem">
+            <strong className="text-black-50">
+              {" "}
+              <img
+                src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                alt=""
+              />{" "}
+              Noon
+            </strong>
           </li>
-          <li className="liItem m-2">
-            <strong className="text-black-50">Profile</strong>
+          <li className="liItem">
+            <strong className="text-black-50">
+              {" "}
+              <img
+                src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                alt=""
+              />{" "}
+              Profile
+            </strong>
           </li>
-          <li className="liItem m-2">
-            <strong className="text-black-50">Preferences</strong>
+          <li className="liItem">
+            <strong className="text-black-50">
+              {" "}
+              <img
+                src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                alt=""
+              />{" "}
+              Preferences
+            </strong>
           </li>
-          <li className="liItem m-2">
-            <strong className="text-black-50">Gift Cards</strong>
+          <li className="liItem">
+            <strong className="text-black-50">
+              {" "}
+              <img
+                src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                alt=""
+              />{" "}
+              Gift Cards
+            </strong>
           </li>
         </ul>
       </div>

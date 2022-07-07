@@ -1,0 +1,14 @@
+.toggle,
+.toggle-on.ios,
+.toggle-off {
+  border-radius: 20px;
+}
+.toggle.ios .toggle-handle {
+  border-radius: 20px;
+}
+.bg-pink {
+  background-color: pink;
+  opacity: 40%;
+  height: 25px;
+  margin-top: 2px;
+}

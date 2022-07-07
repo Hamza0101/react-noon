@@ -6,15 +6,18 @@ import { useEffect } from "react";
 // import Product from './components/Product';
 import ViewProduct from "./components/ViewProduct";
 // import Home from './pages/Home/Home';
+import data from "./data/address.json";
 import Products from "./pages/Product/Products";
 import Home from "./pages/Home/Home";
 import ProductDetails from "./pages/Product/ProductDetails";
 import Cart from "./pages/Cart/Cart";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Address from "./pages/Address";
+import ViewAddress from "./pages/ViewAddress";
 
 function App() {
   const [cart, setCart] = useState([]);
+
   const getLocalItems = () => {
     let list = localStorage.getItem("lists");
     if (list) {
@@ -48,7 +51,8 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/address" element={<Address />} />
+          <Route path="/address" element={<ViewAddress />} />
+          <Route path="/addAddress" element={<Address />} />
         </Routes>
       </Router>
     </>
