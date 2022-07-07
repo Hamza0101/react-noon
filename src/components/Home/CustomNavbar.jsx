@@ -6,6 +6,9 @@ export default function Navbar() {
   const viewProducts = () => {
     navigate(`/products`);
   };
+  const viewAddress = () => {
+    navigate(`/address`);
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light font-weight-bold ">
@@ -90,6 +93,11 @@ export default function Navbar() {
             <li className="nav-item">
               <span className="nav-link" onClick={viewProducts} role="button">
                 PRODUCTS
+              </span>
+            </li>
+            <li className="nav-item">
+              <span className="nav-link" onClick={viewAddress} role="button">
+                ADDRESS
               </span>
             </li>
           </ul>

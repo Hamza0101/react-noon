@@ -124,18 +124,15 @@ export default function Cart() {
                               />
                               Select Get it today on checkout to get it today
                             </p>
-                            <p>
-                              <img
-                                src="https://z.nooncdn.com/s/app/com/noon/icons/warranty.svg"
-                                alt=""
-                              />
-                              1 Year Warranty
-                              <img
-                                src="https://z.nooncdn.com/s/app/com/noon/images/fulfilment_express_v2-en.svg"
-                                alt=""
-                                className="ml-auto"
-                              />
-                              <div className="p-2 col-2">
+                            <p className="d-flex">
+                              <div>
+                                <img
+                                  src="https://z.nooncdn.com/s/app/com/noon/icons/warranty.svg"
+                                  alt=""
+                                />
+                                1 Year Warranty
+                              </div>
+                              <div className="p-2 ml-auto">
                                 <div className="dropdown">
                                   {" "}
                                   <button
@@ -174,9 +171,9 @@ export default function Cart() {
                               </div>
                             </p>
 
-                            <p>
+                            <p className="d-flex">
                               <button
-                                className="btn-link border-0"
+                                className="btn-link border-0 bg-white"
                                 onClick={() => {
                                   removeItem(cart);
                                 }}
@@ -187,6 +184,11 @@ export default function Cart() {
                                 />{" "}
                                 Remove
                               </button>
+                              <img
+                                src="https://z.nooncdn.com/s/app/com/noon/images/fulfilment_express_v2-en.svg"
+                                alt=""
+                                className=" p-2 ml-auto"
+                              />
                             </p>
                           </div>
                         </div>
