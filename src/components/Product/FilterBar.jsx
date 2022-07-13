@@ -11,15 +11,19 @@ export default function FilterBar(props) {
               {props.filterBar.map((data, index) => {
                 return (
                   <>
-                    <button
-                      className="btn-outline-primary "
-                      onClick={() => {
-                        props.handleFilter(data);
-                      }}
-                    >
-                      {data.fname} <strong className="h5">x</strong>
-                    </button>
-                    {"  "}
+                    {data.fname === "Rating  1" ||
+                    data.fname === "Price 0 99999999999999" ? (
+                      ""
+                    ) : (
+                      <button
+                        className="btn-outline-primary "
+                        onClick={() => {
+                          props.handleFilter(data);
+                        }}
+                      >
+                        {data.fname} <strong className="h5">x</strong>
+                      </button>
+                    )}
                   </>
                 );
               })}

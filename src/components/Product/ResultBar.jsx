@@ -14,27 +14,59 @@ export default function ResultBar() {
         <div className="m-2">
           <h6>
             {" "}
-            <strong className="text-black-50 m-2">Sort By</strong>
-            <button className="btn-light border-dark">
-              Recommended{" "}
-              <img
-                src="https://z.nooncdn.com/s/app/com/noon/icons/dropdownArrow.svg"
-                alt=""
-              />
-            </button>
+            <div class="dropdown">
+              <strong className="text-black-50 m-2">Sort By</strong>
+              <button
+                class="btn btn-light dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Recommended
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">
+                  Discounted
+                </a>
+                <a class="dropdown-item" href="#">
+                  Gifts
+                </a>
+                <a class="dropdown-item" href="#">
+                  Grocery
+                </a>
+              </div>
+            </div>
           </h6>
         </div>
         <div className="m-2">
           <h6>
             {" "}
-            <strong className="text-black-50 m-2">Display</strong>
-            <button className="btn-light border-dark">
-              50 Per Page{" "}
-              <img
-                src="https://z.nooncdn.com/s/app/com/noon/icons/dropdownArrow.svg"
-                alt=""
-              />
-            </button>
+            <div class="dropdown">
+              <strong className="text-black-50 m-2">Display</strong>
+              <button
+                class="btn btn-light dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                50 per page
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">
+                  25 per page
+                </a>
+                <a class="dropdown-item" href="#">
+                  75 per page
+                </a>
+                <a class="dropdown-item" href="#">
+                  100 per page
+                </a>
+              </div>
+            </div>
           </h6>
         </div>
         <button className="float-end invisible">Rec</button>

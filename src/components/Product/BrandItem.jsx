@@ -37,7 +37,7 @@ export default function BrandItem(props) {
             onClick={(e) => {
               handleCheck(e);
             }}
-            value={props.brand.checked}
+            value={props.brand.check}
           />
           <label className="m-2 text-black-50" htmlFor="">
             {props.brand.bname}
