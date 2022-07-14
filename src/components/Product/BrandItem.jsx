@@ -37,8 +37,9 @@ export default function BrandItem(props) {
             onClick={(e) => {
               handleCheck(e);
             }}
-            value={props.brand.check}
+            checked={props.brand.check}
           />
+          {props.brand.id === 1 ? console.log("I am apple", props.brand) : ""}
           <label className="m-2 text-black-50" htmlFor="">
             {props.brand.bname}
           </label>

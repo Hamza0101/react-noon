@@ -4,27 +4,27 @@
       "id": 1,
       "sname": "Electronics",
       "subCategories": [
-        { "id": 1, "cname": "All Electronics", "check": "false" },
-        { "id": 2, "cname": "Hair Applainces", "check": "false" },
-        { "id": 3, "cname": "Electronics", "check": "false" }
+        { "id": 1, "cname": "All Electronics", "check": false },
+        { "id": 2, "cname": "Hair Applainces", "check": false },
+        { "id": 3, "cname": "Electronics", "check": false }
       ]
     },
     {
       "id": 2,
       "sname": "Fashion",
       "subCategories": [
-        { "id": 1, "cname": "All Electronics", "check": "false" },
-        { "id": 2, "cname": "Hair Applainces", "check": "false" },
-        { "id": 3, "cname": "Electronics", "check": "false" }
+        { "id": 1, "cname": "All Electronics", "check": false },
+        { "id": 2, "cname": "Hair Applainces", "check": false },
+        { "id": 3, "cname": "Electronics", "check": false }
       ]
     },
     {
       "id": 3,
       "sname": "Devices",
       "subCategories": [
-        { "id": 1, "cname": "Mobiles", "check": "false" },
-        { "id": 2, "cname": "Laptop", "check": "false" },
-        { "id": 3, "cname": "Tablet", "check": "false" }
+        { "id": 1, "cname": "Mobiles", "check": false },
+        { "id": 2, "cname": "Laptop", "check": false },
+        { "id": 3, "cname": "Tablet", "check": false }
       ]
     }
   ],
@@ -33,57 +33,57 @@
     {
       "id": 1,
       "bname": "Apple",
-      "check": "false"
+      "check": false
     },
     {
       "id": 2,
       "bname": "Samsung",
-      "check": "false"
+      "check": false
     },
     {
       "id": 3,
       "bname": "Xiaomi",
-      "check": "false"
+      "check": false
     },
     {
       "id": 4,
       "bname": "HUAWIE",
-      "check": "false"
+      "check": false
     },
     {
       "id": 5,
       "bname": "Motrola",
-      "check": "false"
+      "check": false
     },
     {
       "id": 6,
       "bname": "Panasonic",
-      "check": "false"
+      "check": false
     },
     {
       "id": 7,
       "bname": "Sony",
-      "check": "false"
+      "check": false
     },
     {
       "id": 8,
       "bname": "Techno",
-      "check": "false"
+      "check": false
     },
     {
       "id": 9,
       "bname": "Oppo",
-      "check": "false"
+      "check": false
     },
     {
       "id": 10,
       "bname": "LG",
-      "check": "false"
+      "check": false
     },
     {
       "id": 11,
       "bname": "Honor",
-      "check": "false"
+      "check": false
     }
   ],
   "networkType": [

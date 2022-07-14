@@ -38,6 +38,7 @@ export default function Product() {
   const [minPrice, setMinPrice] = useState(0);
   const [ratingval, setRatingVal] = useState(1);
   const [maxPrice, setMaxPrice] = useState(9999999);
+  const [categoryFilter, setCategoryFilter] = useState(false);
   let myarray;
   let minFilter = minPrice,
     maxFilter = maxPrice,
@@ -72,6 +73,7 @@ export default function Product() {
   };
 
   const handleCategory = (cname) => {
+    setCategoryFilter(cname);
     let filteredProduct = data.filter((e) => {
       return e.category === cname;
     });
@@ -120,12 +122,13 @@ export default function Product() {
     // setBrands(filter.brand);
 
     // setBrandFilter(filteration);
-    console.log("I am filterBar===", filterBar);
+    console.log("I am filterBar===", filteration);
 
     data.filter((a) => {
       if (
         a.price > minPrice &&
         a.price < maxPrice &&
+        (categoryFilter ? a.category === categoryFilter : !categoryFilter) &&
         a.rating >= ratingval &&
         filterArray.filter((e) => {
           return e.id === a.bid;
@@ -154,7 +157,10 @@ export default function Product() {
     } else {
       let filteredProduct = data.filter((e) => {
         return (
-          e.price > minPrice && e.price < maxPrice && e.rating >= ratingval
+          e.price > minPrice &&
+          e.price < maxPrice &&
+          (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
+          e.rating >= ratingval
         );
       });
       setProducts(filteredProduct);
@@ -195,11 +201,17 @@ export default function Product() {
 
         return obj;
       });
+      console.log("I am applied", applied);
       setFilterBar(applied);
     }
     console.log("min", minPrice, "max", maxPrice, "rating", ratingval);
     let filteredProduct = data.filter((e) => {
-      return e.price > minPrice && e.price < maxPrice && e.rating >= value1;
+      return (
+        e.price > minPrice &&
+        e.price < maxPrice &&
+        (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
+        e.rating >= value1
+      );
     });
     let handleCheck = false;
     filterBar.map((obj) => {
@@ -252,7 +264,12 @@ export default function Product() {
     // filterBar.push(myfilter);
     if (value1 !== "" && value2 !== "") {
       let filteredProduct = data.filter((e) => {
-        return e.price > value1 && e.price < value2 && e.rating >= ratingval;
+        return (
+          e.price > value1 &&
+          e.price < value2 &&
+          (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
+          e.rating >= ratingval
+        );
       });
       let handleCheck = false;
       filterBar.map((obj) => {
