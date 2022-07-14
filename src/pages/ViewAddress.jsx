@@ -44,9 +44,9 @@ export default function ViewAddress(route, props) {
   };
   // useEffect(getAddress, [updated]);
   return (
-    <div className="">
+    <div className="bg-light ">
       <Topbar />
-      <div className="row">
+      <div className="row container-fluid">
         <div className="col-2 bg-white">
           <Sidebar />
         </div>

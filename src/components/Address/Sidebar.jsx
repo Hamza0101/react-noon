@@ -3,13 +3,13 @@ import React from "react";
 export default function Sidebar() {
   return (
     <div className="container-fluid">
-      <div className="h-100">
-        <h4>
+      <div className="container" style={{ height: "100vh" }}>
+        <h5 className="my-3">
           <strong>Halla Tester!</strong>
-        </h4>
+        </h5>
         <p>testDeveloper@gmail.com</p>
-        <ul className="text-sm">
-          <li className="liItem mt-2">
+        <div>
+          <li className="liItem my-3">
             <strong className="text-black-50">
               <img
                 src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
@@ -18,7 +18,7 @@ export default function Sidebar() {
               Order
             </strong>
           </li>
-          <li className="liItem mt-2">
+          <li className="liItem my-3">
             <strong className="text-black-50">
               {" "}
               <img
@@ -28,7 +28,7 @@ export default function Sidebar() {
               Return
             </strong>
           </li>
-          <li className="liItem">
+          <li className="liItem my-3">
             <u>
               {" "}
               <strong className="text-black-">
@@ -41,7 +41,7 @@ export default function Sidebar() {
               </strong>
             </u>
           </li>
-          <li className="liItem">
+          <li className="liItem my-3">
             <strong className="text-black-50">
               {" "}
               <img
@@ -51,7 +51,7 @@ export default function Sidebar() {
               Saved Card
             </strong>
           </li>
-          <li className="liItem">
+          <li className="liItem my-3">
             <strong className="text-black-50">
               {" "}
               <img
@@ -61,7 +61,7 @@ export default function Sidebar() {
               Warranty
             </strong>
           </li>
-          <li className="liItem">
+          <li className="liItem my-3">
             <strong className="text-black-50">
               {" "}
               <img
@@ -71,7 +71,7 @@ export default function Sidebar() {
               Noon
             </strong>
           </li>
-          <li className="liItem">
+          <li className="liItem my-3">
             <strong className="text-black-50">
               {" "}
               <img
@@ -81,7 +81,7 @@ export default function Sidebar() {
               Profile
             </strong>
           </li>
-          <li className="liItem">
+          <li className="liItem my-3">
             <strong className="text-black-50">
               {" "}
               <img
@@ -91,7 +91,7 @@ export default function Sidebar() {
               Preferences
             </strong>
           </li>
-          <li className="liItem">
+          <li className="liItem my-3">
             <strong className="text-black-50">
               {" "}
               <img
@@ -101,7 +101,7 @@ export default function Sidebar() {
               Gift Cards
             </strong>
           </li>
-        </ul>
+        </div>
       </div>
 
       <strong className="text-black-50 m-4 my-10 ">Sign out</strong>

@@ -10,6 +10,13 @@ export default function Topbar() {
   const viewCart = () => {
     navigate(`/cart`);
   };
+
+  const viewProducts = () => {
+    navigate(`/products`);
+  };
+  const viewAddress = () => {
+    navigate(`/address`);
+  };
   return (
     <div className="top-bg-color ">
       <div className="container-fluid row">
@@ -34,7 +41,7 @@ export default function Topbar() {
           />
         </p>
 
-        <form className=" form-inline col-md-6  m-2">
+        <form className=" form-inline col-md-4  m-2">
           <input
             className="form-control mr-sm-2 w-100 h-75"
             type="search"
@@ -56,6 +63,19 @@ export default function Topbar() {
             onClick={viewCart}
             role="button"
           />
+        </p>
+        <p className="m-3">
+          |
+          <span className="mx-3" role="button" onClick={viewProducts}>
+            <strong>Products</strong>
+          </span>
+        </p>
+
+        <p className="m-3">
+          |
+          <span className="mx-3" role="button" onClick={viewAddress}>
+            <strong>Address</strong>
+          </span>
         </p>
       </div>
     </div>

@@ -8,7 +8,16 @@ export default function Brands(props) {
     <div className="container">
       <strong className="m-2">
         {" "}
-        Brand <button className="btn-link border-0 bg-light"> Clear</button>
+        Brand{" "}
+        <button
+          className="btn-link border-0 bg-light"
+          onClick={() => {
+            props.onClearBrand();
+          }}
+        >
+          {" "}
+          Clear
+        </button>
       </strong>
       <input type="search" className="m-2" placeholder="Search" />
       <ul className="p-2">

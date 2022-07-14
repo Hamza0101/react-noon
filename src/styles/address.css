@@ -7,8 +7,11 @@
   border-radius: 20px;
 }
 .bg-pink {
-  background-color: pink;
-  opacity: 40%;
+  background-color: rgb(255 248 236);
   height: 25px;
   margin-top: 2px;
+}
+.myBorder {
+  border-bottom: 3px solid;
+  color: #3866df;
 }

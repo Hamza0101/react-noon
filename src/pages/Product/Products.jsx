@@ -32,19 +32,38 @@ export default function Product() {
   const [ratingExist, setRatingExist] = useState(false);
   const [pricingExist, setPricingExist] = useState(false);
   const [filteredBrandProducts, setFilteredBrandProducts] = useState([]);
-  let brandExist = false;
-  let filteration, filterArray;
-  let brandProducts = [];
   const [minPrice, setMinPrice] = useState(0);
   const [ratingval, setRatingVal] = useState(1);
   const [maxPrice, setMaxPrice] = useState(9999999);
   const [categoryFilter, setCategoryFilter] = useState(false);
+  const [brandFilter, setBrandFilter] = useState(brands);
+
+  let brandExist = false;
+  let filteration, filterArray;
+  let brandProducts = [];
   let myarray;
   let minFilter = minPrice,
     maxFilter = maxPrice,
     ratingFilter = ratingval;
 
-  const [brandFilter, setBrandFilter] = useState(brands);
+  const onClearBrand = () => {
+    setBrands(filter.brand);
+    setBrandFilter(filter.brand);
+    setFilterBar(
+      filterBar.filter((e) => {
+        return e.type !== "brand";
+      })
+    );
+    let filteredProduct = data.filter((e) => {
+      return (
+        e.price > minPrice &&
+        e.price < maxPrice &&
+        (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
+        e.rating >= ratingval
+      );
+    });
+    setProducts(filteredProduct);
+  };
   const handleFilter = (data) => {
     setFilterBar(
       filterBar.filter((e) => {
@@ -196,7 +215,7 @@ export default function Product() {
     } else {
       const applied = filterBar.map((obj) => {
         if (obj.type === "rating") {
-          return { ...obj, fname: myfilter.fname };
+          return myfilter;
         }
 
         return obj;
@@ -242,7 +261,7 @@ export default function Product() {
       fname: "Price " + value1 + " " + value2,
     };
     filterBar.map((e) => {
-      if (e.type === "rating") {
+      if (e.type === "price") {
         setRatingExist(true);
         return e;
       }
@@ -254,7 +273,7 @@ export default function Product() {
     } else {
       const applied = filterBar.map((obj) => {
         if (obj.type === "price") {
-          return { ...obj, fname: myfilter.fname };
+          return myfilter;
         }
 
         return obj;
@@ -304,9 +323,20 @@ export default function Product() {
             handleBrand={handleBrand}
             setBrandFilter={setBrandFilter}
             brandFilter={brandFilter}
+            onClearBrand={onClearBrand}
           />
-          <PriceFilter handleGo={handleGo} />
-          <CustomSlider filterSlide={filterSlide} handleSlider={handleSlider} />
+          <PriceFilter
+            handleGo={handleGo}
+            val1={minPrice}
+            val2={maxPrice}
+            setVal1={setMinPrice}
+            setVal2={setMaxPrice}
+          />
+          <CustomSlider
+            filterSlide={filterSlide}
+            handleSlider={handleSlider}
+            ratingval={ratingval}
+          />
           <NetworkType />
           <OperatingSystem />
           <InternalMemory />

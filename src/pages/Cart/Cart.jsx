@@ -56,12 +56,12 @@ export default function Cart() {
   };
 
   return (
-    <div>
+    <>
       <Topbar />
       <Navbar />
-      <div className="container-fluid">
-        <div className="row">
-          <div className="m-2">
+      <div className="w-100">
+        <div className="row container-fluid">
+          <div className="mt-2">
             <h4 className="ml-2">
               <strong>Cart</strong>
             </h4>
@@ -71,15 +71,15 @@ export default function Cart() {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-9">
+        <div className="row container-fluid">
+          <div className="col-9 ">
             {" "}
             <img
               src="https://k.nooncdn.com/cms/pages/20220626/072c6ff79c997ca559ff50829e0e1b44/en_uae-cart-01.png"
               alt=""
               className="w-100"
             />
-            <div className="row m-2">
+            <div className="row m-2 my-4">
               <div className="card col-12">
                 {cartData.map((cart, index) => {
                   totalAmount += cart.price * cart.quantity;
@@ -88,7 +88,7 @@ export default function Cart() {
                   // console.log("I am Cart", cart.id);
 
                   return (
-                    <div className="row" key={index}>
+                    <div className="row my-4" key={index}>
                       <div className="col-2">
                         <img
                           className="card-img-top"
@@ -209,55 +209,55 @@ export default function Cart() {
               </button>
             </div>
           </div>
-          <div className="col-3">
-            {" "}
-            <h5>Order Summary</h5>
-            <form className=" form-inline">
+          <div className="col-3 border border-5 ">
+            <h5 className="my-3">
+              <strong>Order Summary</strong>
+            </h5>
+            <div className="m-3 w-100">
+              <form className=" form-inline ">
+                <div className="row">
+                  <div className="">
+                    <input
+                      className="form-control "
+                      type="search"
+                      placeholder="Coupon Code Or Gift Card  "
+                      aria-label="Search"
+                    />
+                    <button className="btn-primary h-100  ">
+                      <strong className="mb-auto ">Apply</strong>
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <div className="row my-2">
+                <h6>Subtotal({data.length} Items)</h6>
+                <h6 className="col-5 ml-auto">
+                  <strong>AED {cartTotal}</strong>
+                </h6>
+              </div>
               <div className="row">
-                <div className="">
-                  <input
-                    className="form-control "
-                    type="search"
-                    placeholder="Coupon Code Or Gift Card  "
-                    aria-label="Search"
-                  />
-                  <button className="btn-primary h-100  ">
-                    <strong className="mb-auto ">Apply</strong>
-                  </button>
+                <div>
+                  <h6>
+                    Shipping{" "}
+                    <button className="btn-link border-0 "> Details</button>
+                  </h6>
+                </div>
+                <div className="ml-auto col-3">
+                  <h6 className="text-primary">
+                    <strong>Free</strong>
+                  </h6>
                 </div>
               </div>
-            </form>
-            <div className="row">
-              <h6>Subtotal({data.length} Items)</h6>
-              <h6 className="col-5 ml-auto">
-                <strong>AED {cartTotal}</strong>
-              </h6>
             </div>
-            <div className="row">
-              <div>
-                <h6>
-                  Shipping{" "}
-                  <button className="btn-link border-0 bg-white">
-                    {" "}
-                    Details
-                  </button>
-                </h6>
-              </div>
-              <div className="ml-auto col-3">
-                <h6 className="text-primary">
-                  <strong>Free</strong>
-                </h6>
-              </div>
-            </div>
-            <hr></hr>
-            <div className="row">
-              <h4>
+            <hr className=""></hr>
+            <div className="d-flex">
+              <h6>
                 <strong>Total</strong>
-              </h4>
-              <p className="mt-1">(inclusive of VAT)</p>
-              <h4 className="ml-4">
+              </h6>
+              (inclusive of VAT)
+              <h5 className="ml-auto">
                 <strong>AED {cartTotal}</strong>
-              </h4>
+              </h5>
             </div>
             <div className="row">
               <div className="col-1">
@@ -270,29 +270,34 @@ export default function Cart() {
                 <p>Monthly payment plans from AED 500</p>
               </div>
             </div>
-            <button className="btn-link bg-white border-0 ml-4 ">
+            <button className="btn-link border-0 ml-4 ">
               view more details
             </button>
+
+            <button
+              className="btn-primary w-100 my-2"
+              style={{ height: "45px" }}
+            >
+              CHECKOUT
+            </button>
+
             <div className="row">
-              <button className="btn-primary btn-lg w-100">CHECKOUT</button>
-            </div>
-            <div className="row mt-2">
-              <div className="col-1 mt-2">
-                <img
-                  src="https://z.nooncdn.com/s/app/com/noon/icons/vip_credit_card.svg"
-                  alt=""
-                />
-              </div>
-              <div className="col-11">
-                <p>
-                  <strong className="text-success">
-                    Earn AED 260.6 cashback
-                  </strong>{" "}
-                  with the Mashreq Noon VIP Credit Card.{" "}
-                  <button className="btn-link bg-white border-0">
-                    Apply Now
-                  </button>
-                </p>
+              <div className="d-flex">
+                <div className="my-2 m-2">
+                  <img
+                    src="https://z.nooncdn.com/s/app/com/noon/icons/vip_credit_card.svg"
+                    alt=""
+                  />
+                </div>
+                <div className="my-2">
+                  <p>
+                    <strong className="text-success">
+                      Earn AED 260.6 cashback
+                    </strong>{" "}
+                    with the Mashreq Noon VIP Credit Card.{" "}
+                    <button className="btn-link  border-0">Apply Now</button>{" "}
+                  </p>{" "}
+                </div>
               </div>
             </div>
           </div>
@@ -302,6 +307,6 @@ export default function Cart() {
       <BottomList />
       <SocialBar />
       <Footer />
-    </div>
+    </>
   );
 }

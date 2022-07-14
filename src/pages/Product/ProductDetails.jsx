@@ -86,7 +86,7 @@ export default function ProductDetails() {
               Saving: <strong>{product[params.id].currency} 530.00</strong> 10%
               Off
             </p>
-            <div className="bg-pink">
+            <div className="bg-pink h-100">
               <p>
                 {" "}
                 <img
@@ -95,9 +95,7 @@ export default function ProductDetails() {
                 />
                 <strong className="m-2">Earn AED 228.15</strong>cashback with
                 the Mashreq Noon VIP Credit Card.{" "}
-                <button className="btn-link bg-white border-0">
-                  Apply Now
-                </button>
+                <button className="btn-link bg-pink border-0">Apply Now</button>
               </p>
             </div>
             <div>
@@ -107,7 +105,7 @@ export default function ProductDetails() {
                   alt=""
                 />
                 Monthly payment plans from AED 761
-                <button className="btn-link border-0 bg-white">
+                <button className="btn-link border-0 ">
                   View more details
                 </button>
               </p>
@@ -161,12 +159,12 @@ export default function ProductDetails() {
                     </div>
                   </div>
                 </div>
-                <div className="p-2 col-10">
+                <div className="p-2 col-10 ">
                   <button
-                    className="btn-lg btn-primary w-100 "
+                    className=" btn-primary w-100 h-100"
                     onClick={addToCart(product)}
                   >
-                    Add To Cart
+                    <strong> Add To Cart</strong>{" "}
                   </button>
                 </div>
               </div>
@@ -217,20 +215,20 @@ export default function ProductDetails() {
                 <p className="text-black-50 m-2">
                   Color Name: <strong className="text-dark">Blue</strong>
                 </p>
-                <div>
-                  <button className="btn-light">
+                <div className="bg-light">
+                  <button className="btn-link border-1 border-light bg-white">
                     <img
                       src="https://z.nooncdn.com/products/tr:n-t_80/v1654522001/N51315009A_1.jpg"
                       alt=""
                     />
                   </button>
-                  <button className="btn-light ml-3">
+                  <button className="btn-link border-1 border-light bg-white ml-3">
                     <img
                       src="https://z.nooncdn.com/products/tr:n-t_80/v1654522001/N51315010A_1.jpg"
                       alt=""
                     />
                   </button>
-                  <button className="btn-light ml-3">
+                  <button className="btn-link border-1 border-light bg-white ml-3">
                     <img
                       src="https://z.nooncdn.com/products/tr:n-t_80/v1654522002/N51315176A_1.jpg"
                       alt=""
@@ -238,12 +236,12 @@ export default function ProductDetails() {
                   </button>
                 </div>
               </div>
-              <div className="bg-grey mt-4">
-                <h6>
+              <div className=" my-4 ">
+                <h6 className="my-4">
                   <strong>Frequently Bought Together</strong>
                 </h6>
-                <div className="row">
-                  <div className="card col-4">
+                <div className="row my-4 bg-white">
+                  <div className=" col-3 m-2 my-3">
                     <div className="custom-control custom-checkbox ">
                       <input
                         type="checkbox"
@@ -266,7 +264,7 @@ export default function ProductDetails() {
                     </div>
                   </div>
 
-                  <div className="card col-4">
+                  <div className=" col-3 mx-2 my-3">
                     <div className="custom-control custom-checkbox image-checkbox">
                       <input
                         type="checkbox"
@@ -288,7 +286,7 @@ export default function ProductDetails() {
                       <p className="footer-text-size">USB-C 20 watt charger</p>
                     </div>
                   </div>
-                  <div className="card col-4">
+                  <div className=" col-3 mx-2 my-3">
                     <div className="custom-control custom-checkbox image-checkbox">
                       <input
                         type="checkbox"
@@ -355,28 +353,35 @@ export default function ProductDetails() {
               />
               Enjoy hassle free returns with this offer.
             </p>
-            <button className="btn-link border-0 bg-white">Learn More</button>
-            <p className="m-2">
+            <button className="btn-link border-0 bg-light">Learn More</button>
+            <div className="d-flex">
               <img
                 src="https://z.nooncdn.com/s/app/com/noon/icons/warranty.svg"
                 alt=""
               />
-              <strong>No warranty</strong>
-            </p>
-            <p className="m-2">
-              <img
-                className="mt-2"
-                src="https://z.nooncdn.com/s/app/com/noon/icons/seller.svg"
-                alt=""
-              />
-              Sold by{" "}
-              <button className="btn-link border-0 bg-white">
-                <strong>Mango phones</strong>
-              </button>
-              76% rating
-            </p>
-            <div className="d-flex m-2">
-              <div className="">
+              <p className="m-2">
+                <strong>No warranty</strong>
+              </p>
+            </div>
+            <div className="d-flex">
+              <div>
+                <img
+                  className="mt-2"
+                  src="https://z.nooncdn.com/s/app/com/noon/icons/seller.svg"
+                  alt=""
+                />
+              </div>
+              <p className="m-2">
+                Sold by{" "}
+                <button className="btn-link border-0 bg-light">
+                  <strong>Mango phones</strong>
+                </button>
+                76% rating
+              </p>
+            </div>
+
+            <div className="d-flex my-2">
+              <div className="p-2">
                 <img
                   src="https://z.nooncdn.com/nr/seller_badges/badge_low_returns_seller.png"
                   alt=""
@@ -386,7 +391,7 @@ export default function ProductDetails() {
                   <strong>Low return Seller</strong>
                 </p>
               </div>
-              <div>
+              <div className="my-2">
                 <img
                   src="https://z.nooncdn.com/nr/seller_badges/badge_great_recent_rating.png"
                   alt=""
@@ -396,10 +401,10 @@ export default function ProductDetails() {
                   <strong> Great Recent Rating</strong>
                 </p>
               </div>
-              <div>
-                <h1 className="text-success m-4">86%</h1>
-                <p>
-                  <strong className=""> product as Descibed</strong>
+              <div className="">
+                <h1 className="text-success my-4">86%</h1>
+                <p className="w-100">
+                  <strong className="text-center"> product as Described</strong>
                 </p>
               </div>
             </div>
@@ -442,7 +447,7 @@ export default function ProductDetails() {
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
               <span
-                className="nav-item nav-link active "
+                className="nav-item nav-link active border-primary "
                 role="button"
                 href=""
                 onClick={() => {
@@ -450,13 +455,15 @@ export default function ProductDetails() {
                 }}
               >
                 {activeBtn === 1 ? (
-                  <u className="text-primary">
-                    <h3 className="text-primary">OVERVIEW</h3>
-                  </u>
+                  <h5 className="text-primary myBorder h-100 ">
+                    <strong>OVERVIEW</strong>
+                  </h5>
                 ) : (
-                  <h3 className="text-black-50">OVERVIEW </h3>
+                  <h5 className="text-black-50">
+                    <strong>OVERVIEW</strong>{" "}
+                  </h5>
                 )}{" "}
-                <span className="sr-only"></span>
+                <span className="sr-only "></span>
               </span>
               <span
                 className="nav-item nav-link active"
@@ -467,11 +474,13 @@ export default function ProductDetails() {
                 }}
               >
                 {activeBtn === 2 ? (
-                  <u className="text-primary">
-                    <h3 className="text-primary">SPECIFICATIONS</h3>
-                  </u>
+                  <h5 className="text-primary myBorder h-100">
+                    <strong>SPECIFICATIONS</strong>
+                  </h5>
                 ) : (
-                  <h3 className="text-black-50">SPECIFICATIONS</h3>
+                  <h5 className="text-black-50">
+                    <strong>SPECIFICATIONS</strong>
+                  </h5>
                 )}
 
                 <span className="sr-only"></span>
@@ -485,11 +494,13 @@ export default function ProductDetails() {
                 }}
               >
                 {activeBtn === 3 ? (
-                  <u className="text-primary">
-                    <h3 className="text-primary">REVIEWS</h3>
-                  </u>
+                  <h5 className="text-primary myBorder h-100 ">
+                    <strong>REVIEWS</strong>
+                  </h5>
                 ) : (
-                  <h3 className="text-black-50">REVIEWS</h3>
+                  <h5 className="text-black-50">
+                    <strong>REVIEWS</strong>
+                  </h5>
                 )}
 
                 <span className="sr-only"></span>
@@ -498,6 +509,7 @@ export default function ProductDetails() {
           </div>
         </nav>
       </div>
+
       <div>
         {activeBtn === 1 ? (
           <Overview />

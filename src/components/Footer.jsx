@@ -4,9 +4,9 @@ import "./footer.css";
 export default class Footer extends Component {
   render() {
     return (
-      <div className="row container-fluid bg-light">
+      <div className="row container-fluid bg-light " style={{ color: "#eee" }}>
         <footer className="bg-light text-black float-start footerUi">
-          <div className="row">
+          <div className="row ">
             <h6 className="ml-5 m-2">&copy;2022 noon All Right Reserved</h6>
             <img
               className=" footer-logo ml-5 m-2"
