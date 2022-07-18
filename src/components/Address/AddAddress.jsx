@@ -7,6 +7,8 @@ import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useNavigate } from "react-router-dom";
+import { add } from "../../actions/actionAddress";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function AddAddress(props) {
   const [firstName, setFirstName] = useState("");
@@ -18,6 +20,7 @@ export default function AddAddress(props) {
   const [checked, setChecked] = useState(false);
   console.log("I am Address", props.address);
 
+  let dispatch = useDispatch();
   let navigate = useNavigate();
 
   const toggle = (checked) => {
@@ -34,28 +37,29 @@ export default function AddAddress(props) {
       label: label,
       defaultAddress: checked,
     };
-    if (checked) {
-      let myUpdate = props.address.map((obj) => {
-        console.log("you are finding me", obj);
-        return { ...obj, defaultAddress: false };
-      });
-      myUpdate.push(myAddress);
-      // props.address = myUpdate;
-      //  console.log("final", address);
-      // props.address.push(myAddress);
-      navigate(`/address`, { state: { myUpdate } });
-    } else {
-      // let myUpdate = props.address.map((obj) => {
-      //   console.log("you are finding me", obj);
-      //   return obj;
-      // });
-      // myUpdate.push(myAddress);
-      // props.address = myUpdate;
-      props.address.push(myAddress);
-      let myUpdate = props.address;
-      navigate(`/address`, { state: { myUpdate } });
-    }
-
+    dispatch(add(myAddress));
+    // if (checked) {
+    //   let myUpdate = props.address.map((obj) => {
+    //     console.log("you are finding me", obj);
+    //     return { ...obj, defaultAddress: false };
+    //   });
+    //   myUpdate.push(myAddress);
+    //   // props.address = myUpdate;
+    //   //  console.log("final", address);
+    //   // props.address.push(myAddress);
+    //   navigate(`/address`, { state: { myUpdate } });
+    // } else {
+    //   // let myUpdate = props.address.map((obj) => {
+    //   //   console.log("you are finding me", obj);
+    //   //   return obj;
+    //   // });
+    //   // myUpdate.push(myAddress);
+    //   // props.address = myUpdate;
+    //   props.address.push(myAddress);
+    //   let myUpdate = props.address;
+    //   navigate(`/address`, { state: { myUpdate } });
+    // }
+    navigate(`/address`);
     console.log("i am not", updatedAddress);
 
     // props.addAddress(updatedAddress);

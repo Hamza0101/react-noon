@@ -4,7 +4,7 @@ export default function Sidebar() {
   return (
     <div className="container-fluid">
       <div className="container" style={{ height: "100vh" }}>
-        <h5 className="my-3">
+        <h5 className="my-3 ">
           <strong>Halla Tester!</strong>
         </h5>
         <p>testDeveloper@gmail.com</p>

@@ -2,13 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { createStore } from "redux";
+import addressReducer from "./reducers/address";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const store = createStore(addressReducer);
 root.render(
   // <React.StrictMode>
-  <>
+  <Provider store={store}>
     <App />
-  </>
+  </Provider>
   // </React.StrictMode>
 );
 

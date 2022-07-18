@@ -47,10 +47,10 @@ export default function ViewAddress(route, props) {
     <div className="bg-light ">
       <Topbar />
       <div className="row container-fluid">
-        <div className="col-2 bg-white">
+        <div className="col-3 bg-white">
           <Sidebar />
         </div>
-        <div className="col-10">
+        <div className="col-9">
           <AddressCard
             updated={updated ? updated : address}
             addAddress={props.addAddress}

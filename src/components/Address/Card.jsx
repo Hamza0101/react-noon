@@ -1,11 +1,20 @@
 import React from "react";
 import Switch from "react-switch";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAddress } from "../../actions/actionAddress";
+import { updateDefaultAddress } from "../../actions/actionAddress";
+import EditModal from "./EditModal";
 
 export default function Card(props) {
+  let dispatch = useDispatch();
+  const [editCheck, seteditCheck] = useState(false);
   const [checked, setChecked] = useState(props.data.defaultAddress);
   const toggle = (checked) => {
     setChecked(checked);
+  };
+  const editAddress = () => {
+    seteditCheck(true);
   };
   return (
     <div className="container bg-white">
@@ -14,12 +23,20 @@ export default function Card(props) {
           <strong>{props.data.label}</strong>
         </div>
         <div className="p-2 ml-auto">
-          <button className="btn-link border-0 bg-white text-black-50 ">
+          <button
+            className="btn-link border-0 bg-white text-black-50 "
+            onClick={editAddress}
+          >
             <u>Edit</u>
           </button>
         </div>
         <div className="p-2">
-          <button className="btn-link border-0 bg-white text-black-50 ">
+          <button
+            className="btn-link border-0 bg-white text-black-50 "
+            onClick={() => {
+              dispatch(deleteAddress(props.data.id));
+            }}
+          >
             <u>Delete</u>
           </button>
         </div>
@@ -32,6 +49,7 @@ export default function Card(props) {
             onChange={(checked) => {
               toggle(checked);
 
+              dispatch(updateDefaultAddress(props.data.id));
               props.handleDefaultAddress(props.data.id);
             }}
             onColor="#86d3ff"
@@ -75,6 +93,17 @@ export default function Card(props) {
           </p>
         </div>
       </div>
+      {editCheck ? (
+        <>
+          <EditModal
+            editCheck={editCheck}
+            seteditCheck={seteditCheck}
+            data={props.data}
+          />
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

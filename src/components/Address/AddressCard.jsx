@@ -3,8 +3,11 @@ import Address from "../../pages/Address";
 import { useNavigate } from "react-router-dom";
 import Switch from "react-switch";
 import Card from "./Card";
+import { useSelector } from "react-redux";
 
 export default function AddressCard(props) {
+  const address = useSelector((state) => state);
+  console.log("I am address", address);
   console.log("I am props", props.updated.myUpdate);
   const myData = props.updated;
   console.log("MyData", myData);
@@ -43,9 +46,9 @@ export default function AddressCard(props) {
         <h5>
           <strong>Default Address</strong>
         </h5>
-        {props.updated.length ? (
+        {address.length ? (
           <>
-            {props.updated.map((data, index) => {
+            {address.map((data, index) => {
               return (
                 <>
                   {data.defaultAddress ? (
@@ -62,16 +65,16 @@ export default function AddressCard(props) {
           </>
         ) : (
           <>
-            <h1>""</h1>
+            <h5>No Address Available</h5>
           </>
         )}
       </div>
       <h5>
         <strong>Other Address</strong>
       </h5>
-      {props.updated.length ? (
+      {address.length ? (
         <>
-          {props.updated.map((data, index) => {
+          {address.map((data, index) => {
             return (
               <>
                 {data.defaultAddress ? (
@@ -88,7 +91,7 @@ export default function AddressCard(props) {
         </>
       ) : (
         <>
-          <h1>""</h1>
+          <h5>No Address Available</h5>
         </>
       )}
     </div>

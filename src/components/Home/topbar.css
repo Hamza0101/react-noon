@@ -1,11 +1,39 @@
-.top-bg-color{
-    height: 60px;
-    background-color: #feee00;
+.top-bg-color {
+  background-color: #feee00;
 }
-.text-size{
+
+.noon-logo {
+  width: 100px;
+  height: 45px;
+}
+
+@media only screen and (min-width: 993px) and (max-width: 5000px) {
+  .bold-text-size {
+    font-size: 16px;
+  }
+  .text-size {
     font-size: 13px;
+  }
+  .small-noon {
+    display: none;
+  }
+  .large-noon {
+    display: flex;
+    overflow-x: auto;
+  }
 }
-.noon-logo{
-    width: 100px;
-    height: 45px;
+@media only screen and (min-width: 250px) and (max-width: 993px) {
+  .bold-text-size {
+    font-size: 15px;
+  }
+
+  .text-size {
+    font-size: 13px;
+  }
+  .small-noon {
+    display: flex;
+  }
+  .large-noon {
+    display: none;
+  }
 }
