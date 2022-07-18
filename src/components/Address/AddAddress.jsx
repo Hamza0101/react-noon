@@ -9,17 +9,34 @@ import "react-phone-input-2/lib/style.css";
 import { useNavigate } from "react-router-dom";
 import { add } from "../../actions/actionAddress";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { edit } from "../../actions/actionAddress";
+
+// import { useSelector } from "react-redux";
 
 export default function AddAddress(props) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setlastName] = useState("");
-  const [phoneNo, setPhoneNo] = useState("");
-  const [fullAddress, setFullAddress] = useState("");
-  const [label, setLabel] = useState("");
-  const [defaultAddress, setDefaultAddress] = useState(false);
-  const [checked, setChecked] = useState(false);
-  console.log("I am Address", props.address);
+  const { id } = useParams();
+  const address = useSelector((state) => state);
+  let myEdit =
+    id &&
+    address.filter((e) => {
+      return e.id === id;
+    });
 
+  const [firstName, setFirstName] = useState(myEdit ? myEdit[0].firstName : "");
+  const [lastName, setlastName] = useState(myEdit ? myEdit[0].lastName : "");
+  const [phoneNo, setPhoneNo] = useState(myEdit ? myEdit[0].phoneNo : "");
+  const [fullAddress, setFullAddress] = useState(
+    myEdit ? myEdit[0].fullAddress : ""
+  );
+  const [label, setLabel] = useState(myEdit ? myEdit[0].label : "");
+  const [defaultAddress, setDefaultAddress] = useState(
+    myEdit ? myEdit[0].defaultAddress : false
+  );
+  const [checked, setChecked] = useState(
+    myEdit ? myEdit[0].defaultAddress : false
+  );
   let dispatch = useDispatch();
   let navigate = useNavigate();
 
@@ -68,6 +85,21 @@ export default function AddAddress(props) {
     // navigate(`/address`, { state: { updatedAddress } });
     // console.log(props.address);
   };
+  const editAddress = () => {
+    let myAddress = {
+      id: id,
+      firstName: firstName,
+      lastName: lastName,
+      phoneNo: phoneNo,
+      fullAddress: fullAddress,
+      label: label,
+      defaultAddress: checked,
+    };
+    console.log("I am edit function", myAddress);
+    dispatch(edit(myAddress));
+    navigate(`/address`);
+  };
+
   return (
     <div className="m-2 ml-2 container">
       <h4>
@@ -140,6 +172,7 @@ export default function AddAddress(props) {
               value={fullAddress}
               onChange={(e) => {
                 setFullAddress(e.target.value);
+                console.log("I am full address", fullAddress);
               }}
             />
 
@@ -250,7 +283,7 @@ export default function AddAddress(props) {
         <button
           className="btn-primary btn-lg ml-auto my-3 mr-3"
           onClick={() => {
-            addAddress();
+            id ? editAddress() : addAddress();
           }}
         >
           Save Address

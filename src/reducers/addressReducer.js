@@ -1,7 +1,11 @@
+import type from "../types/type.js";
+const { ADD_ADDRESS, EDIT_ADDRESS, DELETE_ADDRESS, CHANGE_DEFAULT_ADDRESS } =
+  type;
+
 const addressReducer = (
   state = [
     {
-      id: 1,
+      id: "l5qo0m5s0.cs8jsp8wmng",
       fullAddress: "Gulshan E lahore",
       firstName: "Test",
       lastName: "Developer",
@@ -12,7 +16,7 @@ const addressReducer = (
   action
 ) => {
   switch (action.type) {
-    case "add":
+    case ADD_ADDRESS:
       if (action.payload.defaultAddress) {
         state = state.map((obj) => {
           console.log("you are finding me", obj);
@@ -22,7 +26,8 @@ const addressReducer = (
       state.push(action.payload);
       console.log("I am state", state);
       return state;
-    case "edit":
+    case EDIT_ADDRESS:
+      console.log("I am reducer");
       if (action.payload.defaultAddress) {
         state = state.map((obj) => {
           console.log("you are finding me", obj);
@@ -34,12 +39,12 @@ const addressReducer = (
         return obj;
       });
       return state;
-    case "deleteAddress":
+    case DELETE_ADDRESS:
       state = state.filter((e) => {
         return e.id !== action.payload;
       });
       return state;
-    case "updateDefaultAddress":
+    case CHANGE_DEFAULT_ADDRESS:
       state = state.map((data) => {
         if (data.id === action.payload) {
           return { ...data, defaultAddress: true };

@@ -3,12 +3,17 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { createStore } from "redux";
-import addressReducer from "./reducers/address";
+import { createStore, combineReducers } from "redux";
+import addressReducer from "./reducers/addressReducer";
 import { Provider } from "react-redux";
+import cartReducer from "./reducers/cartReducer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const store = createStore(addressReducer);
+const allReducers = combineReducers({
+  cartReducer: cartReducer,
+  addressReducer: addressReducer,
+});
+const store = createStore(allReducers);
 root.render(
   // <React.StrictMode>
   <Provider store={store}>

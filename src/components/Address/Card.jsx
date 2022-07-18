@@ -3,10 +3,14 @@ import Switch from "react-switch";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAddress } from "../../actions/actionAddress";
+import { useNavigate } from "react-router-dom";
 import { updateDefaultAddress } from "../../actions/actionAddress";
 import EditModal from "./EditModal";
+import AddAddress from "./AddAddress";
+import Address from "../../pages/Address";
 
 export default function Card(props) {
+  let navigate = useNavigate();
   let dispatch = useDispatch();
   const [editCheck, seteditCheck] = useState(false);
   const [checked, setChecked] = useState(props.data.defaultAddress);
@@ -93,17 +97,7 @@ export default function Card(props) {
           </p>
         </div>
       </div>
-      {editCheck ? (
-        <>
-          <EditModal
-            editCheck={editCheck}
-            seteditCheck={seteditCheck}
-            data={props.data}
-          />
-        </>
-      ) : (
-        ""
-      )}
+      {editCheck ? navigate(`edit/${props.data.id}`) : ""}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import Sidebar from "../components/Address/Sidebar";
 import Footer from "../components/Footer";
 import SocialBar from "../components/Home/SocialBar";
 import Topbar from "../components/Home/Topbar";
+import { useParams } from "react-router-dom";
 // import data from "../data/address.json";
 // import { useLocation } from "react-router-dom";
 
@@ -13,6 +14,9 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Address(props) {
+  const params = useParams();
+  let id = params.id;
+  console.log("I am id", id);
   let location = useLocation();
   console.log("I am location", location.state);
   let address = location.state;
@@ -48,10 +52,10 @@ export default function Address(props) {
         <div className="col-9">
           {/* <AddressCard /> */}
           <AddAddress
-            address={address.myData}
-            // addAddress={addAddress}
-            // setAddress={setAddress}
-            // updateAddress={updateAddress}
+
+          // addAddress={addAddress}
+          // setAddress={setAddress}
+          // updateAddress={updateAddress}
           />
         </div>
       </div>

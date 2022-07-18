@@ -19,13 +19,34 @@ import Reviews from "./Reviews";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Panorama, PanoramaSharp } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
 import data from "./imageUrl.json";
+import { add_to_cart } from "../../actions/actionCart";
+import { increment_quantity } from "../../actions/actionCart";
 
 export default function ProductDetails() {
   const params = useParams();
-  const [activeBtn, setActiveBtn] = useState(1);
-  const addToCart = () => {};
+  const dispatch = useDispatch();
   const [prdUrl, setPrdUrl] = useState(product[params.id].url);
+  const [activeBtn, setActiveBtn] = useState(1);
+  const addToCart = () => {
+    const myCart = {
+      id: Date.now().toString(36) + Math.random().toString(36),
+      pid: params.id,
+      pname: product[params.id].pname,
+      pdetail: product[params.id].pdetail,
+      url: prdUrl,
+      price: product[params.id].price,
+      currency: "SAR",
+      arival: product[params.id].arival,
+      bname: product[params.id].bname,
+      bid: product[params.id].bid,
+      rating: product[params.id].bid,
+      quantity: 1,
+    };
+    console.log("I ma cart fun", myCart);
+    dispatch(add_to_cart(myCart));
+  };
   return (
     <div className="bg-light">
       <Topbar />
@@ -162,7 +183,9 @@ export default function ProductDetails() {
                 <div className="p-2 col-10 ">
                   <button
                     className=" btn-primary w-100 h-100"
-                    onClick={addToCart(product)}
+                    onClick={() => {
+                      addToCart();
+                    }}
                   >
                     <strong> Add To Cart</strong>{" "}
                   </button>

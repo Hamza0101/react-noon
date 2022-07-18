@@ -6,8 +6,8 @@ import Card from "./Card";
 import { useSelector } from "react-redux";
 
 export default function AddressCard(props) {
-  const address = useSelector((state) => state);
-  console.log("I am address", address);
+  const address = useSelector((state) => state.addressReducer);
+  console.log("I am address", address.addressReducer);
   console.log("I am props", props.updated.myUpdate);
   const myData = props.updated;
   console.log("MyData", myData);
