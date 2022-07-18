@@ -104,7 +104,7 @@ export default function AddAddress(props) {
           />
         </div>
       </div> */}
-      <div className="m-1 my-2 bg-white row ">
+      <div className=" my-2 bg-white row ">
         <div className="col-6">
           <h5 className="p-4">
             <strong>Location Details</strong>

@@ -41,11 +41,11 @@ export default function Address(props) {
   return (
     <div className="bg-light">
       <Topbar />
-      <div className="md-row container-fluid flex">
-        <div className="md-col-2 bg-white sm-col-1">
+      <div className="row container-fluid flex">
+        <div className="col-3 bg-white sm-col-1">
           <Sidebar />
         </div>
-        <div className="md-col-10">
+        <div className="col-9">
           {/* <AddressCard /> */}
           <AddAddress
             address={address.myData}
