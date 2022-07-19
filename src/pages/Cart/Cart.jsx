@@ -7,9 +7,14 @@ import BottomList from "../../components/Home/BottomList";
 import Support from "../../components/Home/Support";
 import data from "../../data/cart.json";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import { change_quantity } from "../../actions/actionCart";
+import { useEffect } from "react";
 export default function Cart() {
   let navigate = useNavigate();
+  let dispatch = useDispatch();
+  const cart = useSelector((state) => state.cartReducer);
   const [defaultItems, setDefaultItems] = useState(20);
   const [cartData, setCartData] = useState(data);
   let totalAmount = 0;
@@ -54,6 +59,14 @@ export default function Cart() {
     setCartTotal(price);
     console.log("price", price, "cart Total", cartTotal);
   };
+  const getTotal = () => {
+    let totalAmount = 0;
+    cart.map((obj, index) => {
+      totalAmount += obj.price * obj.quantity;
+    });
+    setCartTotal(totalAmount);
+  };
+  useEffect(getTotal, [cart]);
 
   return (
     <>
@@ -67,7 +80,7 @@ export default function Cart() {
             </h4>
           </div>
           <div className="mt-2">
-            <p>({data.length} item)</p>
+            <p>({cart.length} item)</p>
           </div>
         </div>
 
@@ -81,7 +94,7 @@ export default function Cart() {
             />
             <div className="row m-2 my-4">
               <div className="card col-12">
-                {cartData.map((cart, index) => {
+                {cart.map((cart, index) => {
                   totalAmount += cart.price * cart.quantity;
                   // setCartTotal(totalAmount);
 
@@ -159,7 +172,11 @@ export default function Cart() {
                                           role="button"
                                           onClick={() => {
                                             quantity = i + 1;
-                                            handleQuantity(quantity, cart);
+                                            let myData = {
+                                              cartId: cart.id,
+                                              quantity: quantity,
+                                            };
+                                            dispatch(change_quantity(myData));
                                           }}
                                         >
                                           {i + 1}
@@ -230,7 +247,7 @@ export default function Cart() {
                 </div>
               </form>
               <div className="row my-2">
-                <h6>Subtotal({data.length} Items)</h6>
+                <h6>Subtotal({cart.length} Items)</h6>
                 <h6 className="col-5 ml-auto">
                   <strong>AED {cartTotal}</strong>
                 </h6>
