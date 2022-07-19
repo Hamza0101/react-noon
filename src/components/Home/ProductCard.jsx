@@ -1,20 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import "./swiper.css";
-
-// import required modules
 import { Pagination, Navigation } from "swiper";
-
 import products from "./product.json";
 
 export default function ProductCard() {
@@ -24,7 +16,6 @@ export default function ProductCard() {
   };
   return (
     <div className="">
-      {/* <h5 className="font-weight-bold m-2">Recommend for you</h5> */}
       <div className=" bg-white m-2">
         <Swiper
           slidesPerView={1}

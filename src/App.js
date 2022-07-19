@@ -1,11 +1,6 @@
-// import Footer from './components/Footer';
-// import Products from './components/Products';
 import { useState } from "react";
 import { useEffect } from "react";
-// import AddProduct from './components/AddProduct';
-// import Product from './components/Product';
 import ViewProduct from "./components/ViewProduct";
-// import Home from './pages/Home/Home';
 import data from "./data/address.json";
 import Products from "./pages/Product/Products";
 import Home from "./pages/Home/Home";
@@ -43,7 +38,6 @@ function App() {
   }, [products]);
 
   return (
-    // <div className="App">
     <>
       <Router>
         <Routes>
@@ -57,7 +51,6 @@ function App() {
         </Routes>
       </Router>
     </>
-    // </div>
   );
 }
 

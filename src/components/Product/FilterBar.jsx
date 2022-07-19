@@ -11,7 +11,6 @@ export default function FilterBar(props) {
               {props.filterBar.map((data, index) => {
                 return (
                   <>
-                    {console.log("I am fname", data.fname)}
                     {data.fname === "Rating  1" ||
                     data.fname === "Price 0 99999999999999" ? (
                       ""

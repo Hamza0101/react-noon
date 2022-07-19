@@ -5,29 +5,10 @@ export default function BrandItem(props) {
   const [checked, setChecked] = useState(true);
   const handleCheck = (e) => {
     setChecked(!checked);
-    // console.log("checked things", myCheck);
     props.handleBrand(checked, props.brand.id);
-    // props.setBrandFilter(myCheck);
-    // console.log(checked);
-    // const myCheck = {
-    //   id: props.brand.id,
-    //   check: checked,
-    // };
-    // if (props.brandFilter) {
-    //   if (props.brandFilter[props.brand.id]) {
-    //     props.setBrandFilter(
-    //       (props.brandFilter[props.brand.id].check = checked)
-    //     );
-    //   }
-    //   props.setBrandFilter([...props.brandFilter, myCheck]);
-    // } else {
-    //   props.setBrandFilter(myCheck);
-    // }
-    // console.log("br and filter", props.brandFilter);
   };
   return (
     <>
-      {/* {console.log("brandata", props.data.bname)} */}
       <li className="d-flex justify-content-between">
         <div className="mr-5">
           <input
@@ -39,7 +20,6 @@ export default function BrandItem(props) {
             }}
             checked={props.brand.check}
           />
-          {props.brand.id === 1 ? console.log("I am apple", props.brand) : ""}
           <label className="m-2 text-black-50" htmlFor="">
             {props.brand.bname}
           </label>

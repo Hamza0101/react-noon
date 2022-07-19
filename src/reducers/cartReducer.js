@@ -2,7 +2,6 @@ import type from "../types/type.js";
 const { ADD_CART_ITEM, CHANGE_QUANTITY_CART } = type;
 
 const cartReducer = (state = [], action) => {
-  console.log("I am reducer");
   switch (action.type) {
     case ADD_CART_ITEM:
       if (!state.length) {
@@ -22,8 +21,6 @@ const cartReducer = (state = [], action) => {
         state.push(action.payload);
       }
       alert("Product Added in Cart");
-
-      console.log("I am cart state", state);
       return state;
     case CHANGE_QUANTITY_CART:
       state = state.map((obj) => {

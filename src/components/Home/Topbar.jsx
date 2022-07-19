@@ -101,7 +101,7 @@ export default function Topbar() {
             aria-label="Search"
           />
         </form>
-        <div className="large-noon">
+        <div className="large-noon ml-auto">
           <p className="my-3 ml-auto ">
             <strong className="bold-text-size">العربية </strong>|{" "}
           </p>
@@ -126,7 +126,7 @@ export default function Topbar() {
             </span>
           </p>
 
-          <p className="my-3">
+          <p className="my-3 mx-3">
             |
             <span className="mx-3" role="button" onClick={viewAddress}>
               <strong className="bold-text-size">Address</strong>

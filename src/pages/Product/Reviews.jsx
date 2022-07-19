@@ -4,33 +4,28 @@ import data from "../../data/review.json";
 import { useState } from "react";
 
 export default function Reviews(props) {
-  // const [reviews, setReviews] = useState(data);
-  console.log("I am props", props.pid);
-  // console.log("I am review", data.review.length);
   const myReview = data.review.filter((e) => {
     return e.pid == props.pid;
   });
-  // console.log("I am total", myReview.length);
+
   const star5 = myReview.filter((e) => {
     return e.pid == props.pid && e.rating === 5;
   });
-  console.log("I am 5 star", star5);
   const star4 = myReview.filter((e) => {
     return e.pid == props.pid && e.rating === 4;
   });
-  console.log("I am 4 star", star4);
+
   const star3 = myReview.filter((e) => {
     return e.pid == props.pid && e.rating === 3;
   });
-  console.log("I am 3 star", star3);
+
   const star2 = myReview.filter((e) => {
     return e.pid == props.pid && e.rating === 2;
   });
-  console.log("I am 2 star", star2);
+
   const star1 = myReview.filter((e) => {
     return e.pid == props.pid && e.rating === 1;
   });
-  console.log("I am 1 star", star1);
 
   return (
     <div className="container-fluid row">

@@ -1,6 +1,5 @@
 import React from "react";
 import "../../pages/Home/home.css";
-// import data from "./data/filtser.json";
 import BrandItem from "./BrandItem";
 
 export default function Brands(props) {

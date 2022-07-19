@@ -21,8 +21,6 @@ export default function SponserCard() {
               <h1>No Sponser avialable!</h1>
             </>
           )}
-
-          {/* <h6 className="float-right mr-5 text-dark">Sponsored</h6> */}
         </div>
       </div>
     </div>

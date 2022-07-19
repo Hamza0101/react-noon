@@ -3,26 +3,18 @@ import Footer from "../../components/Footer";
 import SocialBar from "../../components/Home/SocialBar";
 import Topbar from "../../components/Home/Topbar";
 import CustomNavbar from "../../components/Home/CustomNavbar";
-import Banner from "../../components/Banner";
-import Filter from "../../components/Product/Filter";
-import CustomTreeView from "../../components/Product/CustomTreeView";
-// import Brand from '../../components/Product/Brands'
-import CustomSlider from "../../components/Product/CustomSlider";
 import BottomList from "../../components/Home/BottomList";
 import ProductCard from "../../components/Home/ProductCard";
 import Support from "../../components/Home/Support";
-import ProductItems from "../../components/Product/ProductItems";
 import product from "../../components/Home/product.json";
 import { Overview } from "./Overview";
 import Specification from "./Specification";
 import Reviews from "./Reviews";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Panorama, PanoramaSharp } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import data from "./imageUrl.json";
 import { add_to_cart } from "../../actions/actionCart";
-import { increment_quantity } from "../../actions/actionCart";
 
 export default function ProductDetails() {
   const params = useParams();
@@ -44,7 +36,6 @@ export default function ProductDetails() {
       rating: product[params.id].bid,
       quantity: 1,
     };
-    console.log("I ma cart fun", myCart);
     dispatch(add_to_cart(myCart));
   };
   return (
@@ -271,7 +262,7 @@ export default function ProductDetails() {
                         className="custom-control-input"
                         id="ck1a"
                       />
-                      <label className="custom-control-label" for="ck1a">
+                      <label className="custom-control-label" htmlFor="ck1a">
                         <img
                           src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840185A_1.jpg"
                           alt="#"
@@ -294,7 +285,7 @@ export default function ProductDetails() {
                         className="custom-control-input"
                         id="ck1a"
                       />
-                      <label className="custom-control-label" for="ck1a">
+                      <label className="custom-control-label" htmlFor="ck1a">
                         <img
                           src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840185A_1.jpg"
                           alt="#"
@@ -316,7 +307,7 @@ export default function ProductDetails() {
                         className="custom-control-input"
                         id="ck1a"
                       />
-                      <label className="custom-control-label" for="ck1a">
+                      <label className="custom-control-label" htmlFor="ck1a">
                         <img
                           src="https://z.nooncdn.com/products/tr:n-t_80/v1648570072/N50840185A_1.jpg"
                           alt="#"

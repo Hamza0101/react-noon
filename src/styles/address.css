@@ -15,3 +15,21 @@
   border-bottom: 3px solid;
   color: #3866df;
 }
+@media only screen and (min-width: 0px) and (max-width: 820px) {
+  .side-bar {
+    display: none;
+  }
+  .my-col {
+    width: auto;
+  }
+  .large-col {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 821px) and (max-width: 5000px) {
+  .side-bar {
+  }
+  .large-col {
+    width: auto;
+  }
+}

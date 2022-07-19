@@ -90,16 +90,6 @@ export default function Navbar() {
                 SPORTS
               </a>
             </li>
-            {/* <li className="nav-item">
-              <span className="nav-link" onClick={viewProducts} role="button">
-                PRODUCTS
-              </span>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link" onClick={viewAddress} role="button">
-                ADDRESS
-              </span>
-            </li> */}
           </ul>
         </div>
       </nav>

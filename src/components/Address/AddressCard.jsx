@@ -16,8 +16,6 @@ export default function AddressCard(props) {
     navigate(`/addAddress`, { state: { myData } });
   };
   const handleDefaultAddress = (obj) => {
-    // alert(obj);
-    // alert(typeof obj);
     let handleDefault = props.updated.map((data) => {
       if (data.id === obj) {
         return { ...data, defaultAddress: true };

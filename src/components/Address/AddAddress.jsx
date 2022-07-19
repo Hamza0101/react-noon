@@ -1,7 +1,5 @@
 import React from "react";
 import "../../styles/address.css";
-// import { Component } from "react";
-// import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import Switch from "react-switch";
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
@@ -12,8 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { edit } from "../../actions/actionAddress";
-
-// import { useSelector } from "react-redux";
 
 export default function AddAddress(props) {
   const { id } = useParams();
@@ -44,7 +40,6 @@ export default function AddAddress(props) {
     setChecked(checked);
   };
   const addAddress = () => {
-    let updatedAddress;
     let myAddress = {
       id: Date.now().toString(36) + Math.random().toString(36),
       firstName: firstName,
@@ -55,35 +50,8 @@ export default function AddAddress(props) {
       defaultAddress: checked,
     };
     dispatch(add(myAddress));
-    // if (checked) {
-    //   let myUpdate = props.address.map((obj) => {
-    //     console.log("you are finding me", obj);
-    //     return { ...obj, defaultAddress: false };
-    //   });
-    //   myUpdate.push(myAddress);
-    //   // props.address = myUpdate;
-    //   //  console.log("final", address);
-    //   // props.address.push(myAddress);
-    //   navigate(`/address`, { state: { myUpdate } });
-    // } else {
-    //   // let myUpdate = props.address.map((obj) => {
-    //   //   console.log("you are finding me", obj);
-    //   //   return obj;
-    //   // });
-    //   // myUpdate.push(myAddress);
-    //   // props.address = myUpdate;
-    //   props.address.push(myAddress);
-    //   let myUpdate = props.address;
-    //   navigate(`/address`, { state: { myUpdate } });
-    // }
-    navigate(`/address`);
-    console.log("i am not", updatedAddress);
 
-    // props.addAddress(updatedAddress);
-    // props.addAddress(myAddress);
-    // console.log("Not okay", props.address);
-    // navigate(`/address`, { state: { updatedAddress } });
-    // console.log(props.address);
+    navigate(`/address`);
   };
   const editAddress = () => {
     let myAddress = {
@@ -95,13 +63,12 @@ export default function AddAddress(props) {
       label: label,
       defaultAddress: checked,
     };
-    console.log("I am edit function", myAddress);
     dispatch(edit(myAddress));
     navigate(`/address`);
   };
 
   return (
-    <div className="m-2 ml-2 container">
+    <div className="m-2 ml-2  w-100">
       <h4>
         <strong>Add new address</strong>
       </h4>
@@ -112,30 +79,7 @@ export default function AddAddress(props) {
           and efficiently
         </strong>
       </p>
-      {/* <div className="d-flex bg-white w-25 m-2">
-        <div className="p-1 bg-pink ml-3 mt-2">
-          <p className="text-black">Save as Gift address</p>
-        </div>
-        <div className="p-1 mt-2">
-          <Switch
-            checked={checked}
-            onChange={(checked) => {
-              toggle(checked);
-            }}
-            onColor="#86d3ff"
-            onHandleColor="#2693e6"
-            handleDiameter={15}
-            uncheckedIcon={false}
-            checkedIcon={false}
-            boxShadow="0px 1px 1px rgba(0, 0, 0, 0.6)"
-            activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-            height={15}
-            width={36}
-            className="react-switch"
-            id="material-switch"
-          />
-        </div>
-      </div> */}
+
       <div className=" my-2 bg-white row ">
         <div className="col-6">
           <h5 className="p-4">
@@ -146,7 +90,7 @@ export default function AddAddress(props) {
               className="mx-2"
             />
           </h5>
-          <div class="pl-4">
+          <div className="pl-4">
             <div className="d-flex">
               {" "}
               <img
@@ -166,13 +110,12 @@ export default function AddAddress(props) {
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="formGroupExampleInput"
               placeholder="eg, Appartment Name, Building Name, Street No"
               value={fullAddress}
               onChange={(e) => {
                 setFullAddress(e.target.value);
-                console.log("I am full address", fullAddress);
               }}
             />
 
@@ -181,31 +124,35 @@ export default function AddAddress(props) {
             </label>
             <div className="my-2">
               <input
-                class="form-check-input mx-2"
+                className="form-check-input mx-2"
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault1"
                 value={label}
                 onChange={(e) => {
                   setLabel("work");
-                  console.log(label);
                 }}
               />
-              <label class="form-check-label mx-4" for="flexRadioDefault1">
+              <label
+                className="form-check-label mx-4"
+                htmlFor="flexRadioDefault1"
+              >
                 Home
               </label>
               <input
-                class="form-check-input mx-2"
+                className="form-check-input mx-2"
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault1"
                 value={label}
                 onChange={(e) => {
                   setLabel("home");
-                  console.log(label);
                 }}
               />
-              <label class="form-check-label mx-4" for="flexRadioDefault1">
+              <label
+                className="form-check-label mx-4"
+                htmlFor="flexRadioDefault1"
+              >
                 Work
               </label>
             </div>
@@ -215,7 +162,6 @@ export default function AddAddress(props) {
                 onChange={(checked) => {
                   toggle(checked);
                   setDefaultAddress(!checked);
-                  console.log("i am default", defaultAddress);
                 }}
                 onColor="#86d3ff"
                 onHandleColor="#2693e6"
@@ -249,7 +195,6 @@ export default function AddAddress(props) {
               value={phoneNo}
               onChange={(phone) => {
                 setPhoneNo(phone);
-                console.log(phoneNo);
               }}
             />
             <label className="my-2">
@@ -257,7 +202,7 @@ export default function AddAddress(props) {
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="formGroupExampleInput"
               placeholder="Alex"
               value={firstName}
@@ -270,7 +215,7 @@ export default function AddAddress(props) {
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="formGroupExampleInput"
               placeholder="John"
               value={lastName}

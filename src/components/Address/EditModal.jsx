@@ -58,7 +58,7 @@ export default function EditModal(props) {
                   className="mx-2"
                 />
               </h5>
-              <div class="pl-4">
+              <div className="pl-4">
                 <div className="d-flex">
                   {" "}
                   <img
@@ -78,7 +78,7 @@ export default function EditModal(props) {
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="formGroupExampleInput"
                   placeholder="eg, Appartment Name, Building Name, Street No"
                   value={fullAddress}
@@ -92,31 +92,35 @@ export default function EditModal(props) {
                 </label>
                 <div className="my-2">
                   <input
-                    class="form-check-input mx-2"
+                    className="form-check-input mx-2"
                     type="radio"
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
                     value={label}
                     onChange={(e) => {
                       setLabel("work");
-                      console.log(label);
                     }}
                   />
-                  <label class="form-check-label mx-4" for="flexRadioDefault1">
+                  <label
+                    className="form-check-label mx-4"
+                    htmlFor="flexRadioDefault1"
+                  >
                     Home
                   </label>
                   <input
-                    class="form-check-input mx-2"
+                    className="form-check-input mx-2"
                     type="radio"
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
                     value={label}
                     onChange={(e) => {
                       setLabel("home");
-                      console.log(label);
                     }}
                   />
-                  <label class="form-check-label mx-4" for="flexRadioDefault1">
+                  <label
+                    className="form-check-label mx-4"
+                    htmlFor="flexRadioDefault1"
+                  >
                     Work
                   </label>
                 </div>
@@ -126,7 +130,6 @@ export default function EditModal(props) {
                     onChange={(checked) => {
                       toggle(checked);
                       setDefaultAddress(!checked);
-                      console.log("i am default", defaultAddress);
                     }}
                     onColor="#86d3ff"
                     onHandleColor="#2693e6"
@@ -160,7 +163,6 @@ export default function EditModal(props) {
                   value={phoneNo}
                   onChange={(phone) => {
                     setPhoneNo(phone);
-                    console.log(phoneNo);
                   }}
                 />
                 <label className="my-2">
@@ -168,7 +170,7 @@ export default function EditModal(props) {
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="formGroupExampleInput"
                   placeholder="Alex"
                   value={firstName}
@@ -181,7 +183,7 @@ export default function EditModal(props) {
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="formGroupExampleInput"
                   placeholder="John"
                   value={lastName}

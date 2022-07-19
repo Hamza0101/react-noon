@@ -3,8 +3,6 @@ import "./customSlider.css";
 import { useState } from "react";
 
 export default function CustomSlider(props) {
-  // const [slideVal, setSlideVal] = useState(1);
-
   return (
     <div className="conntainer mt-4">
       <div className="container">
@@ -24,7 +22,6 @@ export default function CustomSlider(props) {
             step={0.1}
             value={props.ratingval}
             onChange={(e) => {
-              // setSlideVal(e.target.value);
               props.handleSlider(e.target.value);
             }}
             className="slider"

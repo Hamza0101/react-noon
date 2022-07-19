@@ -3,13 +3,11 @@ import Footer from "../../components/Footer";
 import SocialBar from "../../components/Home/SocialBar";
 import Topbar from "../../components/Home/Topbar";
 import CustomNavbar from "../../components/Home/CustomNavbar";
-import Banner from "../../components/Banner";
 import Filter from "../../components/Product/Filter";
 import CustomTreeView from "../../components/Product/CustomTreeView";
 import Brands from "../../components/Product/Brands";
 import CustomSlider from "../../components/Product/CustomSlider";
 import BottomList from "../../components/Home/BottomList";
-import ProductCard from "../../components/Home/ProductCard";
 import Support from "../../components/Home/Support";
 import NetworkType from "../../components/Product/NetworkType";
 import OperatingSystem from "../../components/Product/OperatingSystem";
@@ -18,7 +16,6 @@ import ResultBar from "../../components/Product/ResultBar";
 import FilterBar from "../../components/Product/FilterBar";
 import ProductItems from "../../components/Product/ProductItems";
 import PriceFilter from "../../components/Product/PriceFilter";
-import Filteration from "../../components/Product/Filteration";
 import { useState } from "react";
 import data from "../../components/Home/product.json";
 import filter from "../../components/Product/data/filter.json";
@@ -31,7 +28,6 @@ export default function Product() {
   const [filterBar, setFilterBar] = useState([]);
   const [ratingExist, setRatingExist] = useState(false);
   const [pricingExist, setPricingExist] = useState(false);
-  const [filteredBrandProducts, setFilteredBrandProducts] = useState([]);
   const [minPrice, setMinPrice] = useState(0);
   const [ratingval, setRatingVal] = useState(1);
   const [maxPrice, setMaxPrice] = useState(9999999);
@@ -138,10 +134,6 @@ export default function Product() {
       return e.check === true;
     });
     setBrands(filteration);
-    // setBrands(filter.brand);
-
-    // setBrandFilter(filteration);
-    console.log("I am filterBar===", filteration);
 
     data.filter((a) => {
       if (
@@ -157,7 +149,6 @@ export default function Product() {
       }
     });
 
-    // handleFilterBar();
     let handleCheck = false;
     filterBar.map((obj) => {
       if (obj.type === "brand") {
@@ -171,8 +162,6 @@ export default function Product() {
       } else {
         setProducts([]);
       }
-      // setFilteredBrandProducts(brandProducts);
-      // handleFilterBar();
     } else {
       let filteredProduct = data.filter((e) => {
         return (
@@ -183,12 +172,7 @@ export default function Product() {
         );
       });
       setProducts(filteredProduct);
-
-      // setProducts(data);
-      // handleFilterBar();
     }
-
-    // setProducts(filteredProduct);
   };
   const handleSlider = (value1) => {
     setRatingVal(value1);
@@ -220,10 +204,8 @@ export default function Product() {
 
         return obj;
       });
-      console.log("I am applied", applied);
       setFilterBar(applied);
     }
-    console.log("min", minPrice, "max", maxPrice, "rating", ratingval);
     let filteredProduct = data.filter((e) => {
       return (
         e.price > minPrice &&
@@ -249,8 +231,6 @@ export default function Product() {
     setMinPrice(value1);
     setMaxPrice(value2);
 
-    // setMinPrice(value1);
-    // setMaxPrice(value2);
     const d = new Date();
     let time = d.getTime();
     const myfilter = {
@@ -280,7 +260,7 @@ export default function Product() {
       });
       setFilterBar(applied);
     }
-    // filterBar.push(myfilter);
+
     if (value1 !== "" && value2 !== "") {
       let filteredProduct = data.filter((e) => {
         return (
@@ -301,7 +281,6 @@ export default function Product() {
       } else {
         setProducts(filteredProduct);
       }
-      // handleBrand();
     }
   };
   const getproduct = () => {
@@ -317,7 +296,7 @@ export default function Product() {
         <div className="col-3">
           <Filter />
           <CustomTreeView handleCategory={handleCategory} />
-          {/* <Filteration filter={"Brand"} attr={"bname"} filtername={"brand"} /> */}
+
           <Brands
             brandData={brands}
             handleBrand={handleBrand}
@@ -340,12 +319,14 @@ export default function Product() {
           <NetworkType />
           <OperatingSystem />
           <InternalMemory />
-          {/* <Ram/> */}
         </div>
         <div className="col-9">
-          {/* <Banner /> */}
           <ResultBar />
-          <FilterBar filterBar={filterBar} handleFilter={handleFilter} />
+          <FilterBar
+            filterBar={filterBar}
+            key={filterBar.id}
+            handleFilter={handleFilter}
+          />
           <ProductItems productData={products} />
           <div className="d-flex justify-content-center mr-4">
             <nav aria-label="Page navigation">

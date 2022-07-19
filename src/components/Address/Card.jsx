@@ -84,7 +84,6 @@ export default function Card(props) {
         </div>
         <div className="p-2">
           <p>{props.data.fullAddress}</p>
-          {/* <p>Dubai,UAE</p> */}
         </div>
       </div>
       <div className="d-flex">

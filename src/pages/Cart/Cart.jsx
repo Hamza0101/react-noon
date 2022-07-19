@@ -41,24 +41,6 @@ export default function Cart() {
     setCartTotal(price);
   };
 
-  const handleQuantity = (item, data) => {
-    const updatedCart = cartData.map((obj, index) => {
-      if (obj.id === data.id) {
-        return { ...obj, quantity: item };
-      }
-
-      return obj;
-    });
-    let price = 0;
-    console.log(updatedCart);
-    setCartData(updatedCart);
-    updatedCart.map((obj, index) => {
-      price += obj.price * obj.quantity;
-    });
-    totalAmount = price;
-    setCartTotal(price);
-    console.log("price", price, "cart Total", cartTotal);
-  };
   const getTotal = () => {
     let totalAmount = 0;
     cart.map((obj, index) => {
@@ -96,10 +78,6 @@ export default function Cart() {
               <div className="card col-12">
                 {cart.map((cart, index) => {
                   totalAmount += cart.price * cart.quantity;
-                  // setCartTotal(totalAmount);
-
-                  // console.log("I am Cart", cart.id);
-
                   return (
                     <div className="row my-4" key={index}>
                       <div className="col-2">

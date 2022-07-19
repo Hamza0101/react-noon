@@ -1,8 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
-// import products from "../Home/product.json";
-
 export default function ProductItems(props) {
   let navigate = useNavigate();
   const viewProduct = (id) => {
@@ -10,7 +7,6 @@ export default function ProductItems(props) {
   };
   return (
     <div className="">
-      {/* <h5 className="font-weight-bold m-2">Recommend for you</h5> */}
       <div className="row bg-white mt-2 mr-2">
         {props.productData.length > 0 ? (
           <>

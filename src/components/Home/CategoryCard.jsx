@@ -1,18 +1,10 @@
 import React from "react";
-import { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import "./swiper.css";
-
-// import required modules
 import { Pagination, Navigation } from "swiper";
-
 import category from "./category.json";
 
 export default function CategoryCard() {
@@ -41,9 +33,9 @@ export default function CategoryCard() {
                       <img
                         className="rounded-circle w-100h-75 my-2"
                         src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXBwbGUlMjBsYXB0b3B8ZW58MHx8MHx8&w=1000&q=80"
+                        alt=""
                       />
                     </div>
-                    // <strong>Laptop</strong>
                   );
                 })}
               </>

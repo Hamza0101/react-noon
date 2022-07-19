@@ -14,10 +14,10 @@ export default function ResultBar() {
         <div className="m-2">
           <h6>
             {" "}
-            <div class="dropdown">
+            <div className="dropdown">
               <strong className="text-black-50 m-2">Sort By</strong>
               <button
-                class="btn btn-light dropdown-toggle"
+                className="btn btn-light dropdown-toggle"
                 type="button"
                 id="dropdownMenuButton"
                 data-toggle="dropdown"
@@ -26,14 +26,17 @@ export default function ResultBar() {
               >
                 Recommended
               </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">
+              <div
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <a className="dropdown-item" href="#">
                   Discounted
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Gifts
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Grocery
                 </a>
               </div>
@@ -43,10 +46,10 @@ export default function ResultBar() {
         <div className="m-2">
           <h6>
             {" "}
-            <div class="dropdown">
+            <div className="dropdown">
               <strong className="text-black-50 m-2">Display</strong>
               <button
-                class="btn btn-light dropdown-toggle"
+                className="btn btn-light dropdown-toggle"
                 type="button"
                 id="dropdownMenuButton"
                 data-toggle="dropdown"
@@ -55,14 +58,17 @@ export default function ResultBar() {
               >
                 50 per page
               </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">
+              <div
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <a className="dropdown-item" href="#">
                   25 per page
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   75 per page
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   100 per page
                 </a>
               </div>
