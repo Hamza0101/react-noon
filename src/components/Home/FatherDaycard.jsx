@@ -3,8 +3,8 @@ import "./fatherday.css";
 
 export default function FatherDaycard() {
   return (
-    <div className="container-fluid">
-      <div className="row bg-color1">
+    <div className="w-100">
+      <div className="bg-color1">
         <img
           src="https://k.nooncdn.com/cms/pages/20220609/3364600ea3d5333e2e892f9e6dc0a723/en_dk_uae-title-01.png"
           alt=""

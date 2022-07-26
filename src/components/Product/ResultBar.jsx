@@ -2,8 +2,8 @@ import React from "react";
 
 export default function ResultBar() {
   return (
-    <div>
-      <div className="d-flex  justify-content-between">
+    <div className="w-100">
+      <div className="d-flex flex-md-row flex-sm-column flex-column">
         <div className="">
           <h5 className="">
             {" "}

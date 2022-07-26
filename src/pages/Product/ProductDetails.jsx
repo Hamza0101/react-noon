@@ -43,7 +43,7 @@ export default function ProductDetails() {
       <Topbar />
       <CustomNavbar />
       <div className="row container-fluid m-2">
-        <div className="col-1">
+        <div className="col-md-1 col-2">
           {data.length > 0 ? (
             <>
               {data.map((data, index) => {
@@ -69,12 +69,12 @@ export default function ProductDetails() {
           )}
         </div>
 
-        <div className="col-3">
+        <div className="col-md-3 col-9">
           <div className="card">
             <img className="card-img-top" src={prdUrl} alt="Card image cap" />
           </div>{" "}
         </div>
-        <div className="col-4">
+        <div className="col-md-4">
           <div className="card-body">
             <h4 className="card-title">{product[params.id].bname}</h4>
             <h5 className="card-title">{product[params.id].pdetail}</h5>
@@ -357,7 +357,7 @@ export default function ProductDetails() {
             </div>
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-md-4">
           <div className="card-body">
             <p>
               {" "}

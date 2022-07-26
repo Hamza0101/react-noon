@@ -18,14 +18,15 @@ export default function Topbar() {
     navigate(`/address`);
   };
   return (
-    <div className="top-bg-color ">
-      <div className="px-3 small-noon">
+    <div className="top-bg-color container-fluid ">
+      <div className=" small-noon container-fluid">
         <p className="my-3  ">
           <strong className="bold-text-size">العربية </strong>|{" "}
         </p>
         <img
           className="mb-1 mx-1 small-noon"
           src="https://z.nooncdn.com/s/app/com/common/images/flags/ae.svg"
+          alt=""
         />
         <div className=" small-noon">
           <p className="my-1 text-size">
@@ -75,10 +76,12 @@ export default function Topbar() {
             src="https://z.nooncdn.com/s/app/com/noon/design-system/logos/noon-logo-en.svg"
             onClick={HomePage}
             role="button"
+            alt=""
           />
           <img
             className="mb-1 mx-1 large-noon"
             src="https://z.nooncdn.com/s/app/com/common/images/flags/ae.svg"
+            alt=""
           />
           <div className=" large-noon">
             <p className="my-1 text-size">
@@ -126,7 +129,7 @@ export default function Topbar() {
             </span>
           </p>
 
-          <p className="my-3 mx-3">
+          <p className="my-3 ">
             |
             <span className="mx-3" role="button" onClick={viewAddress}>
               <strong className="bold-text-size">Address</strong>

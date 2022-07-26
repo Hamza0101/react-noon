@@ -12,7 +12,7 @@ export default function ProductItems(props) {
           <>
             {props.productData.map((product, index) => {
               return (
-                <div className="card col-3 border-0 footer-text-size text-left text-black-50">
+                <div className="card col-auto col-md-5 col-lg-4 col-sm-6 border-0 footer-text-size text-left text-black-50">
                   <button className="btn-outline-primary invisible bg-white">
                     Get 100 AED OFF{" "}
                   </button>

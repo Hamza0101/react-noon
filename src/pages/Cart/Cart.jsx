@@ -67,7 +67,7 @@ export default function Cart() {
         </div>
 
         <div className="row container-fluid">
-          <div className="col-9 ">
+          <div className="col-md-9 col-12 ">
             {" "}
             <img
               src="https://k.nooncdn.com/cms/pages/20220626/072c6ff79c997ca559ff50829e0e1b44/en_uae-cart-01.png"
@@ -194,7 +194,7 @@ export default function Cart() {
               </div>
 
               <button
-                className="btn-lg btn-outline-primary w-25 m-2 "
+                className="btn-sm btn-outline-primary  m-2 "
                 on
                 onClick={() => {
                   HomePage();
@@ -204,16 +204,16 @@ export default function Cart() {
               </button>
             </div>
           </div>
-          <div className="col-3 border border-5 ">
+          <div className="col-md-3 col-12 border border-5 ">
             <h5 className="my-3">
               <strong>Order Summary</strong>
             </h5>
-            <div className="m-3 w-100">
+            <div className="m-3 ">
               <form className=" form-inline ">
                 <div className="row">
-                  <div className="">
+                  <div className="d-flex">
                     <input
-                      className="form-control "
+                      className="form-control w-75 "
                       type="search"
                       placeholder="Coupon Code Or Gift Card  "
                       aria-label="Search"

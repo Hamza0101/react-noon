@@ -24,12 +24,12 @@ export default function CategoryCard() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="row my-3 m-2 bg-light   ">
+          <div className="d-flex my-3 m-2 bg-light   ">
             {category.length > 0 ? (
               <>
                 {category.map((category, index) => {
                   return (
-                    <div className=" border-0 text-center bg-light  my-3 col-1 rounded-circle">
+                    <div className=" border-0 text-center bg-light  my-3 col-lg-1 col-md-2 col-sm-3 col-3 rounded-circle">
                       <img
                         className="rounded-circle w-100h-75 my-2"
                         src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXBwbGUlMjBsYXB0b3B8ZW58MHx8MHx8&w=1000&q=80"

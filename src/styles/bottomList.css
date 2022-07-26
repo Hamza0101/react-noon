@@ -1,0 +1,10 @@
+@media only screen and (min-width: 900px) and (max-width: 5000px) {
+  .large-bottom-list {
+    display: flex;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 900px) {
+  .large-bottom-list {
+    display: block;
+  }
+}

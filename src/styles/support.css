@@ -1,0 +1,16 @@
+@media only screen and (min-width: 900px) and (max-width: 5000px) {
+  .large-support {
+    display: flex;
+  }
+  .small-support {
+    display: none;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 900px) {
+  .large-support {
+    display: none;
+  }
+  .small-support {
+    padding: 10px;
+  }
+}

@@ -81,7 +81,7 @@ export default function AddAddress(props) {
       </p>
 
       <div className=" my-2 bg-white row ">
-        <div className="col-6">
+        <div className="col-md-6">
           <h5 className="p-4">
             <strong>Location Details</strong>
             <img
@@ -180,17 +180,17 @@ export default function AddAddress(props) {
             </div>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-md-6">
           <h5 className="my-4">
             <strong>Your Contact Details</strong>
           </h5>
 
-          <div className="">
+          <div className="w-100">
             <label>
               <strong>Phone No.</strong>
             </label>
             <PhoneInput
-              className="w-100"
+              className=""
               country={"us"}
               value={phoneNo}
               onChange={(phone) => {

@@ -10,3 +10,13 @@
 .footer-text-size {
   font-size: 13px;
 }
+@media only screen and (min-width: 720px) and (max-width: 5000px) {
+  .small-footer {
+    display: none;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 720px) {
+  .large-footer {
+    display: none;
+  }
+}

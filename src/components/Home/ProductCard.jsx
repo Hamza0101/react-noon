@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import "./swiper.css";
 import { Pagination, Navigation } from "swiper";
 import products from "./product.json";
+import Row from "react-bootstrap/Row";
 
 export default function ProductCard() {
   let navigate = useNavigate();
@@ -15,12 +16,12 @@ export default function ProductCard() {
     navigate(`/product/${id}`);
   };
   return (
-    <div className="">
-      <div className=" bg-white m-2">
+    <div className="w-100">
+      <div className="bg-white">
         <Swiper
           slidesPerView={1}
-          spaceBetween={10}
-          slidesPerGroup={5}
+          spaceBetween={1}
+          slidesPerGroup={6}
           loop={true}
           loopFillGroupWithBlank={true}
           pagination={{
@@ -35,7 +36,7 @@ export default function ProductCard() {
               <>
                 {products.map((product, index) => {
                   return (
-                    <div className="card mr-4 m-2 col-3 border-0 footer-text-size text-left text-black-50">
+                    <div className="mr-lg-4 col-auto col-md-4 col-lg-3 col-sm-6   border-0 footer-text-size text-left text-black-50">
                       <button className="btn-outline-primary invisible bg-white">
                         Get 100 AED OFF{" "}
                       </button>

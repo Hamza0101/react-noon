@@ -38,7 +38,7 @@ export default function Home() {
       <Gift />
       <ProductCard />
       <DealCard />
-      <div className="row container-fluid">
+      <div className="w-100">
         <img
           className="w-100"
           src="https://k.nooncdn.com/cms/pages/20220310/bb8ec300f66b4fc78e65c2eb8a25eda5/en_plp.jpg"

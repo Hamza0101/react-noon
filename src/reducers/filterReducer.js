@@ -1,8 +1,16 @@
 import type from "../types/type.js";
-const { ADD_ADDRESS, EDIT_ADDRESS, DELETE_ADDRESS, CHANGE_DEFAULT_ADDRESS } =
-  type;
+const {
+  ADD_FILTER_PRODUCT,
+  REMOVE_FILTER_PRODUCT,
+  ADD_BRAND_FILTER,
+  REMOVE_BRAND_FILTER,
+  ADD_PRICE_FILTER,
+  REMOVE_PRICE_FILTER,
+  ADD_RATING_FILTER,
+  REMOVE_RATING_FILTER,
+} = type;
 
-const addressReducer = (
+const filterReducer = (
   state = [
     {
       id: "l5qo0m5s0.cs8jsp8wmng",
@@ -16,7 +24,7 @@ const addressReducer = (
   action
 ) => {
   switch (action.type) {
-    case ADD_ADDRESS:
+    case ADD_FILTER_PRODUCT:
       if (action.payload.defaultAddress) {
         state = state.map((obj) => {
           return { ...obj, defaultAddress: false };
@@ -24,7 +32,7 @@ const addressReducer = (
       }
       state.push(action.payload);
       return state;
-    case EDIT_ADDRESS:
+    case REMOVE_FILTER_PRODUCT:
       if (action.payload.defaultAddress) {
         state = state.map((obj) => {
           return { ...obj, defaultAddress: false };
@@ -35,12 +43,12 @@ const addressReducer = (
         return obj;
       });
       return state;
-    case DELETE_ADDRESS:
+    case ADD_BRAND_FILTER:
       state = state.filter((e) => {
         return e.id !== action.payload;
       });
       return state;
-    case CHANGE_DEFAULT_ADDRESS:
+    case REMOVE_BRAND_FILTER:
       state = state.map((data) => {
         if (data.id === action.payload) {
           return { ...data, defaultAddress: true };
@@ -54,4 +62,4 @@ const addressReducer = (
   }
 };
 
-export default addressReducer;
+export default filterReducer;

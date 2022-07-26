@@ -1,16 +1,10 @@
 import React from "react";
 import banner from "./banner.json";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import "./crousal.css";
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function crousal() {

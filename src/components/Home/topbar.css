@@ -1,6 +1,6 @@
 .top-bg-color {
   background-color: #feee00;
-  width: 100%;
+
   margin: auto;
 }
 
@@ -24,13 +24,28 @@
     overflow-x: auto;
   }
 }
-@media only screen and (min-width: 250px) and (max-width: 993px) {
+@media only screen and (min-width: 500px) and (max-width: 993px) {
   .bold-text-size {
     font-size: 15px;
   }
 
   .text-size {
     font-size: 13px;
+  }
+  .small-noon {
+    display: flex;
+  }
+  .large-noon {
+    display: none;
+  }
+}
+@media only screen and (min-width: 150px) and (max-width: 500px) {
+  .bold-text-size {
+    font-size: 11px;
+  }
+
+  .text-size {
+    font-size: 9px;
   }
   .small-noon {
     display: flex;

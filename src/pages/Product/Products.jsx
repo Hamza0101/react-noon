@@ -293,7 +293,7 @@ export default function Product() {
       <Topbar />
       <CustomNavbar />
       <div className="row m-2">
-        <div className="col-3">
+        <div className="col-lg-3">
           <Filter />
           <CustomTreeView handleCategory={handleCategory} />
 
@@ -320,7 +320,7 @@ export default function Product() {
           <OperatingSystem />
           <InternalMemory />
         </div>
-        <div className="col-9">
+        <div className="col-lg-9">
           <ResultBar />
           <FilterBar
             filterBar={filterBar}

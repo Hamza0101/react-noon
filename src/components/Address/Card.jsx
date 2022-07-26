@@ -46,7 +46,6 @@ export default function Card(props) {
         </div>
         <div className="p-2">
           <label>Default Address</label>
-          {console.log("I am the check", props.data.defaultAddress)}
           <Switch
             checked={props.data.defaultAddress}
             disabled={props.data.defaultAddress}

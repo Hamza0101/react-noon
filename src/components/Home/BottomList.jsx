@@ -1,13 +1,13 @@
 import React from "react";
+import "../../styles/bottomList.css";
 
 export default function BottomList() {
   return (
     <div>
-      <div className="row footerUi bg-light text-black-50 footer-text-size">
-        <div className="d-flex flex-row container-fluid">
+      <div className="container-fluid  bg-light text-black-50 footer-text-size ">
+        <div className="large-bottom-list">
           <div className="p-2">
             <ul>
-              {" "}
               <strong className="text-dark"> ELECTRONICS</strong>
               <li className="m-2 text-sm liItem">Mobile</li>
               <li className="m-2 text-sm liItem">Tablets</li>
@@ -20,7 +20,6 @@ export default function BottomList() {
           </div>
           <div className="p-2">
             <ul>
-              {" "}
               <strong className="text-dark"> FASHION</strong>
               <li className="m-2 text-sm liItem">Women's Fashion</li>
               <li className="m-2 text-sm liItem">Men's Fashion</li>
@@ -33,7 +32,6 @@ export default function BottomList() {
           </div>
           <div className="p-2">
             <ul>
-              {" "}
               <strong className="text-dark"> HOME AND KITCHEN</strong>
               <li className="m-2 text-sm liItem">Bath</li>
               <li className="m-2 text-sm liItem">Home Decor</li>
@@ -46,7 +44,6 @@ export default function BottomList() {
           </div>
           <div className="p-2">
             <ul>
-              {" "}
               <strong className="text-dark"> BEAUTY</strong>
               <li className="m-2 text-sm liItem">Fragrance</li>
               <li className="m-2 text-sm liItem">Make Up</li>
@@ -59,7 +56,6 @@ export default function BottomList() {
           </div>
           <div className="p-2">
             <ul>
-              {" "}
               <strong className="text-dark"> BABY AND TOYS</strong>
               <li className="m-2 text-sm liItem">Diapering</li>
               <li className="m-2 text-sm liItem">Baby Transport</li>
@@ -72,7 +68,6 @@ export default function BottomList() {
           </div>
           <div className="p-2">
             <ul>
-              {" "}
               <strong className="text-dark"> TOP BRANDS</strong>
               <li className="m-2 text-sm liItem">Pampers</li>
               <li className="m-2 text-sm liItem">Apple</li>
@@ -85,7 +80,6 @@ export default function BottomList() {
           </div>
           <div className="p-2">
             <ul>
-              {" "}
               <strong className="text-dark"> DAILY GROCERIES</strong>
               <li className="m-2 text-sm liItem">Fresh Food</li>
               <li className="m-2 text-sm liItem">Milk</li>
