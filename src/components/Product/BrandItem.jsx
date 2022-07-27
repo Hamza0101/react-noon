@@ -12,6 +12,7 @@ export default function BrandItem(props) {
       <li className="d-flex justify-content-between">
         <div className="mr-5">
           <input
+            data-testid={`brandCheck${props.brand.id}`}
             type="checkbox"
             name={props.brand.bname}
             id={props.brand.id}
@@ -20,7 +21,11 @@ export default function BrandItem(props) {
             }}
             checked={props.brand.check}
           />
-          <label className="m-2 text-black-50" htmlFor="">
+          <label
+            className="m-2 text-black-50"
+            htmlFor=""
+            data-testid={`brand${props.brand.id}`}
+          >
             {props.brand.bname}
           </label>
         </div>

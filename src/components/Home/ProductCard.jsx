@@ -50,12 +50,15 @@ export default function ProductCard() {
                         }}
                       />
                       <div className="card-body">
-                        <p className="card-text left-align">
+                        <p
+                          className="card-text left-align"
+                          data-testid="pdetails"
+                        >
                           {product.pdetail}
                         </p>
-                        <h5 className="card-title">
+                        <h5 className="card-title" data-testid="currency">
                           {product.currency}
-                          <strong className="text-dark">
+                          <strong className="text-dark" data-testid="price">
                             {" "}
                             {product.price}
                           </strong>
@@ -85,7 +88,9 @@ export default function ProductCard() {
                           </div>
                           <div>
                             <p className="">
-                              <strong className="">{product.rating}(3)</strong>
+                              <strong className="" data-testid="rating">
+                                {product.rating}(3)
+                              </strong>
                             </p>
                           </div>
                         </div>

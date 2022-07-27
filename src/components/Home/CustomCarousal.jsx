@@ -1,6 +1,8 @@
 import React from "react";
 import banner from "./banner.json";
 import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/swiper-bundle.min.css";
+// import "swiper/swiper.min.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

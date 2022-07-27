@@ -20,14 +20,14 @@ export default function Topbar() {
   return (
     <div className="top-bg-color container-fluid ">
       <div className=" small-noon container-fluid">
-        <p className="my-3  ">
+        {/* <p className="my-3  ">
           <strong className="bold-text-size">العربية </strong>|{" "}
         </p>
         <img
           className="mb-1 mx-1 small-noon"
           src="https://z.nooncdn.com/s/app/com/common/images/flags/ae.svg"
           alt=""
-        />
+        /> */}
         <div className=" small-noon">
           <p className="my-1 text-size">
             Deliver to <b className="d-flex">Dubai</b>
@@ -40,13 +40,13 @@ export default function Topbar() {
           />
         </div>
         <div className="small-noon ml-auto">
-          <span className="ml-auto">
+          {/* <span className="ml-auto">
             <p className=" text-size h-6 m-1 ">Hala Muhammad! </p>
             <p className=" text-size  m-2">My Account</p>
-          </span>
+          </span> */}
           <p className="my-3 mx-1">| </p>
           <p className="  my-3 m-1">
-            <strong className="bold-text-size"> Cart </strong>
+            {/* <strong className="bold-text-size"> Cart </strong> */}
             <img
               src="https://z.nooncdn.com/s/app/com/noon/icons/cart.svg"
               alt=""

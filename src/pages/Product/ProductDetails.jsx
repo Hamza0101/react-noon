@@ -76,9 +76,13 @@ export default function ProductDetails() {
         </div>
         <div className="col-md-4">
           <div className="card-body">
-            <h4 className="card-title">{product[params.id].bname}</h4>
-            <h5 className="card-title">{product[params.id].pdetail}</h5>
-            <p className="card-text">
+            <h4 className="card-title" data-testid={`bname${params.id}`}>
+              {product[params.id].bname}
+            </h4>
+            <h5 className="card-title" data-testid={`pdetail${params.id}`}>
+              {product[params.id].pdetail}
+            </h5>
+            <p className="card-text" data-testid={`rating${params.id}`}>
               Model Number : Iphone 13 Pro Max | {product[params.id].rating}
               <img
                 className="footer-logo w-25"
@@ -87,14 +91,14 @@ export default function ProductDetails() {
               />{" "}
               287 ratings
             </p>
-            <p className="card-text">
+            <p className="card-text" data-testid={`currency${params.id}`}>
               Was: {product[params.id].currency} <del>5119.00</del>
             </p>
-            <p className="card-text">
+            <p className="card-text" data-testid={`currency${product.id}`}>
               Now: {product[params.id].currency} <strong>4589.00 </strong>{" "}
               Inclusive of VAT
             </p>
-            <p>
+            <p data-testid={`currency${product.id}`}>
               Saving: <strong>{product[params.id].currency} 530.00</strong> 10%
               Off
             </p>
@@ -174,6 +178,7 @@ export default function ProductDetails() {
                 <div className="p-2 col-10 ">
                   <button
                     className=" btn-primary w-100 h-100"
+                    data-testid="mybtn"
                     onClick={() => {
                       addToCart();
                     }}
