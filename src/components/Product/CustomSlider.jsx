@@ -1,8 +1,18 @@
 import * as React from "react";
 import "./customSlider.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addBrandFilter } from "../../actions/actionFilters";
 
 export default function CustomSlider(props) {
+  let dispatch = useDispatch();
+  const applyRatingFilter = (rating) => {
+    let myFilter = {
+      id: Date.now().toString(36) + Math.random().toString(36),
+      type: "rating",
+      rating: rating,
+    };
+  };
   return (
     <div className="conntainer mt-4">
       <div className="container">
@@ -11,7 +21,11 @@ export default function CustomSlider(props) {
         </h6>
         <div className="slidecontainer ">
           <p>
-            <span id="demo" className="text-primary m-2">
+            <span
+              id="demo"
+              className="text-primary m-2"
+              data-testid="ratingFilter"
+            >
               {props.ratingval} Stars or More
             </span>
           </p>
@@ -22,6 +36,7 @@ export default function CustomSlider(props) {
             step={0.1}
             value={props.ratingval}
             onChange={(e) => {
+              // applyRatingFilter(e.target.value);
               props.handleSlider(e.target.value);
             }}
             className="slider"

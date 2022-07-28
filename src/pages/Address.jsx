@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 export default function Address(props) {
   const params = useParams();
   let id = params.id;
-  let location = useLocation();
+  // let location = useLocation();
 
   return (
     <div className="bg-light">

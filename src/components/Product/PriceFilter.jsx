@@ -1,8 +1,22 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addBrandFilter } from "../../actions/actionFilters";
 export default function PriceFilter(props) {
+  const myMinPrice = useSelector((state) => state.filterReducer.minPrice);
+  const myMaxPrice = useSelector((state) => state.filterReducer.maxPrice);
+  let dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+  const applyPriceFilter = (minPrice, maxPrice) => {
+    let myFilter = {
+      id: Date.now().toString(36) + Math.random().toString(36),
+      type: "price",
+      minPrice: minPrice,
+      maxPrice: maxPrice,
+    };
+    dispatch(addBrandFilter(myFilter));
   };
 
   return (
@@ -35,6 +49,7 @@ export default function PriceFilter(props) {
           className="btn-link bg-white border-0"
           onClick={() => {
             props.handleGo(props.val1, props.val2);
+            applyPriceFilter(props.val1, props.val2);
           }}
         >
           {" "}

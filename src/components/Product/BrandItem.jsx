@@ -1,11 +1,21 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addBrandFilter, removeBrandFilter } from "../../actions/actionFilters";
 
 export default function BrandItem(props) {
+  let dispatch = useDispatch();
   const [checked, setChecked] = useState(true);
   const handleCheck = (e) => {
     setChecked(!checked);
-    props.handleBrand(checked, props.brand.id);
+    let myFilter = {
+      id: props.brand.id,
+      check: checked,
+      type: "brand",
+      bname: props.brand.bname,
+    };
+
+    props.handleBrand(checked, props.brand.id, myFilter);
   };
   return (
     <>

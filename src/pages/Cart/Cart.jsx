@@ -62,7 +62,7 @@ export default function Cart() {
             </h4>
           </div>
           <div className="mt-2">
-            <p>({cart.length} item)</p>
+            <p data-testid="no-of-cart-items">({cart.length} item)</p>
           </div>
         </div>
 
@@ -90,11 +90,18 @@ export default function Cart() {
                       <div className="col-9">
                         <div className="d-flex">
                           <h6 className="p-2">
-                            <strong>{cart.pname}</strong>
+                            <strong data-testid={`pname${cart.id}`}>
+                              {cart.pname}
+                            </strong>
                           </h6>
                           <p className="ml-auto">
                             {cart.currency}{" "}
-                            <strong className="h4">{cart.price}</strong>
+                            <strong
+                              className="h4"
+                              data-testid={`price${cart.id}`}
+                            >
+                              {cart.price}
+                            </strong>
                           </p>
                         </div>
                         <div className="ml-2">
@@ -134,7 +141,9 @@ export default function Cart() {
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                   >
-                                    <strong>{cart.quantity}</strong>
+                                    <strong data-testid={`quantity${cart.id}`}>
+                                      {cart.quantity}
+                                    </strong>
                                     {"  "}
                                   </button>
                                   <div
@@ -251,7 +260,7 @@ export default function Cart() {
               </h6>
               (inclusive of VAT)
               <h5 className="ml-auto">
-                <strong>AED {cartTotal}</strong>
+                <strong data-testid="Total-Amount">AED {cartTotal}</strong>
               </h5>
             </div>
             <div className="row">

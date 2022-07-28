@@ -4,15 +4,12 @@ import filterReducer from "../../../reducers/filterReducer";
 import { createStore, combineReducers } from "redux";
 import addressReducer from "../../../reducers/addressReducer";
 import { Provider } from "react-redux";
-// import ProfileCard from "../ProfileCard";
-// import data from "../../../components/Home/product.json";
 import { screen } from "@testing-library/react";
 import { render } from "@testing-library/react";
 // import ProductItems from "../../../components/Product/ProductItems";
-import Products from "../Products.jsx";
-// import.meta.jest.useFakeTimers();
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import swiper from "./swiper/react";
+
+import Cart from "../Cart";
+
 const allReducers = combineReducers({
   cartReducer: cartReducer,
   addressReducer: addressReducer,
@@ -63,18 +60,14 @@ it("renders without crashing", () => {
   const div = document.createElement("div");
   render(
     <Provider store={store}>
-      <Products />
+      <Cart />
     </Provider>
   );
-  expect(screen.getByTestId(`pdetail${data.id}`)).toHaveTextContent(
-    data.pdetail
-  );
-  expect(screen.getByTestId(`currency${data.id}`)).toHaveTextContent(
-    data.currency
-  );
+  expect(screen.getByTestId(`no-of-cart-items`)).toHaveTextContent(1);
+  expect(screen.getByTestId(`pname${data.id}`)).toHaveTextContent(data.pname);
   expect(screen.getByTestId(`price${data.id}`)).toHaveTextContent(data.price);
-  expect(screen.getByTestId(`rating${data.id}`)).toHaveTextContent(data.rating);
-  expect(screen.getByTestId(`brand${data.id}`)).toHaveTextContent("Apple");
-  expect(screen.getByTestId(`brand${9}`)).toHaveTextContent("Oppo");
-  expect(screen.getByTestId(`ratingFilter`)).toHaveTextContent(1);
+  // expect(screen.getByTestId(`rating${data.id}`)).toHaveTextContent(data.rating);
+  // expect(screen.getByTestId(`brand${data.id}`)).toHaveTextContent("Apple");
+  expect(screen.getByTestId(`Total-Amount`)).toHaveTextContent("AED 1339");
+  // expect(screen.getByTestId(`ratingFilter`)).toHaveTextContent(1);
 });

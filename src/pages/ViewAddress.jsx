@@ -5,12 +5,12 @@ import Footer from "../components/Footer";
 import Topbar from "../components/Home/Topbar";
 import { useState } from "react";
 import data from "../data/address.json";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 export default function ViewAddress(route, props) {
-  const location = useLocation();
+  // const location = useLocation();
   let temp = props.address;
-  if (location.state) temp = location.state.myUpdate;
+  // if (location.state) temp = location.state.myUpdate;
   const [updated, setupdated] = useState(temp);
   const [address, setAddress] = useState(data);
 

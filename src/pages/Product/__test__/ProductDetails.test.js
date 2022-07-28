@@ -3,6 +3,7 @@ import cartReducer from "../../../reducers/cartReducer";
 import filterReducer from "../../../reducers/filterReducer";
 import { createStore, combineReducers } from "redux";
 import addressReducer from "../../../reducers/addressReducer";
+import { useDispatch } from "react-redux";
 // import ProfileCard from "../ProfileCard";
 // import data from "../../../components/Home/product.json";
 import { screen, fireEvent } from "@testing-library/react";
@@ -13,6 +14,8 @@ import { PanoramaSharp } from "@mui/icons-material";
 // import ProductItems from "../../../components/Product/ProductItems";
 // import.meta.jest.useFakeTimers();
 // import { Swiper, SwiperSlide } from "swiper/react";
+import { add_to_cart } from "../../../actions/actionCart";
+
 // import swiper from "./swiper/react";
 const allReducers = combineReducers({
   cartReducer: cartReducer,
@@ -21,6 +24,24 @@ const allReducers = combineReducers({
 });
 const store = createStore(allReducers);
 
+const addToCart = () => {
+  const myCart = {
+    id: Date.now().toString(36) + Math.random().toString(36),
+    pname: "Oneplus",
+    pdetail:
+      "Nord CE 2 Lite Dual Sim Black 8GB RAM 128GB 5G - International Version ",
+    url: "https://z.nooncdn.com/products/tr:n-t_240/v1623661623/N48128174A_1.jpg",
+    price: 1339,
+    currency: "SAR",
+    arival: "Mon, Jun 20",
+    bname: "Oppo",
+    rating: 4,
+    category: "Mobiles",
+    bid: 9,
+    quantity: 1,
+  };
+  // useDispatch(add_to_cart(myCart));
+};
 jest.mock("swiper", () => ({
   __esModule: true,
   Swiper: jest.fn(),
@@ -72,13 +93,6 @@ const Button = ({ onClick, children }) => (
   <button onClick={onClick}>{children}</button>
 );
 
-test("calls onClick prop when clicked", () => {
-  const handleClick = jest.fn();
-  render(<Button onClick={handleClick}>Click Me</Button>);
-  fireEvent.click(screen.getByText(/click me/i));
-  expect(handleClick).toHaveBeenCalledTimes(1);
-});
-
 it("renders without crashing", () => {
   // const div = document.createElement("div");
   render(
@@ -86,6 +100,9 @@ it("renders without crashing", () => {
       <ProductDetails ProductData={data} />
     </Provider>
   );
+  screen.getByRole("button", {
+    name: /Add to Cart/i,
+  });
   expect(screen.getByTestId(`bname${data.id}`)).toHaveTextContent(data.bname);
   expect(screen.getByTestId(`currency${data.id}`)).toHaveTextContent(
     data.currency

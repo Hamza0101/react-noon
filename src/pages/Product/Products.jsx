@@ -20,8 +20,12 @@ import { useState } from "react";
 import data from "../../components/Home/product.json";
 import filter from "../../components/Product/data/filter.json";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addBrandFilter } from "../../actions/actionFilters";
 
 export default function Product() {
+  let dispatch = useDispatch();
   const [filterSlide, setFilterSlide] = useState(0);
   const [products, setProducts] = useState(data);
   const [brands, setBrands] = useState(filter.brand);
@@ -33,6 +37,8 @@ export default function Product() {
   const [maxPrice, setMaxPrice] = useState(9999999);
   const [categoryFilter, setCategoryFilter] = useState(false);
   const [brandFilter, setBrandFilter] = useState(brands);
+  const productsData = useSelector((state) => state.filterReducer.products);
+  console.log("I am product", productsData);
 
   let brandExist = false;
   let filteration, filterArray;
@@ -61,29 +67,27 @@ export default function Product() {
     setProducts(filteredProduct);
   };
   const handleFilter = (data) => {
-    setFilterBar(
-      filterBar.filter((e) => {
-        return e.id !== data.id;
-      })
-    );
+    // setFilterBar(
+    //   filterBar.filter((e) => {
+    //     return e.id !== data.id;
+    //   })
+    // );
     if (data.type === "brand") {
       let mybrand = brandFilter.map((obj) => {
         if (obj.id === data.id) {
           return { ...obj, check: false };
         }
-
         return obj;
       });
       setBrands(mybrand);
-
-      handleBrand(false, data.id);
+      // handleBrand(false, data.id);
     } else if (data.type === "price") {
       setMinPrice(0);
       setMaxPrice(9999999999999);
-      handleGo(0, 99999999999999);
+      // handleGo(0, 99999999999999);
     } else {
       setRatingVal(1);
-      handleSlider(1);
+      // handleSlider(1);
     }
   };
 
@@ -95,31 +99,31 @@ export default function Product() {
     setProducts(filteredProduct);
   };
 
-  const handleBrand = (checked, bid) => {
-    if (checked === false) {
-      myarray = filterBar.filter((e) => {
-        return e.id !== bid;
-      });
-      setFilterBar(myarray);
-    }
-    if (bid != -1) {
-      brandExist = false;
-      const myfilter = {
-        type: "brand",
-        id: bid,
-        fname: brands[bid - 1].bname,
-      };
+  const handleBrand = (checked, bid, myFilter) => {
+    // if (checked === false) {
+    //   myarray = filterBar.filter((e) => {
+    //     return e.id !== bid;
+    //   });
+    //   setFilterBar(myarray);
+    // }
+    // if (bid != -1) {
+    //   brandExist = false;
+    //   const myfilter = {
+    //     type: "brand",
+    //     id: bid,
+    //     fname: brands[bid - 1].bname,
+    //   };
 
-      filterBar.filter((e) => {
-        if (e.type === "brand" && e.id === bid) {
-          brandExist = true;
-          return e;
-        }
-      });
-      if (checked && !brandExist) {
-        filterBar.push(myfilter);
-      }
-    }
+    //   filterBar.filter((e) => {
+    //     if (e.type === "brand" && e.id === bid) {
+    //       brandExist = true;
+    //       return e;
+    //     }
+    //   });
+    //   if (checked && !brandExist) {
+    //     filterBar.push(myfilter);
+    //   }
+    // }
 
     filteration = brandFilter.map((obj) => {
       if (obj.id === bid) {
@@ -130,49 +134,50 @@ export default function Product() {
     });
     setBrandFilter(filteration);
     setBrands(filteration);
-    filterArray = filteration.filter((e) => {
-      return e.check === true;
-    });
-    setBrands(filteration);
+    // filterArray = filteration.filter((e) => {
+    //   return e.check === true;
+    // });
+    // setBrands(filteration);
 
-    data.filter((a) => {
-      if (
-        a.price > minPrice &&
-        a.price < maxPrice &&
-        (categoryFilter ? a.category === categoryFilter : !categoryFilter) &&
-        a.rating >= ratingval &&
-        filterArray.filter((e) => {
-          return e.id === a.bid;
-        }).length
-      ) {
-        brandProducts.push(a);
-      }
-    });
+    // data.filter((a) => {
+    //   if (
+    //     a.price > minPrice &&
+    //     a.price < maxPrice &&
+    //     (categoryFilter ? a.category === categoryFilter : !categoryFilter) &&
+    //     a.rating >= ratingval &&
+    //     filterArray.filter((e) => {
+    //       return e.id === a.bid;
+    //     }).length
+    //   ) {
+    //     brandProducts.push(a);
+    //   }
+    // });
 
-    let handleCheck = false;
-    filterBar.map((obj) => {
-      if (obj.type === "brand") {
-        handleCheck = true;
-      }
-    });
+    // let handleCheck = false;
+    // filterBar.map((obj) => {
+    //   if (obj.type === "brand") {
+    //     handleCheck = true;
+    //   }
+    // });
 
-    if (filterArray.length) {
-      if (brandProducts.length) {
-        setProducts(brandProducts);
-      } else {
-        setProducts([]);
-      }
-    } else {
-      let filteredProduct = data.filter((e) => {
-        return (
-          e.price > minPrice &&
-          e.price < maxPrice &&
-          (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
-          e.rating >= ratingval
-        );
-      });
-      setProducts(filteredProduct);
-    }
+    // if (filterArray.length) {
+    //   if (brandProducts.length) {
+    //     setProducts(brandProducts);
+    //   } else {
+    //     setProducts([]);
+    //   }
+    // } else {
+    //   let filteredProduct = data.filter((e) => {
+    //     return (
+    //       e.price > minPrice &&
+    //       e.price < maxPrice &&
+    //       (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
+    //       e.rating >= ratingval
+    //     );
+    //   });
+    //   setProducts(filteredProduct);
+    // }
+    dispatch(addBrandFilter(myFilter));
   };
   const handleSlider = (value1) => {
     setRatingVal(value1);
@@ -184,104 +189,105 @@ export default function Product() {
       rating: value1,
       fname: "Rating  " + value1,
     };
-    filterBar.filter((e) => {
-      if (e.type === "rating") {
-        setRatingExist(true);
-        return e.type === "rating";
-      }
-    });
+    dispatch(addBrandFilter(myfilter));
+    // filterBar.filter((e) => {
+    //   if (e.type === "rating") {
+    //     setRatingExist(true);
+    //     return e.type === "rating";
+    //   }
+    // });
 
-    if (!ratingExist) {
-      setRatingExist(true);
-      if (ratingFilter) {
-        filterBar.push(myfilter);
-      }
-    } else {
-      const applied = filterBar.map((obj) => {
-        if (obj.type === "rating") {
-          return myfilter;
-        }
+    // if (!ratingExist) {
+    //   setRatingExist(true);
+    //   if (ratingFilter) {
+    //     filterBar.push(myfilter);
+    //   }
+    // } else {
+    //   const applied = filterBar.map((obj) => {
+    //     if (obj.type === "rating") {
+    //       return myfilter;
+    //     }
 
-        return obj;
-      });
-      setFilterBar(applied);
-    }
-    let filteredProduct = data.filter((e) => {
-      return (
-        e.price > minPrice &&
-        e.price < maxPrice &&
-        (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
-        e.rating >= value1
-      );
-    });
-    let handleCheck = false;
-    filterBar.map((obj) => {
-      if (obj.type === "brand") {
-        handleCheck = true;
-      }
-    });
-    if (handleCheck) {
-      handleBrand(false, -1);
-    } else {
-      setProducts(filteredProduct);
-    }
+    //     return obj;
+    //   });
+    //   setFilterBar(applied);
+    // }
+    // let filteredProduct = data.filter((e) => {
+    //   return (
+    //     e.price > minPrice &&
+    //     e.price < maxPrice &&
+    //     (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
+    //     e.rating >= value1
+    //   );
+    // });
+    // let handleCheck = false;
+    // filterBar.map((obj) => {
+    //   if (obj.type === "brand") {
+    //     handleCheck = true;
+    //   }
+    // });
+    // if (handleCheck) {
+    //   handleBrand(false, -1);
+    // } else {
+    //   setProducts(filteredProduct);
+    // }
   };
 
   const handleGo = (value1, value2) => {
     setMinPrice(value1);
     setMaxPrice(value2);
 
-    const d = new Date();
-    let time = d.getTime();
-    const myfilter = {
-      type: "price",
-      id: time,
-      minPrice: value1,
-      maxPrice: value2,
-      fname: "Price " + value1 + " " + value2,
-    };
-    filterBar.map((e) => {
-      if (e.type === "price") {
-        setRatingExist(true);
-        return e;
-      }
-    });
+    // const d = new Date();
+    // let time = d.getTime();
+    // const myfilter = {
+    //   type: "price",
+    //   id: time,
+    //   minPrice: value1,
+    //   maxPrice: value2,
+    //   fname: "Price " + value1 + " " + value2,
+    // };
+    // filterBar.map((e) => {
+    //   if (e.type === "price") {
+    //     setRatingExist(true);
+    //     return e;
+    //   }
+    // });
 
-    if (!pricingExist) {
-      setPricingExist(true);
-      filterBar.push(myfilter);
-    } else {
-      const applied = filterBar.map((obj) => {
-        if (obj.type === "price") {
-          return myfilter;
-        }
+    // if (!pricingExist) {
+    //   setPricingExist(true);
+    //   filterBar.push(myfilter);
+    // } else {
+    //   const applied = filterBar.map((obj) => {
+    //     if (obj.type === "price") {
+    //       return myfilter;
+    //     }
 
-        return obj;
-      });
-      setFilterBar(applied);
-    }
+    //     return obj;
+    //   });
+    //   setFilterBar(applied);
+    // }
 
-    if (value1 !== "" && value2 !== "") {
-      let filteredProduct = data.filter((e) => {
-        return (
-          e.price > value1 &&
-          e.price < value2 &&
-          (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
-          e.rating >= ratingval
-        );
-      });
-      let handleCheck = false;
-      filterBar.map((obj) => {
-        if (obj.type === "brand") {
-          handleCheck = true;
-        }
-      });
-      if (handleCheck) {
-        handleBrand(false, -1);
-      } else {
-        setProducts(filteredProduct);
-      }
-    }
+    // if (value1 !== "" && value2 !== "") {
+    //   let filteredProduct = data.filter((e) => {
+    //     return (
+    //       e.price > value1 &&
+    //       e.price < value2 &&
+    //       (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
+    //       e.rating >= ratingval
+    //     );
+    //   });
+    //   let handleCheck = false;
+    //   filterBar.map((obj) => {
+    //     if (obj.type === "brand") {
+    //       handleCheck = true;
+    //     }
+    //   });
+    //   if (handleCheck) {
+    //     handleBrand(false, -1);
+    //   } else {
+    //     setProducts(filteredProduct);
+    //   }
+    // }
   };
   const getproduct = () => {
     setProducts(products);
@@ -327,7 +333,7 @@ export default function Product() {
             key={filterBar.id}
             handleFilter={handleFilter}
           />
-          <ProductItems productData={products} />
+          <ProductItems productData={productsData} />
           <div className="d-flex justify-content-center mr-4">
             <nav aria-label="Page navigation">
               <ul className="pagination">

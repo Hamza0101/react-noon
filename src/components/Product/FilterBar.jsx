@@ -1,14 +1,22 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFilter } from "../../actions/actionFilters";
 
 export default function FilterBar(props) {
+  let dispatch = useDispatch();
+  const filterBar = useSelector((state) => state.filterReducer.filters);
+  const RemoveFilter = (data) => {
+    dispatch(removeFilter(data));
+  };
+
   return (
     <div>
       <div className="d-flex  justify-content-between">
         <div className="m-2">
           Filter By: {"  "}
-          {props.filterBar.length > 0 ? (
+          {filterBar.length > 0 ? (
             <>
-              {props.filterBar.map((data, index) => {
+              {filterBar.map((data, index) => {
                 return (
                   <>
                     {data.fname === "Rating  1" ||
@@ -18,6 +26,8 @@ export default function FilterBar(props) {
                       <button
                         className="btn-outline-primary "
                         onClick={() => {
+                          RemoveFilter(data);
+
                           props.handleFilter(data);
                         }}
                       >
