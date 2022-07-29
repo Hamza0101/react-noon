@@ -40,6 +40,7 @@ export default function CustomSlider(props) {
               props.handleSlider(e.target.value);
             }}
             className="slider"
+            data-testid="slider"
             id="myRange"
           />
           <div className="d-flex ">

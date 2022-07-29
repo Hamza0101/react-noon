@@ -6,8 +6,8 @@ import addressReducer from "../../../reducers/addressReducer";
 import { Provider } from "react-redux";
 // import ProfileCard from "../ProfileCard";
 // import data from "../../../components/Home/product.json";
-import { screen } from "@testing-library/react";
-import { render } from "@testing-library/react";
+import { screen, form } from "@testing-library/react";
+import { render, act, fireEvent } from "@testing-library/react";
 // import ProductItems from "../../../components/Product/ProductItems";
 import Products from "../Products.jsx";
 // import.meta.jest.useFakeTimers();
@@ -72,9 +72,19 @@ it("renders without crashing", () => {
   expect(screen.getByTestId(`currency${data.id}`)).toHaveTextContent(
     data.currency
   );
+  expect(screen.getByTestId("slider")).toHaveTextContent("");
+  expect(screen.getByTestId(`brand${data.id}`)).toHaveTextContent("Apple");
   expect(screen.getByTestId(`price${data.id}`)).toHaveTextContent(data.price);
   expect(screen.getByTestId(`rating${data.id}`)).toHaveTextContent(data.rating);
-  expect(screen.getByTestId(`brand${data.id}`)).toHaveTextContent("Apple");
   expect(screen.getByTestId(`brand${9}`)).toHaveTextContent("Oppo");
   expect(screen.getByTestId(`ratingFilter`)).toHaveTextContent(1);
+  const input = screen.getAllByLabelText("Apple");
+  const slider = screen.getByTestId("slider");
+  console.log(input);
+  console.log("I am slider", slider);
+
+  // fix:
+  fireEvent.change(slider, { target: { value: 1.1 } });
+  fireEvent.click(input[0], { target: { checked: true } });
+  expect(screen.getByTestId(`brand${data.id}`)).toHaveTextContent("Apple");
 });

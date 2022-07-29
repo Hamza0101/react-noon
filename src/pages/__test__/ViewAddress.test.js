@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { screen } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import Address from "../Address";
+import ViewAddress from "../ViewAddress";
 // import ProductItems from "../../../components/Product/ProductItems";
 
 const allReducers = combineReducers({
@@ -52,16 +53,14 @@ it("renders without crashing", () => {
   const div = document.createElement("div");
   render(
     <Provider store={store}>
-      <Address />
+      <ViewAddress />
     </Provider>
   );
-  // expect(screen.getByTestId(`label123`)).toHaveTextContent(data.label);
+  expect(screen.getByTestId(`label${data.id}`)).toHaveTextContent(data.label);
   expect(screen.getByTestId(`full-name${data.id}`)).toHaveTextContent(
     data.firstName + " " + data.lastName
   );
-  // expect(screen.getByTestId(`price${data.id}`)).toHaveTextContent(data.price);
-  // expect(screen.getByTestId(`rating${data.id}`)).toHaveTextContent(data.rating);
-  // expect(screen.getByTestId(`brand${data.id}`)).toHaveTextContent("Apple");
-  // expect(screen.getByTestId(`Total-Amount`)).toHaveTextContent("AED 1339");
-  // expect(screen.getByTestId(`ratingFilter`)).toHaveTextContent(1);
+  expect(screen.getByTestId(`fulladdress${data.id}`)).toHaveTextContent(
+    data.fullAddress
+  );
 });

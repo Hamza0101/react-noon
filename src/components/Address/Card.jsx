@@ -24,7 +24,9 @@ export default function Card(props) {
     <div className="container bg-white">
       <div className="d-flex ">
         <div className="p-2">
-          <strong data-testid={`label123`}>{props.data.label}</strong>
+          <strong data-testid={`label${props.data.id}`}>
+            {props.data.label}
+          </strong>
         </div>
         <div className="p-2 ml-auto">
           <button
@@ -74,7 +76,7 @@ export default function Card(props) {
           <p>Name</p>
         </div>
         <div className="p-2">
-          <p data-testid={`full-name+${props.data.id}`}>
+          <p data-testid={`full-name${props.data.id}`}>
             {props.data.firstName + " " + props.data.lastName}
           </p>
         </div>
@@ -84,7 +86,9 @@ export default function Card(props) {
           <p>Address</p>
         </div>
         <div className="p-2">
-          <p>{props.data.fullAddress}</p>
+          <p data-testid={`fulladdress${props.data.id}`}>
+            {props.data.fullAddress}
+          </p>
         </div>
       </div>
       <div className="d-flex">
