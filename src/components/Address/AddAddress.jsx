@@ -112,6 +112,7 @@ export default function AddAddress(props) {
               type="text"
               className="form-control"
               id="formGroupExampleInput"
+              data-testid="fullAddress"
               placeholder="eg, Appartment Name, Building Name, Street No"
               value={fullAddress}
               onChange={(e) => {
@@ -128,6 +129,7 @@ export default function AddAddress(props) {
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault1"
+                data-testid="label"
                 value={label}
                 onChange={(e) => {
                   setLabel("work");
@@ -174,6 +176,7 @@ export default function AddAddress(props) {
                 width={28}
                 className="react-switch"
                 id="material-switch"
+                data-testid="default-address"
               />
 
               <p className="mx-3">Set as default address</p>
@@ -191,6 +194,7 @@ export default function AddAddress(props) {
             </label>
             <PhoneInput
               className=""
+              data-testid="phoneNo"
               country={"us"}
               value={phoneNo}
               onChange={(phone) => {
@@ -204,6 +208,7 @@ export default function AddAddress(props) {
               type="text"
               className="form-control"
               id="formGroupExampleInput"
+              data-testid="firstName"
               placeholder="Alex"
               value={firstName}
               onChange={(e) => {
@@ -215,6 +220,7 @@ export default function AddAddress(props) {
             </label>
             <input
               type="text"
+              data-testid="lastName"
               className="form-control"
               id="formGroupExampleInput"
               placeholder="John"
@@ -226,6 +232,7 @@ export default function AddAddress(props) {
           </div>
         </div>
         <button
+        data-testid="saveBtn"
           className="btn-primary btn-lg ml-auto my-3 mr-3"
           onClick={() => {
             id ? editAddress() : addAddress();

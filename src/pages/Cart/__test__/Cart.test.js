@@ -74,11 +74,12 @@ it("renders without crashing", () => {
     `AED ${data.quantity * data.price}`
   );
   const dropdown = screen.getByTestId(`myquantity${data.id}`);
-  userEvent.selectOptions(
-    dropdown,
-    within(dropdown).getAllByRole("option", { name: 3 })
-  );
+  // const tag = screen.getByRole('option', { name: '2' });
+  // userEvent.selectOptions(
+  //   dropdown,
+  //   within(dropdown).getByRole("option", { name: 1 })
+  // );
   expect(screen.getByTestId(`Total-Amount`)).toHaveTextContent(
-    `AED ${3 * data.price}`
+    `AED ${2 * data.price}`
   );
 });

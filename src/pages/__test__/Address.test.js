@@ -5,8 +5,10 @@ import { createStore, combineReducers } from "redux";
 import addressReducer from "../../reducers/addressReducer";
 import { Provider } from "react-redux";
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { render } from "@testing-library/react";
 import Address from "../Address";
+import { fireEvent } from "@testing-library/react";
 import ViewAddress from "../ViewAddress";
 // import ProductItems from "../../../components/Product/ProductItems";
 
@@ -25,6 +27,7 @@ jest.mock("swiper", () => ({
   Keyboard: jest.fn(),
   Autoplay: jest.fn(),
   Pagination: jest.fn(),
+  navigate:jest.fn(),
   default: jest.fn(),
 }));
 
@@ -36,7 +39,8 @@ jest.mock("react-router-dom", () => {
     __esModule: true,
     ...originalModule,
     // add your noops here
-    useNavigate: jest.fn(() => "bar"),
+   useNavigate: () => jest.fn(),
+    useRouteMatch: () => ({ url: "/address" }),
   };
 });
 
@@ -49,19 +53,25 @@ const data = {
   label: "work",
 };
 
-it("renders without crashing", () => {
-  const div = document.createElement("div");
+it("renders without crashing", async() => {
   render(
     <Provider store={store}>
-      <ViewAddress />
+      <Address />
     </Provider>
   );
-  expect(screen.getByTestId(`label${data.id}`)).toHaveTextContent(data.label);
-  expect(screen.getByTestId(`full-name${data.id}`)).toHaveTextContent(
-    data.firstName + " " + data.lastName
-  );
-  
-  expect(screen.getByTestId(`fulladdress${data.id}`)).toHaveTextContent(
-    data.fullAddress
-  );
+  const fullAddress = screen.getByTestId("fullAddress");
+  const firstName = screen.getByTestId("firstName");
+  const lastName = screen.getByTestId("firstName");
+  const label = screen.getByTestId("label");
+  const saveBtn= screen.getByTestId("saveBtn")
+  fireEvent.change(fullAddress, { target: { value: "DNT" } });
+  fireEvent.change(firstName, { target: { value: "Jhon" } });
+  fireEvent.change(lastName, { target: { value: "alex" } });
+  userEvent.click((saveBtn));
+  userEvent.click((label));
+  expect(label).toBeInTheDocument(); 
+  expect(fullAddress).toBeInTheDocument();
+  expect(lastName).toBeInTheDocument();  
+  expect(firstName).toBeInTheDocument();
+
 });
