@@ -22,7 +22,7 @@ export default function BrandItem(props) {
       <li className="d-flex justify-content-between">
         <div className="mr-5">
           <input
-            aria-labelledby="myBrand"
+            aria-labelledby="myBrands"
             data-testid={`brandCheck${props.brand.id}`}
             type="checkbox"
             name={props.brand.bname}
@@ -32,15 +32,14 @@ export default function BrandItem(props) {
             }}
             checked={props.brand.check}
           />
-          <span className="form-control">
-            <label
-              className="m-2 text-black-50"
-              id="myBrand"
-              data-testid={`brand${props.brand.id}`}
-            >
-              <span>{props.brand.bname}</span>
-            </label>
-          </span>
+
+          <label
+            className="m-2 text-black-50"
+            id="myBrands"
+            data-testid={`brand${props.brand.id}`}
+          >
+            <span>{props.brand.bname}</span>
+          </label>
         </div>
         <p className="p-2 text-black-50"> (313)</p>
       </li>

@@ -26,7 +26,7 @@ export default function FilterBar(props) {
                       <button
                         className="btn-outline-primary "
                         onClick={() => {
-                          RemoveFilter(data);
+                          // RemoveFilter(data);
 
                           props.handleFilter(data);
                         }}

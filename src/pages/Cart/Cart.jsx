@@ -136,6 +136,8 @@ export default function Cart() {
                                   <button
                                     className="btn btn-outline-info dropdown-toggle"
                                     type="button"
+                                    role="option"
+                                    data-testid={`myquantity${cart.id}`}
                                     id="dropdownMenuButton"
                                     data-toggle="dropdown"
                                     aria-haspopup="true"

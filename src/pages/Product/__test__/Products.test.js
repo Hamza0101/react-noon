@@ -4,6 +4,7 @@ import filterReducer from "../../../reducers/filterReducer";
 import { createStore, combineReducers } from "redux";
 import addressReducer from "../../../reducers/addressReducer";
 import { Provider } from "react-redux";
+import userEvent from "@testing-library/user-event";
 // import ProfileCard from "../ProfileCard";
 // import data from "../../../components/Home/product.json";
 import { screen, form } from "@testing-library/react";
@@ -59,32 +60,69 @@ const data = {
   quantity: 1,
 };
 
-it("renders without crashing", () => {
+it("renders without crashing", async () => {
   const div = document.createElement("div");
   render(
     <Provider store={store}>
       <Products />
     </Provider>
   );
-  expect(screen.getByTestId(`pdetail${data.id}`)).toHaveTextContent(
+  expect(await screen.findByTestId(`pdetail${data.id}`)).toHaveTextContent(
     data.pdetail
   );
   expect(screen.getByTestId(`currency${data.id}`)).toHaveTextContent(
     data.currency
   );
-  expect(screen.getByTestId("slider")).toHaveTextContent("");
   expect(screen.getByTestId(`brand${data.id}`)).toHaveTextContent("Apple");
   expect(screen.getByTestId(`price${data.id}`)).toHaveTextContent(data.price);
   expect(screen.getByTestId(`rating${data.id}`)).toHaveTextContent(data.rating);
   expect(screen.getByTestId(`brand${9}`)).toHaveTextContent("Oppo");
   expect(screen.getByTestId(`ratingFilter`)).toHaveTextContent(1);
-  const input = screen.getAllByLabelText("Apple");
   const slider = screen.getByTestId("slider");
-  console.log(input);
-  console.log("I am slider", slider);
+  expect(screen.getByTestId(`pdetail${data.id}`)).toHaveTextContent(
+    "Nord CE 2 Lite Dual Sim Blue 8GB RAM 128GB 5G - International Version"
+  );
+  const checkbox = screen.getAllByRole("checkbox", { name: /Apple/ });
 
-  // fix:
-  fireEvent.change(slider, { target: { value: 1.1 } });
-  fireEvent.click(input[0], { target: { checked: true } });
-  expect(screen.getByTestId(`brand${data.id}`)).toHaveTextContent("Apple");
+  userEvent.click(checkbox[0]);
+  expect(
+    await screen.findByText(
+      "filter CE 5G Dual SIM Blue Void 8GB RAM 128GB - Global Version"
+    )
+  ).toBeInTheDocument();
+  expect(
+    screen.queryByText(
+      `Nord CE 2 Lite Dual Sim Blue 8GB RAM 128GB 5G - International Version`
+    )
+  ).not.toBeInTheDocument();
+  fireEvent.change(slider, { target: { value: 3.1 } });
+  expect(
+    await screen.findByText(
+      "filter CE 5G Dual SIM Blue Void 8GB RAM 128GB - Global Version"
+    )
+  ).toBeInTheDocument();
+
+  userEvent.click(checkbox[0]);
+  expect(
+    screen.getByText(
+      `Nord CE 2 Lite Dual Sim Blue 8GB RAM 128GB 5G - International Version`
+    )
+  ).toBeInTheDocument();
+  const maxValue = screen.getByTestId("maxValue");
+
+  fireEvent.change(maxValue, { target: { value: "1400" } });
+  const goBtn = screen.getByTestId("goButton");
+  userEvent.click(goBtn);
+  expect(screen.getByTestId(`price${data.id}`)).toHaveTextContent(data.price);
+
+  userEvent.click(goBtn);
+  expect(screen.getByTestId(`price${data.id}`)).not.toHaveTextContent(1435);
+
+  userEvent.click(checkbox[0]);
+  fireEvent.change(slider, { target: { value: 3.1 } });
+  expect(
+    await screen.findByText(
+      "filter CE 5G Dual SIM Blue Void 8GB RAM 128GB - Global Version"
+    )
+  ).toBeInTheDocument();
 });

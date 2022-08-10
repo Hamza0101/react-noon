@@ -38,7 +38,7 @@ const addToCart = () => {
     rating: 4,
     category: "Mobiles",
     bid: 9,
-    quantity: 1,
+    quantity: 2,
   };
   // useDispatch(add_to_cart(myCart));
 };
@@ -87,7 +87,7 @@ const data = {
   rating: 4,
   category: "Mobiles",
   bid: 9,
-  quantity: 1,
+  quantity: 2,
 };
 const Button = ({ onClick, children }) => (
   <button onClick={onClick}>{children}</button>

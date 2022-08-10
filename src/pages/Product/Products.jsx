@@ -18,11 +18,12 @@ import ProductItems from "../../components/Product/ProductItems";
 import PriceFilter from "../../components/Product/PriceFilter";
 import { useState } from "react";
 import data from "../../components/Home/product.json";
+import myProduct from "../../components/Home/product.json";
 import filter from "../../components/Product/data/filter.json";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addBrandFilter } from "../../actions/actionFilters";
+import { addBrandFilter, removeFilter } from "../../actions/actionFilters";
 
 export default function Product() {
   let dispatch = useDispatch();
@@ -33,20 +34,24 @@ export default function Product() {
   const [ratingExist, setRatingExist] = useState(false);
   const [pricingExist, setPricingExist] = useState(false);
   const [minPrice, setMinPrice] = useState(0);
-  const [ratingval, setRatingVal] = useState(1);
+  const [minRating, setMinRating] = useState(1);
   const [maxPrice, setMaxPrice] = useState(9999999);
   const [categoryFilter, setCategoryFilter] = useState(false);
   const [brandFilter, setBrandFilter] = useState(brands);
   const productsData = useSelector((state) => state.filterReducer.products);
-  console.log("I am product", productsData);
+  const filters = useSelector((state) => state.filterReducer.filters);
 
+  // let maxPrice = 99999999999999,
+  //   minPrice = 0,
+  //   minRating = 1;
+  let myBrands = filter.brand;
   let brandExist = false;
   let filteration, filterArray;
   let brandProducts = [];
   let myarray;
   let minFilter = minPrice,
-    maxFilter = maxPrice,
-    ratingFilter = ratingval;
+    maxFilter = maxPrice;
+  // ratingFilter = ratingval;
 
   const onClearBrand = () => {
     setBrands(filter.brand);
@@ -61,10 +66,160 @@ export default function Product() {
         e.price > minPrice &&
         e.price < maxPrice &&
         (categoryFilter ? e.category === categoryFilter : !categoryFilter) &&
-        e.rating >= ratingval
+        e.rating >= minRating
       );
     });
     setProducts(filteredProduct);
+  };
+  let state = {
+    products: myProduct,
+    filters: filters,
+  };
+  const removeFilters = (data) => {
+    myBrands = brands;
+    let myfilterArray;
+    if (data.type === "rating") {
+      setMinRating(1);
+      myfilterArray = filters.map((obj) => {
+        if (obj.type === "rating") {
+          return { ...obj, fname: "Rating  1" };
+        }
+        return obj;
+      });
+    } else if (data.type === "price") {
+      setMinPrice(0);
+      setMaxPrice(99999999999999);
+      myfilterArray = filters.map((obj) => {
+        if (obj.type === "price") {
+          return { ...obj, fname: "Price 0 99999999999999" };
+        }
+        return obj;
+      });
+    } else if (data.type === "brand") {
+      myBrands = myBrands.map((obj) => {
+        if (obj.id === data.id) {
+          return { ...obj, check: false };
+        }
+        return obj;
+      });
+      myfilterArray = filters.filter((e) => {
+        return e.id !== data.id;
+      });
+    } else {
+      return state;
+    }
+    let bexist = false;
+
+    myBrands.map((obj) => {
+      if (obj.check) {
+        bexist = true;
+      }
+    });
+    let myfilteredProducts = myProduct.filter((e) => {
+      return (
+        e.price > minPrice &&
+        e.price < maxPrice &&
+        e.rating >= minRating &&
+        (bexist
+          ? myBrands.filter((a) => {
+              return a.id === e.bid && a.check;
+            }).length
+          : true)
+      );
+    });
+
+    state = {
+      products: myfilteredProducts,
+      filters: myfilterArray,
+    };
+    dispatch(addBrandFilter(state));
+    // return { ...state, products: myfilteredProducts, filters: myfilterArray };
+  };
+  const applyFilter = (data) => {
+    myBrands = brandFilter;
+    let appliedfilters = filters;
+    if (data.type === "brand") {
+      if (data.check) {
+        myBrands = myBrands.map((obj) => {
+          if (obj.id === data.id) return { ...obj, check: true };
+          return obj;
+        });
+        let myfilter = {
+          id: data.id,
+          type: "brand",
+          fname: data.bname,
+        };
+        filters.push(myfilter);
+      } else {
+        myBrands = myBrands.map((obj) => {
+          if (obj.id === data.id) return { ...obj, check: false };
+          return obj;
+        });
+        appliedfilters = filters.filter((e) => {
+          return e.id !== data.id;
+        });
+        state = {
+          products: myProduct,
+          filters: appliedfilters,
+        };
+        dispatch(addBrandFilter(state));
+        // state = { ...state, filters: filters };
+      }
+    } else if (data.type === "rating") {
+      setMinRating(data.rating);
+      appliedfilters = filters.map((obj) => {
+        if (obj.type === "rating") {
+          return { ...obj, fname: "Rating " + minRating };
+        }
+        return obj;
+      });
+      state = {
+        products: myProduct,
+        filters: appliedfilters,
+      };
+      dispatch(addBrandFilter(state));
+      // state = { ...state, filters: filters };
+    } else if (data.type === "price") {
+      setMinPrice(data.minPrice);
+      setMaxPrice(data.maxPrice);
+      appliedfilters = filters.map((obj) => {
+        if (obj.type === "price") {
+          return { ...obj, fname: "Price " + minPrice + " to " + maxPrice };
+        }
+        return obj;
+      });
+      state = {
+        products: myProduct,
+        filters: appliedfilters,
+      };
+      dispatch(addBrandFilter(state));
+      // state = { ...state, filters: filters };
+    }
+    let brandexist = false;
+    myBrands.map((obj) => {
+      if (obj.check) {
+        brandexist = true;
+      }
+    });
+
+    let filteredProducts = myProduct.filter((e) => {
+      return (
+        e.price > minPrice &&
+        e.price < maxPrice &&
+        e.rating >= minRating &&
+        (brandexist
+          ? myBrands.filter((a) => {
+              return a.id === e.bid && a.check;
+            }).length
+          : true)
+      );
+    });
+    state = {
+      products: filteredProducts,
+      filters: appliedfilters,
+    };
+    dispatch(addBrandFilter(state));
+    // return { ...state, products: filteredProducts };
   };
   const handleFilter = (data) => {
     // setFilterBar(
@@ -80,15 +235,17 @@ export default function Product() {
         return obj;
       });
       setBrands(mybrand);
+      setBrandFilter(mybrand);
       // handleBrand(false, data.id);
     } else if (data.type === "price") {
       setMinPrice(0);
       setMaxPrice(9999999999999);
       // handleGo(0, 99999999999999);
     } else {
-      setRatingVal(1);
+      setMinRating(1);
       // handleSlider(1);
     }
+    removeFilters(data);
   };
 
   const handleCategory = (cname) => {
@@ -177,10 +334,10 @@ export default function Product() {
     //   });
     //   setProducts(filteredProduct);
     // }
-    dispatch(addBrandFilter(myFilter));
+    applyFilter(myFilter);
   };
   const handleSlider = (value1) => {
-    setRatingVal(value1);
+    setMinRating(value1);
     const d = new Date();
     let time = d.getTime();
     const myfilter = {
@@ -189,7 +346,8 @@ export default function Product() {
       rating: value1,
       fname: "Rating  " + value1,
     };
-    dispatch(addBrandFilter(myfilter));
+    applyFilter(myfilter);
+    // dispatch(addBrandFilter(myfilter));
     // filterBar.filter((e) => {
     //   if (e.type === "rating") {
     //     setRatingExist(true);
@@ -236,6 +394,13 @@ export default function Product() {
   const handleGo = (value1, value2) => {
     setMinPrice(value1);
     setMaxPrice(value2);
+    let myFilter = {
+      id: Date.now().toString(36) + Math.random().toString(36),
+      type: "price",
+      minPrice: minPrice,
+      maxPrice: maxPrice,
+    };
+    applyFilter(myFilter);
 
     // const d = new Date();
     // let time = d.getTime();
@@ -320,7 +485,7 @@ export default function Product() {
           <CustomSlider
             filterSlide={filterSlide}
             handleSlider={handleSlider}
-            ratingval={ratingval}
+            ratingval={minRating}
           />
           <NetworkType />
           <OperatingSystem />

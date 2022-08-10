@@ -4,11 +4,12 @@ import filterReducer from "../../../reducers/filterReducer";
 import { createStore, combineReducers } from "redux";
 import addressReducer from "../../../reducers/addressReducer";
 import { Provider } from "react-redux";
-import { screen } from "@testing-library/react";
+import { screen, within } from "@testing-library/react";
 import { render } from "@testing-library/react";
 // import ProductItems from "../../../components/Product/ProductItems";
 
 import Cart from "../Cart";
+import userEvent from "@testing-library/user-event";
 
 const allReducers = combineReducers({
   cartReducer: cartReducer,
@@ -53,11 +54,10 @@ const data = {
   rating: 4,
   category: "Mobiles",
   bid: 9,
-  quantity: 1,
+  quantity: 2,
 };
 
 it("renders without crashing", () => {
-  const div = document.createElement("div");
   render(
     <Provider store={store}>
       <Cart />
@@ -66,8 +66,19 @@ it("renders without crashing", () => {
   expect(screen.getByTestId(`no-of-cart-items`)).toHaveTextContent(1);
   expect(screen.getByTestId(`pname${data.id}`)).toHaveTextContent(data.pname);
   expect(screen.getByTestId(`price${data.id}`)).toHaveTextContent(data.price);
-  // expect(screen.getByTestId(`rating${data.id}`)).toHaveTextContent(data.rating);
-  // expect(screen.getByTestId(`brand${data.id}`)).toHaveTextContent("Apple");
-  expect(screen.getByTestId(`Total-Amount`)).toHaveTextContent("AED 1339");
-  // expect(screen.getByTestId(`ratingFilter`)).toHaveTextContent(1);
+  expect(screen.getByTestId(`quantity${data.id}`)).toHaveTextContent(
+    data.quantity
+  );
+
+  expect(screen.getByTestId(`Total-Amount`)).toHaveTextContent(
+    `AED ${data.quantity * data.price}`
+  );
+  const dropdown = screen.getByTestId(`myquantity${data.id}`);
+  userEvent.selectOptions(
+    dropdown,
+    within(dropdown).getAllByRole("option", { name: 3 })
+  );
+  expect(screen.getByTestId(`Total-Amount`)).toHaveTextContent(
+    `AED ${3 * data.price}`
+  );
 });

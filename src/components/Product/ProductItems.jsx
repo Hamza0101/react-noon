@@ -5,6 +5,7 @@ export default function ProductItems(props) {
   const viewProduct = (id) => {
     navigate(`/product/${id}`);
   };
+
   return (
     <div className="">
       <div className="row bg-white mt-2 mr-2">

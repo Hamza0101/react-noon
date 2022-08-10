@@ -16,7 +16,7 @@ export default function PriceFilter(props) {
       minPrice: minPrice,
       maxPrice: maxPrice,
     };
-    dispatch(addBrandFilter(myFilter));
+    // dispatch(addBrandFilter(myFilter));
   };
 
   return (
@@ -37,6 +37,7 @@ export default function PriceFilter(props) {
         />{" "}
         <strong> TO </strong>
         <input
+          data-testid="maxValue"
           className="w-25 m-2 "
           type="number"
           value={props.val2}
@@ -46,6 +47,7 @@ export default function PriceFilter(props) {
           }}
         />{" "}
         <button
+          data-testid="goButton"
           className="btn-link bg-white border-0"
           onClick={() => {
             props.handleGo(props.val1, props.val2);

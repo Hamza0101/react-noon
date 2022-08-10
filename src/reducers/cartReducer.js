@@ -16,7 +16,7 @@ const cartReducer = (
       rating: 4,
       category: "Mobiles",
       bid: 9,
-      quantity: 1,
+      quantity: 2,
     },
   ],
   action
